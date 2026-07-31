@@ -83,3 +83,36 @@ Most skills need Python packages that are not vendored here; each `SKILL.md`
 lists its own requirements. Upstream uses `uv` as the package manager.
 
 Licensed MIT, © 2025 K-Dense Inc. — see `.claude/skills/scientific/LICENSE.md`.
+
+---
+
+# nature-skills
+
+All 19 skills from [`Yuan1z0825/nature-skills`](https://github.com/Yuan1z0825/nature-skills)
+(Apache 2.0), under `.claude/skills/nature/` — Nature-style manuscript writing
+and publication-quality figures.
+
+No MCP servers and no API keys required, unlike ARIS. Descriptions total ~2.9k
+tokens.
+
+| Group | Skills |
+|-------|--------|
+| Writing | `nature-writing` `nature-polishing` `nature-response` `nature-reviewer` `nature-proposal-writer` |
+| Figures & data | `nature-figure` `nature-data` `nature-statistics` |
+| Literature | `nature-academic-search` `nature-reader` `nature-citation` `nature-ref-verifier` `nature-downloader` `nature-literature-pipeline` |
+| Output | `nature-paper2ppt` `nature-paper-card` `nature-paper-to-patent` |
+| Support | `nature-shared` `nature-experiment-log` |
+
+`nature-shared` is referenced as `../nature-shared` by three skills, so keep it
+alongside the others.
+
+`nature-figure/assets/` carries 34 MB of rendered PNG previews next to the
+`plot_*.py` scripts that produce them. Both are kept here; the upload zips drop
+the previews.
+
+Python packages are not vendored — matplotlib, seaborn, pdfplumber, python-docx,
+python-pptx, pymupdf, playwright, and pybliometrics appear across the scripts.
+`nature-academic-search` bundles its own MCP server for Scopus (needs
+pybliometrics credentials); the skill's other sources work without it.
+
+Licensed Apache 2.0 — see `.claude/skills/nature/LICENSE`.
