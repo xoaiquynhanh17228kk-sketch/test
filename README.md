@@ -152,3 +152,34 @@ installed — they resolve through plugin paths that only exist for plugin
 installs.
 
 Licensed MIT — see `.claude/skills/scholar/LICENSE`.
+
+---
+
+# scipilot-figure-skill
+
+[`Haojae/scipilot-figure-skill`](https://github.com/Haojae/scipilot-figure-skill)
+(MIT), a single skill under `.claude/skills/scipilot-figure-skill/` — ~197 tokens.
+
+Positions itself as a visualization advisor rather than a plotting tool: it
+profiles the data first (column types, sample size, distribution, outliers,
+grouping, correlation), asks what argument the figure should make, and picks the
+chart from data shape and intent. It refuses common scientific plotting errors —
+mean bars over small samples that hide the distribution, dual Y axes, pie charts,
+truncated Y axes, rainbow colormaps, categorical points joined by lines.
+
+Bilingual. Chinese mode configures Noto Sans CJK / Source Han Sans / SimHei and
+fixes the minus-sign tofu box, and supports the Chinese-journal convention of
+SimSun body text with Times New Roman numerals.
+
+Stack is matplotlib + seaborn + SciencePlots for static output and plotly for
+interactive; `requirements.txt` also lists Pillow, numpy, pandas, and scipy, with
+SciencePlots, pypdf, kaleido, and PyMuPDF optional (upstream says it degrades
+gracefully without them).
+
+The scan found nothing — no eval, exec, pickle.loads, shell=True, subprocess, or
+piped-shell installs. The only URL in the scripts is a github.com doc link.
+
+This is the third figure skill installed here, alongside `nature-figure` and
+`publication-chart-skill`.
+
+Licensed MIT — see `.claude/skills/scipilot-figure-skill/LICENSE`.
