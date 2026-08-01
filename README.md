@@ -199,3 +199,41 @@ history, or upstream at `Galaxy-Dawn/claude-scholar`.
 
 The handoff pointers in `results-report` and `results-analysis`, which named
 `publication-chart-skill`, now name the two remaining figure skills.
+
+---
+
+# drawio-skill
+
+[`Agents365-ai/drawio-skill`](https://github.com/Agents365-ai/drawio-skill) v2.1.0
+(MIT), under `.claude/skills/drawio-skill/` — ~193 tokens.
+
+Two GitHub repositories carry this exact name. The other,
+[`itoksk/drawio-skill`](https://github.com/itoksk/drawio-skill), is a single 5.9KB
+SKILL.md at ~23 tokens covering .drawio XML syntax and export. This one was
+chosen for `scripts/shapesearch.py`, which resolves official `shape=mxgraph.*`
+names against a 426KB shape index. Guessing those names wrong renders a blank
+box, and the minimal skill has no way to help with that.
+
+It fills a real gap rather than adding a fourth overlapping figure skill:
+`scipilot-figure-skill` states outright that it does not do schematics,
+flowcharts, or architecture diagrams, and `nature-figure`'s diagram route
+produces AI raster drafts that cannot be edited afterwards. This produces
+editable vector .drawio.
+
+38 scripts, including C4 generation, autolayout, deterministic edge ports,
+Kubernetes/Docker/Terraform/OpenAPI importers, and drawio-to-mermaid/pptx
+conversion. References cover XML authoring, style presets, and troubleshooting.
+
+No eval, exec, pickle.loads, shell=True, or piped-shell installs, and no API keys.
+Three scripts reach the network: `aiicons.py` and `drawiohtml.py` fetch brand
+logos from the Simple Icons and lobe-icons CDNs, and `encode_drawio_url.py`
+builds app.diagrams.net links. Everything else is local.
+
+Only `skills/drawio-skill/` is installed — upstream's 3.2MB of `assets/`, plus
+`tests/`, `docs/`, and the 36KB changelog, are not.
+
+Export needs the draw.io desktop CLI, which is not installed in this container;
+generating .drawio files does not need it. Upstream warns against the snap build
+on servers — its AppArmor sandbox denies keyring access and crashes.
+
+Licensed MIT — see `.claude/skills/drawio-skill/LICENSE`.
