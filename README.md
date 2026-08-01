@@ -116,3 +116,39 @@ python-pptx, pymupdf, playwright, and pybliometrics appear across the scripts.
 pybliometrics credentials); the skill's other sources work without it.
 
 Licensed Apache 2.0 — see `.claude/skills/nature/LICENSE`.
+
+---
+
+# claude-scholar (curated subset)
+
+9 skills selected from [`Galaxy-Dawn/claude-scholar`](https://github.com/Galaxy-Dawn/claude-scholar)
+(45 total, MIT), under `.claude/skills/scholar/`.
+
+`research-ideation` `writing-anti-ai` `citation-verification` `results-analysis`
+`results-report` `paper-self-review` `publication-chart-skill` `post-acceptance`
+`latex-conference-template-organizer` — ~824 tokens of descriptions against
+~3.4k for all 45.
+
+Most of the upstream collection is aimed elsewhere: 15 software-engineering
+skills (debugging, frontend, git, UI review, Kaggle), 7 on authoring Claude Code
+skills and plugins, and 6 built on an Obsidian vault with Zotero.
+
+Four upstream skills are named `nature-writing`, `nature-polishing`,
+`nature-response`, and `nature-data`, colliding with the nature-skills already
+installed here. Upstream's are v0.2.0 and roughly half the size, so they are
+excluded to avoid overwriting the fuller versions. `doc-coauthoring` is excluded
+as well — it ships with Claude by default.
+
+Three of the nine do overlap with nature-skills and are kept for the different
+angle each takes: `publication-chart-skill` against `nature-figure`,
+`results-analysis` against `nature-statistics`, `paper-self-review` against
+`nature-reviewer`.
+
+No eval, exec, pickle.loads, shell=True, or piped-shell installs in these nine.
+Outbound hosts are Crossref, Semantic Scholar, DOI, and arXiv.
+
+Upstream hooks (`security-guard.js`, `session-start.js`, and others) are not
+installed — they resolve through plugin paths that only exist for plugin
+installs.
+
+Licensed MIT — see `.claude/skills/scholar/LICENSE`.
