@@ -34,7 +34,7 @@ Do **not** use this skill to draft a paper `Results` section or a full experimen
 - paper-ready figure/table packaging with `pubfig` / `pubtab`,
 - project-level experiment retrospectives.
 
-If the user wants the complete post-experiment summary report, hand off to `results-report` after this bundle is ready. If the user wants publication-grade figures/tables, export parameters, publication QA, or figure/table redesign, hand off to `publication-chart-skill`.
+If the user wants the complete post-experiment summary report, hand off to `results-report` after this bundle is ready. If the user wants publication-grade figures, export parameters, publication QA, or figure redesign, hand off to `scipilot-figure-skill` (chart choice, data profiling, Chinese-journal typography) or `nature-figure` (Nature-family templates, multi-panel layout, export).
 
 ## Non-negotiable quality bar
 

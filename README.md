@@ -121,12 +121,12 @@ Licensed Apache 2.0 — see `.claude/skills/nature/LICENSE`.
 
 # claude-scholar (curated subset)
 
-9 skills selected from [`Galaxy-Dawn/claude-scholar`](https://github.com/Galaxy-Dawn/claude-scholar)
+8 skills selected from [`Galaxy-Dawn/claude-scholar`](https://github.com/Galaxy-Dawn/claude-scholar)
 (45 total, MIT), under `.claude/skills/scholar/`.
 
 `research-ideation` `writing-anti-ai` `citation-verification` `results-analysis`
-`results-report` `paper-self-review` `publication-chart-skill` `post-acceptance`
-`latex-conference-template-organizer` — ~824 tokens of descriptions against
+`results-report` `paper-self-review` `post-acceptance`
+`latex-conference-template-organizer` — ~730 tokens of descriptions against
 ~3.4k for all 45.
 
 Most of the upstream collection is aimed elsewhere: 15 software-engineering
@@ -139,12 +139,14 @@ installed here. Upstream's are v0.2.0 and roughly half the size, so they are
 excluded to avoid overwriting the fuller versions. `doc-coauthoring` is excluded
 as well — it ships with Claude by default.
 
-Three of the nine do overlap with nature-skills and are kept for the different
-angle each takes: `publication-chart-skill` against `nature-figure`,
-`results-analysis` against `nature-statistics`, `paper-self-review` against
-`nature-reviewer`.
+Two of the eight do overlap with nature-skills and are kept for the different
+angle each takes: `results-analysis` against `nature-statistics`,
+`paper-self-review` against `nature-reviewer`.
 
-No eval, exec, pickle.loads, shell=True, or piped-shell installs in these nine.
+A ninth, `publication-chart-skill`, was installed and later removed — see the
+figure-skill note at the end of this file.
+
+No eval, exec, pickle.loads, shell=True, or piped-shell installs in these eight.
 Outbound hosts are Crossref, Semantic Scholar, DOI, and arXiv.
 
 Upstream hooks (`security-guard.js`, `session-start.js`, and others) are not
@@ -179,7 +181,21 @@ gracefully without them).
 The scan found nothing — no eval, exec, pickle.loads, shell=True, subprocess, or
 piped-shell installs. The only URL in the scripts is a github.com doc link.
 
-This is the third figure skill installed here, alongside `nature-figure` and
-`publication-chart-skill`.
-
 Licensed MIT — see `.claude/skills/scipilot-figure-skill/LICENSE`.
+
+## Figure skills: two, not three
+
+Installing this one briefly made three figure skills, competing for the same
+"draw me a chart" requests. `publication-chart-skill` was removed as the one
+overlapping the other two most; `scipilot-figure-skill` and `nature-figure`
+remain, split by what they are good at — scipilot decides *what* to plot and
+handles Chinese-journal typography, nature-figure handles Nature-family
+templates, multi-panel layout, and export.
+
+One thing did not survive the cut: `publication-chart-skill` carried
+`pubtab-recipes.md`, 133 lines on publication-grade *tables*. Neither remaining
+skill covers table formatting to that depth. If you need it back, it is in git
+history, or upstream at `Galaxy-Dawn/claude-scholar`.
+
+The handoff pointers in `results-report` and `results-analysis`, which named
+`publication-chart-skill`, now name the two remaining figure skills.

@@ -26,7 +26,7 @@ This skill is for the stage **after** `results-analysis`.
 - limitations, failure cases, and next actions,
 - Obsidian write-back into `Results/Reports/`.
 
-When the task is to create or redesign paper-ready figures/tables themselves, rely on `publication-chart-skill` instead of expanding `results-report` into figure/table production.
+When the task is to create or redesign paper-ready figures themselves, rely on `scipilot-figure-skill` (chart choice, data profiling, Chinese-journal typography) or `nature-figure` (Nature-family templates, multi-panel layout, export) instead of expanding `results-report` into figure production.
 
 Do not replace strict analysis with confident prose. If the analysis bundle is missing, first identify the blocker and request or produce the missing bundle.
 
