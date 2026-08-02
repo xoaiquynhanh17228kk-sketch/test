@@ -232,8 +232,7 @@ function contentSlide(spec) {
     { text: "CPAP 纠正气道阻塞，对已成神经损伤逆转有限，且依从性问题突出", hi: true },
     { text: "→ 治疗缺口：需要从损伤机制层面寻找上游干预靶点", b: true },
   ], { x: M, y: BODY_TOP, w: 6.6, h: BODY_H });
-  figBox(s, { x: M + 6.95, y: BODY_TOP, w: W - M * 2 - 6.95, h: BODY_H },
-    "OSA → CIH → 海马损伤链路示意图\n右侧列 CPAP 的三点局限");
+  figImage(s, { x: M + 6.95, y: BODY_TOP, w: W - M * 2 - 6.95, h: BODY_H }, "figures/f03.png");
 }
 
 // —— 4 平面化困境 ——
@@ -249,8 +248,7 @@ function contentSlide(spec) {
     "亚细胞器空间结构层面的认识不足",
     "而 ERMCS 恰好同时参与脂质转运、钙交换、线粒体动力学与应激信号",
   ], { x: M, y: BODY_TOP, w: 6.6, h: BODY_H });
-  figBox(s, { x: M + 6.95, y: BODY_TOP, w: W - M * 2 - 6.95, h: BODY_H },
-    "对比图：左＝平面化分子事件（并列的通路方框）\n右＝亚细胞器空间结构（ER 与线粒体的纳米级界面）");
+  figImage(s, { x: M + 6.95, y: BODY_TOP, w: W - M * 2 - 6.95, h: BODY_H }, "figures/f04.png");
 }
 
 // —— 5 切入点 ——
@@ -267,8 +265,7 @@ function contentSlide(spec) {
     { text: "关键补注：在该研究中，局部磷脂氢过氧化物在时间上先于可测的接触扩张", hi: true },
     { text: "故几何更宜理解为脂质过氧化「传播与放大」的控制变量，而非时间起始事件", hi: true, b: true },
   ], { x: M, y: BODY_TOP + 0.3, w: 6.6, h: BODY_H - 0.3 });
-  figBox(s, { x: M + 6.95, y: BODY_TOP + 0.3, w: W - M * 2 - 6.95, h: BODY_H - 0.3 },
-    "两条证据箭头汇聚成一个问号\n下方小插图标注「空间热点 ≠ 时间起始」");
+  figImage(s, { x: M + 6.95, y: BODY_TOP + 0.3, w: W - M * 2 - 6.95, h: BODY_H - 0.3 }, "figures/f05.png");
 }
 
 // —— 6 理论意义 / 应用价值 / 预期目标 ——
@@ -301,8 +298,7 @@ function contentSlide(spec) {
     "手工筛查核心机制文献的参考文献与引证文献",
     { text: "因直接相关文献极少，不设最低质量过滤；改为逐篇标注证据等级与实验系统", hi: true, b: true },
   ], { x: M, y: BODY_TOP + 0.28, w: 7.1, h: BODY_H - 0.28 }, 13);
-  figBox(s, { x: M + 7.45, y: BODY_TOP + 0.28, w: W - M * 2 - 7.45, h: BODY_H - 0.28 },
-    "检索流程图（类 PRISMA 简版）\n＋ 四组检索词矩阵\n命中【填】篇 → 精读【填】篇");
+  figImage(s, { x: M + 7.45, y: BODY_TOP + 0.28, w: W - M * 2 - 7.45, h: BODY_H - 0.28 }, "figures/f07.png");
 }
 
 // —— 8 证据地图与四级分级 ——
@@ -339,7 +335,7 @@ function contentSlide(spec) {
       { text: "在该模型中，局部磷脂氢过氧化物在时间上先于可测的接触扩张。因此「空间首发热点」≠「时间起始事件」——接触几何更可能控制过氧化的传播与放大。", options: { fontFace: FONT, fontSize: 13.5, color: INK } },
     ], { x: M + 0.2, y: BODY_TOP + 2.75, w: W - M * 2 - 0.4, h: 0.75, margin: 0, valign: "middle", lineSpacing: 21 });
   }
-  figBox(s, { x: M, y: BODY_TOP + 3.75, w: W - M * 2, h: BODY_H - 3.95 }, "横向时间轴示意图：三个里程碑 ＋ 右端「时间顺序」小插图");
+  figImage(s, { x: M, y: BODY_TOP + 3.75, w: W - M * 2, h: BODY_H - 3.95 }, "figures/f09.png");
 }
 
 // —— 10 方向分歧 ——
@@ -359,7 +355,7 @@ function contentSlide(spec) {
     "但脊髓损伤是单次急性机械损伤、无复氧循环，与 CIH 的暴露结构不同",
     { text: "→ 故本课题对全部几何终点采用双侧检验，方向由数据判定", b: true },
   ], { x: M, y: BODY_TOP + 2.55, w: 7.2, h: BODY_H - 2.75 }, 12.5);
-  figBox(s, { x: M + 7.55, y: BODY_TOP + 2.55, w: W - M * 2 - 7.55, h: BODY_H - 2.75 }, "左右对照天平图");
+  figImage(s, { x: M + 7.55, y: BODY_TOP + 2.55, w: W - M * 2 - 7.55, h: BODY_H - 2.75 }, "figures/f10.png");
 }
 
 // —— 10b 竞争模型与证伪标准 ——
@@ -397,8 +393,7 @@ function contentSlide(spec) {
     "　③ 几何变化与下游损伤之间是否存在剂量-反应关系？",
     { text: "★ 综述判据：现有 BHD 研究均未证明 CA1 铁死亡，也未证明 ERMCS 正常化", hi: true, b: true },
   ], { x: M, y: BODY_TOP, w: 7.4, h: BODY_H }, 13);
-  figBox(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H },
-    "韦恩图：CIH 神经损伤 ∩ ERMCS 几何 ∩ 中药复方\n交集为空 —— 研究空白定位");
+  figImage(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H }, "figures/f11.png");
 }
 
 // —— 12 科学假说 ——
@@ -422,8 +417,7 @@ function contentSlide(spec) {
   s.addText("末端环节的充分性证据：Hambright 2017 —— 成年前脑神经元 Gpx4 条件敲除即产生 MWM 空间学习记忆缺陷与海马神经退行", {
     x: M, y: BODY_TOP + 4.62, w: 7.2, h: 0.5, margin: 0, fontFace: FONT, fontSize: 11.5, color: MUTED, lineSpacing: 17,
   });
-  figBox(s, { x: M + 7.55, y: BODY_TOP, w: W - M * 2 - 7.55, h: BODY_H },
-    "机制示意图：ER–线粒体膜间距变化 →\n脂质过氧化在接触区生成并向线粒体传播\n标注「空间热点 vs 时间起始」的区分");
+  figImage(s, { x: M + 7.55, y: BODY_TOP, w: W - M * 2 - 7.55, h: BODY_H }, "figures/f12.png");
 }
 
 // —— 13 三个关键科学问题 ——
@@ -437,7 +431,7 @@ function contentSlide(spec) {
     { tag: "问题二 · 因果位置", head: "该重塑处于何种因果位置？\n起始事件、传播放大环节，\n还是单纯的伴随现象", body: "对应队列 C 的周期内时点与队列 A 慢性时点的对照", tagColor: RED, headColor: RED },
     { tag: "问题三 · 机制", head: "BHD 是否依赖调控 ERMCS 几何？\n经何下游通路实现认知保护？", body: "对应模块二组学筛选 ＋ 模块三 EML 距离梯度因果验证", tagColor: TEAL },
   ], { x: M, y: BODY_TOP, w: W - M * 2, h: 3.45, headSize: 14 }, { cols: 3, gap: 0.3 });
-  figBox(s, { x: M, y: BODY_TOP + 3.68, w: W - M * 2, h: BODY_H - 3.88 }, "三级递进箭头：现象 → 因果 → 机制");
+  figImage(s, { x: M, y: BODY_TOP + 3.68, w: W - M * 2, h: BODY_H - 3.88 }, "figures/f13.png");
 }
 
 // —— 14 四模块总览 ——
@@ -452,8 +446,7 @@ function contentSlide(spec) {
     { tag: "模块三 · 队列 C", head: "周期内动态", body: "复氧相急性时点 vs 慢性时点，检验相位结构", tagColor: NAVY },
     { tag: "模块四 · 体外", head: "EML 距离梯度因果验证", body: "HT22 + H/R；15/20/30 nm 三档；检验几何—表型剂量反应", tagColor: NAVY },
   ], { x: M, y: BODY_TOP, w: 8.3, h: BODY_H }, { cols: 2, gap: 0.28 });
-  figBox(s, { x: M + 8.65, y: BODY_TOP, w: W - M * 2 - 8.65, h: BODY_H },
-    "L1–L4 证据金字塔\nL1 必胜底 → L4 最理想\n标注各模块对应的层级");
+  figImage(s, { x: M + 8.65, y: BODY_TOP, w: W - M * 2 - 8.65, h: BODY_H }, "figures/f14.png");
 }
 
 // —— 15 总体技术路线图 ——
@@ -463,12 +456,7 @@ function contentSlide(spec) {
     lead: "设计原则：先结构、后组学、再因果 —— 分层推进，避免全链条同时失败",
     notes: "B 组得分最重的一页，务必单独占满一页、字号 ≥18。讲的时候按箭头顺序走一遍，中间的 M6 决策会议要点出来，它是全课题的关键节点。",
   });
-  figBox(s, { x: M, y: BODY_TOP + 0.3, w: W - M * 2, h: BODY_H - 0.3 },
-    "【全页横向流程图 —— 本页只放这一张图，字号 ≥18】\n\n" +
-    "CIH 造模 ＋ BHD 干预  →  行为学与海马病理表型确认  →  TEM / PLA 鉴定 ERMCS 几何重塑\n" +
-    "→  CA1 子区 TMT 组学筛选下游执行通路  →  ★ M6 方向决策会议（关键节点）\n" +
-    "→  HT22 H/R ＋ EML 距离梯度建立因果链\n" +
-    "→  形成「ERMCS 几何重塑—脂质过氧化/下游通路—认知损害—BHD 干预」完整机制模型");
+  figImage(s, { x: M, y: BODY_TOP + 0.3, w: W - M * 2, h: BODY_H - 0.3 }, "figures/f15.png");
 }
 
 // —— 16 动物模型与三队列 ——
@@ -508,8 +496,7 @@ function contentSlide(spec) {
     { text: "实施提示：须在 6 h 暴露窗口内完成灌注，事前与电镜平台协调档期", b: true },
     "Sham 组在同一时钟时点取材，以配平昼夜节律",
   ], { x: M, y: BODY_TOP, w: 7.0, h: BODY_H }, 13.5);
-  figBox(s, { x: M + 7.35, y: BODY_TOP, w: W - M * 2 - 7.35, h: BODY_H },
-    "单次低氧-复氧循环示意图\n横轴时间、纵轴 O₂ 浓度\n在复氧相结束处标注取材点");
+  figImage(s, { x: M + 7.35, y: BODY_TOP, w: W - M * 2 - 7.35, h: BODY_H }, "figures/f17.png");
 }
 
 // —— 17b 振荡接触模型 ——
@@ -519,8 +506,7 @@ function contentSlide(spec) {
     lead: "★ 本课题最具原创性的设计依据 —— 来自课题组已完成综述提出的模型",
     notes: "全场最值得讲透的一页，约 45 秒。核心一句：缺氧相在攒底物，复氧相才真正开始烧。所以决定损伤的不是平均氧分压，而是复氧转换的次数和陡度——这恰好就是 CIH 与持续低氧的区别。讲稿全文见 docs/综述整合到PPT.md §6。",
   });
-  figBox(s, { x: M, y: BODY_TOP + 0.3, w: 6.5, h: BODY_H - 0.3 },
-    "【直接复用综述 Figure 3】\n\n振荡接触模型示意图\n横轴：多个低氧-复氧循环\n红色瞬时脉冲叠加在缓降的蓝色基线上");
+  figImage(s, { x: M, y: BODY_TOP + 0.3, w: 6.5, h: BODY_H - 0.3 }, "figures/f17b.png");
   s.addShape(pres.ShapeType.roundRect, { x: M + 6.85, y: BODY_TOP + 0.3, w: W - M * 2 - 6.85, h: 1.15, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
   s.addText([
     { text: "模型　", options: { fontFace: FONT, fontSize: 12, bold: true, color: NAVY } },
@@ -553,8 +539,7 @@ function contentSlide(spec) {
     "　文献三剂量梯度（3.51 / 7.01 / 14.02 g/kg）中的中剂量",
     "　且在 Song 2022（心功能）与 Yang 2024（神经行为）两项独立研究中均为最优剂量",
   ], { x: M, y: BODY_TOP, w: 7.4, h: BODY_H }, 13);
-  figBox(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H },
-    "上：煎煮制备流程图\n下：HPLC 指纹图谱示意\n标注和厚朴酚、厚朴酚特征峰");
+  figImage(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H }, "figures/f18.png");
 }
 
 // —— 19 模块一 表型与形态学 ——
@@ -577,8 +562,7 @@ function contentSlide(spec) {
     ["探索性终点", "≤10 nm 紧密接触比例、ERMICC_tcw、线粒体形态", "BH-FDR，须显式标注"],
   ], { x: M, y: BODY_TOP + 3.05, w: 6.6 }, [1.75, 3.15, 1.7]);
   s.addText("★ 五个指标须于揭盲前锁定层级", { x: M, y: H - 1.28, w: 6.6, h: 0.3, margin: 0, fontFace: FONT, fontSize: 12, bold: true, color: RED });
-  figBox(s, { x: M + 6.95, y: BODY_TOP + 0.28, w: W - M * 2 - 6.95, h: BODY_H - 0.98 },
-    "TEM 五指标定义示意图\n（在一张 ER–线粒体接触的模式图上\n逐一标注五个测量量）");
+  figImage(s, { x: M + 6.95, y: BODY_TOP + 0.28, w: W - M * 2 - 6.95, h: BODY_H - 0.98 }, "figures/f19.png");
   s.addText("术语：ERMCS 指纳米级结构接触，MAM 保留给生化富集组分 —— 分离结果不得当作接触几何的测量证据", {
     x: M + 6.95, y: H - 1.28, w: W - M * 2 - 6.95, h: 0.55, margin: 0, fontFace: FONT, fontSize: 10.5, color: MUTED, lineSpacing: 15,
   });
@@ -600,8 +584,7 @@ function contentSlide(spec) {
     "逐只记录戊二醛储存天数，纳入混合模型作协变量",
     "图像采集与 ImageJ 定量全程双盲；两人独立定量，差异 >15% 引入第三方仲裁",
   ], { x: M, y: BODY_TOP, w: 7.4, h: BODY_H }, 13);
-  figBox(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H },
-    "SOP 流程图：灌注 → 初固定 → 后固定 →\n脱水 → 包埋 → 超薄切片 → 双染 → 拍照\n「配平铁律」用红框强调");
+  figImage(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H }, "figures/f20.png");
 }
 
 // —— 21 PLA ——
@@ -621,8 +604,7 @@ function contentSlide(spec) {
     { text: "指标严格表述为「IP3R1 与 VDAC1/VDAC3 的邻近信号」（ab14734 同时识别 VDAC1 与 VDAC3）", b: true },
     "共聚焦：CA1 锥体层每只 5 视野，计数 dots per cell，全程双盲",
   ], { x: M, y: BODY_TOP + 0.28, w: 7.4, h: BODY_H - 0.28 }, 12.5);
-  figBox(s, { x: M + 7.75, y: BODY_TOP + 0.28, w: W - M * 2 - 7.75, h: BODY_H - 0.28 },
-    "上：PLA 原理示意图\n下：四类对照表\n（完整双抗 / 省略一抗 / 仅兔一抗 / 仅鼠一抗）");
+  figImage(s, { x: M + 7.75, y: BODY_TOP + 0.28, w: W - M * 2 - 7.75, h: BODY_H - 0.28 }, "figures/f21.png");
 }
 
 // —— 22 TMT 组学 ——
@@ -642,8 +624,7 @@ function contentSlide(spec) {
     "　第二轴 — 六类下游通路 GSEA（铁死亡 / 凋亡 / 自噬 / 突触 / 炎症 / 线粒体）",
     "PPI 网络（STRING + Cytoscape），cytoHubba 计算 HUB 蛋白；与已发表 CIH-海马组学数据集横向比较",
   ], { x: M, y: BODY_TOP, w: 7.4, h: BODY_H }, 12.5);
-  figBox(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H },
-    "上：CA1 显微切割示意\n下：双轴分析框架图\n（横轴 ERMCS 富集 / 纵轴通路 GSEA）");
+  figImage(s, { x: M + 7.75, y: BODY_TOP, w: W - M * 2 - 7.75, h: BODY_H }, "figures/f22.png");
 }
 
 // —— 23 决策会议与决策树 ——
@@ -658,7 +639,7 @@ function contentSlide(spec) {
     [{ t: "G（阴性）", b: true, hi: true }, { t: "CIH 与 Sham 间无显著差异", hi: true }, "—", { t: "阴性亦为结论，如实报告；转向预设的 CA3/DG 次要脑区。不得以反复调参直至出现差异的方式处理", hi: true, b: true }],
     [{ t: "H（反方向）", b: true, hi: true }, { t: "CIH 显著减小接触", hi: true }, "任一通路", { t: "叙事改为「CIH 使 ERMCS 解偶联 / BHD 恢复接触」；配合队列 C 可提出「急性扩张 + 慢性破坏」时程依赖模型", hi: true, b: true }],
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2 }, [1.5, 2.9, 2.7, 5.13]);
-  figBox(s, { x: M, y: BODY_TOP + 3.05, w: W - M * 2, h: BODY_H - 3.25 }, "决策树图（完整八情形表放备用页 B7）");
+  figImage(s, { x: M, y: BODY_TOP + 3.05, w: W - M * 2, h: BODY_H - 3.25 }, "figures/f23.png");
 }
 
 // —— 24 EML 距离梯度 ——
@@ -678,8 +659,7 @@ function contentSlide(spec) {
     "　① CCK-8 / LDH　② IP3R1-VDAC1/VDAC3 PLA 验证 EML 实际工作　③ BODIPY 581/591 C11 + Liperfluo",
     "　④ 依组学结果选 1–2 条通路指标　⑤ mRFP 荧光共定位",
   ], { x: M, y: BODY_TOP, w: 7.3, h: BODY_H }, 12.5);
-  figBox(s, { x: M + 7.65, y: BODY_TOP, w: W - M * 2 - 7.65, h: BODY_H },
-    "10 组设计矩阵图\nG1 基线 / G2 损伤 / G3 +BHD\nG4–G6 距离梯度 / G7–G9 距离 × BHD\n＋ EML 距离固定原理小图");
+  figImage(s, { x: M + 7.65, y: BODY_TOP, w: W - M * 2 - 7.65, h: BODY_H }, "figures/f24.png");
 }
 
 // —— 25 核心逻辑与统计设计 ——
@@ -704,8 +684,7 @@ function contentSlide(spec) {
     { text: "★ 必讲的呼应：", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: RED } },
     { text: "课题组综述 §8.1 提出，任何针对 ERMCS 的治疗主张都必须检验「当几何被独立操控后保护是否仍存在」—— G9 vs G6 正是这一判据的直接实现。", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
   ], { x: M + 0.18, y: BODY_TOP + 4.3, w: 7.15, h: 0.75, margin: 0, valign: "middle", lineSpacing: 19 });
-  figBox(s, { x: M + 7.85, y: BODY_TOP + 0.28, w: W - M * 2 - 7.85, h: BODY_H - 0.28 },
-    "钟形 vs 单调两种曲线并置示意\n横轴 ER-OMM 距离（15/20/30 nm）\n纵轴 损伤程度\n标注两种形状对应的不同结论");
+  figImage(s, { x: M + 7.85, y: BODY_TOP + 0.28, w: W - M * 2 - 7.85, h: BODY_H - 0.28 }, "figures/f25.png");
 }
 
 // —— 26 统计与质控汇总 ——
@@ -724,8 +703,7 @@ function contentSlide(spec) {
     "　预设敏感性分析：先在动物层面取均值再作组间比较，两法结论应一致；不一致以混合模型为准",
     "戊二醛储存天数纳入模型作协变量；效应量必报（Cohen's d 或 η²）；全部分析双盲编码",
   ], { x: M, y: BODY_TOP, w: 7.6, h: BODY_H }, 12.5);
-  figBox(s, { x: M + 7.95, y: BODY_TOP, w: W - M * 2 - 7.95, h: BODY_H },
-    "三层嵌套结构图\n动物（n=8）\n└ 神经元（5–8/只）\n　└ 接触点（≥8 线粒体/神经元）\n标注「统计单位在此层」");
+  figImage(s, { x: M + 7.95, y: BODY_TOP, w: W - M * 2 - 7.95, h: BODY_H }, "figures/f26.png");
 }
 
 // —— 27 前期工作基础 ——
@@ -971,7 +949,7 @@ function contentSlide(spec) {
     { text: "三、", options: { fontFace: FONT, fontSize: 15, bold: true, color: "9FC3D8" } },
     { text: "已有第一作者同题机制综述与造模有效性预实验作为基础；技术路径、经费测算与风险预案明确，具备可实施性。", options: { fontFace: FONT, fontSize: 15, color: WHITE } },
   ], { x: M + 0.3, y: 1.5, w: 6.6, h: 4.6, margin: 0, valign: "top", lineSpacing: 26 });
-  figBox(s, { x: M + 7.4, y: 1.5, w: W - M * 2 - 7.4, h: 4.6 }, "全页机制总图\nCIH → ERMCS 几何重塑 → 脂质过氧化传播\n→ 神经元损伤 → 认知障碍\nBHD 的作用位点");
+  figImage(s, { x: M + 7.4, y: 1.5, w: W - M * 2 - 7.4, h: 4.6 }, "figures/f35.png");
   s.addText(String(pageNo), { x: W - M - 0.9, y: H - 0.62, w: 0.9, h: 0.32, margin: 0, fontFace: FONT, fontSize: 10, color: "7FB3CC", align: "right" });
   s.addNotes("总结页停留久一点，让评委把三句话看完。最后一句自然过渡到致谢。");
 }
