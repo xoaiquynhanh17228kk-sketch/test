@@ -56,7 +56,22 @@
 
 ## C. 修订后 Results 正文
 
-> 图号已按首次引用顺序重编。**新旧对照：新 Fig 6 = 旧 Fig 9；新 Fig 7 = 旧 Fig 8；新 Fig 8 = 旧 Fig 6；新 Fig 9 = 旧 Fig 7。** 请同步更新 Discussion 及正文其他位置的图号交叉引用。
+> 图号已按首次引用顺序重编，并纳入新增的 Rad-score 分布图。**主文仍为 9 图**（把与多模型 ROC 高度重复的单变量 ROC 移入补充材料）。
+>
+> | 新 | 内容 | 原编号 |
+> |---|---|---|
+> | Fig 1 | 流程图 | 1 |
+> | Fig 2 | LASSO 特征筛选 | 2 |
+> | **Fig 3** | **Rad-score 组间分布（新增，(a) 训练 (b) 验证）** | — |
+> | Fig 4 | 森林图 | 3 |
+> | Fig 5 | 列线图 | 4 |
+> | Fig 6 | 列线图 ROC | 5 |
+> | Fig 7 | 多模型 ROC | 9 |
+> | Fig 8 | 校准曲线 | 6 |
+> | Fig 9 | DCA | 7 |
+> | **Supp. Fig S1** | 单变量 ROC | 8 |
+>
+> 若希望单变量 ROC 留在主文，则它为 Fig 8，校准与 DCA 顺延为 Fig 9、Fig 10（主文变 10 图）。**请同步更新 Discussion 及正文其他位置的图号交叉引用。**
 
 ---
 
@@ -76,21 +91,27 @@ Features with an inter-reader intraclass correlation coefficient (ICC) at or bel
 
 Six features survived at the selected λ (Figure 2c). Four carried positive weights: RunVariance.11 (β=0.306), Idn.6 (β=0.271), Imc1.9 (β=0.198) and MCC.7 (β=0.055). One carried a negative weight, SmallAreaEmphasis.8 (β=−0.173). The remaining term, ZoneVariance.2, was retained with a coefficient of 0.002 and therefore contributes negligibly to the score. The signature is dominated by run-length, co-occurrence and size-zone texture descriptors rather than by shape or first-order intensity, indicating that intralesional heterogeneity rather than lesion size drives the radiomic signal. The Rad-score, defined as the linear combination of these six features weighted by their LASSO coefficients, was computed for every patient in both sets using the training-derived coefficients and was carried forward as a single composite predictor.
 
+The Rad-score separated the two groups in the training set, where patients presenting with massive haemoptysis had higher scores than those with mild-to-moderate haemoptysis (median [X] vs [Y]; p<0.0001). The difference ran in the same direction in the internal validation set but did not reach statistical significance (median [X] vs [Y]; p=[Z]). With 12 cases available for that comparison, this is an indeterminate rather than a negative result (Figure 3).
+
 ### Variables associated with massive haemoptysis
 
-Six variables were associated with massive haemoptysis in univariable logistic regression (Table 2, Figure 3a): tuberculosis (OR 4.23, 95% CI 1.43 to 12.51; p=0.009), bronchiectasis (OR 2.36, 95% CI 1.03 to 5.41; p=0.042), BAPF (OR 4.88, 95% CI 1.60 to 14.90; p=0.005), BAM (OR 3.84, 95% CI 1.03 to 14.31; p=0.045), fibrinogen (OR 0.57, 95% CI 0.39 to 0.83; p=0.004) and the Rad-score (OR 7.96, 95% CI 2.75 to 23.11; p<0.001). Age, sex, smoking status, duration of smoking, malignancy, fungal infection, antiplatelet and antithrombotic use, PLT, D-D and INR showed no association (all p>0.20). The confidence intervals for tuberculosis, BAPF, BAM and the Rad-score are wide and their lower bounds lie close to unity, which is consistent with the small number of events available (42 in total, 30 in the training set).
+Six variables were associated with massive haemoptysis in univariable logistic regression (Table 2, Figure 4a): tuberculosis (OR 4.23, 95% CI 1.43 to 12.51; p=0.009), bronchiectasis (OR 2.36, 95% CI 1.03 to 5.41; p=0.042), BAPF (OR 4.88, 95% CI 1.60 to 14.90; p=0.005), BAM (OR 3.84, 95% CI 1.03 to 14.31; p=0.045), fibrinogen (OR 0.57, 95% CI 0.39 to 0.83; p=0.004) and the Rad-score (OR 7.96, 95% CI 2.75 to 23.11; p<0.001). Age, sex, smoking status, duration of smoking, malignancy, fungal infection, antiplatelet and antithrombotic use, PLT, D-D and INR showed no association (all p>0.20). The confidence intervals for tuberculosis, BAPF, BAM and the Rad-score are wide and their lower bounds lie close to unity, which is consistent with the small number of events available (42 in total, 30 in the training set).
 
-Four variables remained independently associated with massive haemoptysis after mutual adjustment (Table 2, Figure 3b): tuberculosis (OR 4.96, 95% CI 1.39 to 17.70; p=0.014), BAPF (OR 4.09, 95% CI 1.11 to 15.04; p=0.034), fibrinogen (OR 0.65, 95% CI 0.45 to 0.95; p=0.026) and the Rad-score (OR 5.21, 95% CI 1.70 to 15.94; p=0.004). Bronchiectasis and BAM did not retain independent associations. Higher fibrinogen was associated with a lower probability of massive presentation. With 30 events and four retained predictors, the multivariable model operates at roughly 7.5 events per variable, below the conventional threshold of ten, so the adjusted point estimates should be read as provisional.
+Four variables remained independently associated with massive haemoptysis after mutual adjustment (Table 2, Figure 4b): tuberculosis (OR 4.96, 95% CI 1.39 to 17.70; p=0.014), BAPF (OR 4.09, 95% CI 1.11 to 15.04; p=0.034), fibrinogen (OR 0.65, 95% CI 0.45 to 0.95; p=0.026) and the Rad-score (OR 5.21, 95% CI 1.70 to 15.94; p=0.004). Bronchiectasis and BAM did not retain independent associations. Higher fibrinogen was associated with a lower probability of massive presentation. With 30 events and four retained predictors, the multivariable model operates at roughly 7.5 events per variable, below the conventional threshold of ten, so the adjusted point estimates should be read as provisional.
 
 ### Nomogram development and discrimination
 
-A clinical–radiomic nomogram was constructed from the four independent variables, converting each into a partial point score and mapping the total to an individualised probability of massive haemoptysis at presentation (Figure 4). The Rad-score carries the largest weight, spanning the full 0 to 100 point range across its observed interval of −4 to 0.5. Fibrinogen contributes up to approximately 50 points on an inverted scale, so that lower values attract more points. Tuberculosis and BAPF contribute approximately 21 and 19 points respectively when present. Total scores range from 0 to 160, and the diagnostic probability scale becomes informative above a total of roughly 80 points.
+A clinical–radiomic nomogram was constructed from the four independent variables, converting each into a partial point score and mapping the total to an individualised probability of massive haemoptysis at presentation (Figure 5). The Rad-score carries the largest weight, spanning the full 0 to 100 point range across its observed interval of −4 to 0.5. Fibrinogen contributes up to approximately 50 points on an inverted scale, so that lower values attract more points. Tuberculosis and BAPF contribute approximately 21 and 19 points respectively when present. Total scores range from 0 to 160, and the diagnostic probability scale becomes informative above a total of roughly 80 points.
 
-Discrimination was good in the training set, with an area under the receiver operating characteristic curve (AUC) of 0.840 (95% CI 0.764 to 0.915), accuracy 0.817 (107/131), sensitivity 0.733 (22/30) and specificity 0.842 (85/101). In the internal validation set the point estimate remained similar but the estimate was far less precise: AUC 0.781 (95% CI 0.614 to 0.949), accuracy 0.719 (41/57), sensitivity 0.667 (8/12) and specificity 0.733 (33/45) (Table 3, Figure 5). The validation interval spans 0.335 AUC units and its lower bound approaches the 0.5 no-discrimination line, so the validation result is compatible with performance ranging from marginal to excellent and should not be read as confirmation of the training estimate.
+A single classification cut-point of 0.255 in estimated probability was derived from the maximum Youden index of the training-set ROC curve. This cut-point was then applied unchanged to the internal validation set; no cut-point was re-optimised in the validation data.
+
+Discrimination was good in the training set, with an area under the receiver operating characteristic curve (AUC) of 0.840 (95% CI 0.764 to 0.915), accuracy 0.817 (107/131), sensitivity 0.733 (22/30) and specificity 0.842 (85/101). In the internal validation set the point estimate remained similar but the estimate was far less precise: AUC 0.781 (95% CI 0.614 to 0.949), accuracy 0.719 (41/57), sensitivity 0.667 (8/12) and specificity 0.733 (33/45) (Table 3, Figure 6). The validation interval spans 0.335 AUC units and its lower bound approaches the 0.5 no-discrimination line, so the validation result is compatible with performance ranging from marginal to excellent and should not be read as confirmation of the training estimate.
+
+An unpaired DeLong test comparing the two cohorts did not detect a difference between the training and validation AUCs (D=0.604, df=80.7, p=0.547). Two features of this comparison limit what it establishes. The training AUC is an apparent estimate obtained on the data used to fit the model and is therefore optimistically biased, whereas the validation AUC is not, so the two quantities are not exchangeable. The validation set also contains only 12 events, which leaves the test with little power to detect a drop in discrimination. The result therefore indicates that the available data do not detect deterioration between cohorts, not that discrimination has been shown to be stable.
 
 ### Incremental value of the radiomic and clinical components
 
-Three models were compared in the training set (Figure 6). Model A, the Rad-score alone, achieved an AUC of 0.761 (95% CI 0.672 to 0.850). Model B, the clinical model combining tuberculosis, BAPF and fibrinogen, achieved 0.769 (95% CI 0.663 to 0.876). Model C, the combined clinical–radiomic nomogram, achieved the numerically highest value at 0.840 (95% CI 0.764 to 0.915). The three confidence intervals overlap substantially, and no formal comparison of correlated ROC curves (DeLong test) or reclassification analysis (NRI, IDI) was performed. The apparent gain from combining the clinical and radiomic components is therefore suggestive rather than established. Single-variable ROC analyses for each candidate predictor are shown for reference in Figure 7, where the combined nomogram curve lies outside every individual predictor curve across most of the operating range and the Rad-score is the strongest single contributor.
+Three models were compared in the training set (Figure 7). Model A, the Rad-score alone, achieved an AUC of 0.761 (95% CI 0.672 to 0.850). Model B, the clinical model combining tuberculosis, BAPF and fibrinogen, achieved 0.769 (95% CI 0.663 to 0.876). Model C, the combined clinical–radiomic nomogram, achieved the numerically highest value at 0.840 (95% CI 0.764 to 0.915). The three confidence intervals overlap substantially, and no formal comparison of correlated ROC curves (DeLong test) or reclassification analysis (NRI, IDI) was performed. The apparent gain from combining the clinical and radiomic components is therefore suggestive rather than established. The unpaired DeLong test reported above compares the same model across the two cohorts and does not bear on this question; a paired DeLong test among Models A, B and C within the training cohort would be required, and was not performed. Single-variable ROC analyses for each candidate predictor are shown for reference in Supplementary Figure S1, where the combined nomogram curve lies outside every individual predictor curve across most of the operating range and the Rad-score is the strongest single contributor.
 
 ### Calibration and clinical utility
 
@@ -108,33 +129,88 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 **Figure 2.** Radiomic feature selection by LASSO logistic regression in the training cohort. (a) LASSO coefficient profiles against log(λ). (b) Ten-fold cross-validation curve of binomial deviance; the green dashed line marks log(λ.min)=−3.3748, which was adopted, and the blue dashed line marks log(λ.1se)=−2.2584. (c) The six retained features and their coefficients.
 
-**Figure 3.** Forest plots of (a) univariable and (b) multivariable logistic regression for massive haemoptysis in the training cohort. Squares denote odds-ratio point estimates and horizontal lines the 95% confidence intervals. Arrowheads in (a) indicate intervals extending beyond the plotted axis.
+**Figure 3.** *(new)* Distribution of the Rad-score by presentation group in (a) the training cohort and (b) the internal validation cohort. Boxes show the median and interquartile range, whiskers extend to 1.5 times the interquartile range, and individual patients are overlaid. ⚠️ **制图注意：文档中提供的两张图顺序与题注相反 —— 12 个病例点的那张是验证集，30 个病例点的那张是训练集，请对调。** 另请将显著性标记由星号改为精确 p 值，注明所用检验（Mann–Whitney U 或 t 检验），并修正 x 轴标签中多余的 "0"（"No massive hemoptysis0"）。
 
-**Figure 4.** Nomogram for the individualised probability of massive haemoptysis at presentation, built from tuberculosis, BAPF, fibrinogen and the Rad-score. Fibrinogen is plotted on a descending scale, so lower values attract more points.
+**Figure 4.** *(previously Figure 3)* Forest plots of (a) univariable and (b) multivariable logistic regression for massive haemoptysis in the training cohort. Squares denote odds-ratio point estimates and horizontal lines the 95% confidence intervals. Arrowheads in (a) indicate intervals extending beyond the plotted axis.
 
-**Figure 5.** ROC curves of the clinical–radiomic nomogram in (a) the training cohort and (b) the internal validation cohort.
+**Figure 5.** *(previously Figure 4)* Nomogram for the individualised probability of massive haemoptysis at presentation, built from tuberculosis, BAPF, fibrinogen and the Rad-score. Fibrinogen is plotted on a descending scale, so lower values attract more points.
 
-**Figure 6.** *(previously Figure 9)* Comparison of ROC curves for three models in the training cohort. Model A, Rad-score alone; Model B, clinical model (tuberculosis, BAPF and fibrinogen); Model C, combined clinical–radiomic nomogram. Confidence intervals overlap and no formal test of curve difference was performed.
+**Figure 6.** *(previously Figure 5)* ROC curves of the clinical–radiomic nomogram in (a) the training cohort and (b) the internal validation cohort. The classification cut-point of 0.255 was derived from the maximum Youden index in the training cohort and applied unchanged to the validation cohort. ⚠️ **制图注意：验证集面板上标注的 0.447 必须删除** —— 那是验证集自身优化的切点，留在图上会被读作切点在验证集重新寻优。
 
-**Figure 7.** *(previously Figure 8)* ROC curves for each individual candidate predictor and for the combined nomogram (Nomo) in the training cohort. TB and BAPF are binary variables, so their curves consist of two linear segments.
+**Figure 7.** *(previously Figure 9)* Comparison of ROC curves for three models in the training cohort. Model A, Rad-score alone; Model B, clinical model (tuberculosis, BAPF and fibrinogen); Model C, combined clinical–radiomic nomogram. Confidence intervals overlap and no formal test of curve difference was performed.
 
 **Figure 8.** *(previously Figure 6)* Calibration of the nomogram in (a) the training cohort and (b) the internal validation cohort. The grey line is the ideal diagonal, the solid black line the logistic calibration curve and the dotted line the non-parametric estimate. Training values are apparent and uncorrected for optimism. Hosmer–Lemeshow: training χ²=9.11, df=8, p=0.333; validation χ²=10.76, df=8, p=0.216.
 
 **Figure 9.** *(previously Figure 7)* Decision-curve analysis in (a) the training cohort and (b) the internal validation cohort, showing net benefit of the nomogram against the treat-all and treat-none reference strategies.
 
+**Supplementary Figure S1.** *(previously Figure 8)* ROC curves for each individual candidate predictor and for the combined nomogram (Nomo) in the training cohort. TB and BAPF are binary variables, so their curves consist of two linear segments.
+
 **Table 3 footnote (建议新增).** Accuracy, sensitivity and specificity were derived at a single cut-point of estimated probability; the cut-point and its derivation (for example the Youden index in the training cohort) should be stated and the same value applied to the validation cohort.
 
 ---
 
-## D. 尚未闭合的数据缺口（无法从图中读出，需作者补充）
+## D-1. 补充材料回执（2026-08-02 收到的三项答复）
+
+作者针对 D 部分第 1、2、5 项提供了补充材料。**三项都收到了，但都不能直接照单写入正文**，原因如下。
+
+### ⛔ 阻断项 P1（H）：AUC 数值与正文冲突，必须先定版
+
+| 来源（按内容指称，不用图号） | 训练集 AUC | 验证集 AUC |
+|---|---|---|
+| Table 3 + 列线图 ROC 图 | **0.840** (0.764–0.915) | **0.781** (0.614–0.949) |
+| 校准曲线图内的 C(ROC) | 0.840 | 0.781 |
+| 多模型比较图的 ModC | 0.840 (0.764–0.915) | — |
+| **补充材料 ROC 图 + DeLong 输出** | **0.850** (0.775–0.925) | **0.794** (0.631–0.958) |
+
+差值 0.010 / 0.013，**不是四舍五入能解释的**。原稿三处独立图形互相印证 0.840 / 0.781；补充材料是唯一给出 0.850 / 0.794 的来源。
+
+连带的第二处不一致：补充材料训练集 ROC 图上标注切点 0.255 对应 **(spec 0.842, sens 0.767)**，而 Table 3 训练集写的是 **sens 0.733**, spec 0.842。特异度对得上，敏感度差 1 例（23/30 vs 22/30）。这与 AUC 差异同源，指向**模型被重新拟合过**。
+
+**处理方式（当前稿采用）**：正文暂时保留原稿的 0.840 / 0.781，因为它有三处图形互证。**请作者确认哪一次分析为最终版**，然后让下列五处同时改成同一套数字：Table 3、列线图 ROC 图（新 Fig 6）、多模型比较图的 ModC（新 Fig 7）、校准曲线图内的 C(ROC)（新 Fig 8）、以及 DeLong 输出。目前状态下投出去，审稿人对照图与表就会发现同一模型有两套 AUC。
+
+### ⛔ 阻断项 P2（H）：Rad-score 箱线图的训练集/验证集标签互换
+
+- 文档中**第一张**（标注"训练集"）：病例组 **12 个散点**，对照组约 45 个，合计 ≈57，标记 **ns** → 这是**验证集**。
+- 文档中**第二张**（标注"验证集"）：病例组约 **30 个散点**，对照组约 100 个，合计 ≈131，标记 **\*\*\*\*** → 这是**训练集**。
+
+答复正文的叙述（训练集显著、验证集不显著）**是对的**，错的是两张图的摆放顺序/题注。请在制图时对调，否则图与文直接矛盾。
+
+### ⚠️ P3（H）：DeLong 检验回答的不是原来提出的问题
+
+补充材料做的是：**同一个模型**在训练集 vs 验证集之间的**非配对** DeLong（D=0.604, df=80.7, p=0.547）。
+
+原先 D 部分第 5 项要的是：**同一队列内** Model A（Rad-score 单独）vs Model B（临床）vs Model C（联合）的**配对** DeLong。这两者license 的结论完全不同：
+
+- 补充材料的检验 → 只能说「没有检测到训练集到验证集的判别力下降」。
+- 原先需要的检验 → 才能支撑「联合模型优于其单一成分」这一句。
+
+因此 **"Incremental value" 一节的降级表述必须保留**，不能因为收到了一个 DeLong 就改口。
+
+补充说明两点局限（已写入正文）：(a) 训练集 AUC 是表观值、带乐观偏倚，拿它和无偏的验证集 AUC 做检验，不显著更多反映的是**检验效能不足**而非稳定性得证；(b) 验证集仅 12 个事件。
+
+### ✅ 可直接采用的部分
+
+1. **切点**：训练集 ROC 最大约登指数 → **0.255**，固定应用于验证集。这正是审稿人想看到的做法，已写入正文。
+2. **Rad-score 分布方向与显著性**：训练集病例组显著更高（\*\*\*\*，即 p<0.0001）；验证集同方向但未达显著。已写入正文。
+3. **验证集图上的 0.447 必须从投稿图中删除**。作者已说明那只是"内部探索性结果"，但只要它印在图上，审稿人就会认为切点在验证集重新优化过——这恰恰是放射组学论文最常见的过拟合质疑。
+
+### 仍缺的数字（正文中已留占位）
+
+- Rad-score 各组的**中位数与 IQR**（四个数值：训练集两组、验证集两组）。从箱线图目测约为：训练集 −1.35 vs −1.04，验证集 −1.19 vs −1.03，但目测值不可写入正文。
+- 验证集组间比较的**精确 p 值**（图上只有 "ns"）。
+- 训练集用的**检验方法**（Mann–Whitney U 还是 t 检验）。
+
+---
+
+## D-2. 尚未闭合的数据缺口（无法从图中读出，需作者补充）
 
 这些内容**没有**写进正文，因为图里没有对应数据，凭空写会构成编造。
 
-1. **判定阈值（cut-point）**：Table 3 的 accuracy/sensitivity/specificity 必须依赖某个概率切点。图中未给出。请说明切点数值与来源（通常为训练集 Youden 指数），并确认验证集沿用同一切点而非重新寻优。
-2. **Rad-score 的组间分布**：全文未报告 massive 组 vs non-massive 组的 Rad-score 中位数/IQR，也未报告训练集 vs 验证集的 Rad-score 分布。这是放射组学论文的标准报告项，审稿人几乎必问。建议补一张箱线图或在 Table 1 增加一行。
+1. ~~**判定阈值（cut-point）**~~ → ✅ **已解决**（0.255，训练集 Youden，固定应用于验证集）。附带要求：验证集 ROC 图上的 0.447 标注须删除。
+2. **Rad-score 的组间分布** → 🟡 **部分解决**。方向与显著性已明确（训练集 p<0.0001，验证集 ns），但仍缺四组中位数/IQR、验证集精确 p 值、所用检验方法。另需修正两图标签互换（见 P2）。
 3. **特征筛选各步的数量级联**：提取特征总数 → ICC>0.75 后剩余 → mRMR 后剩余（图 2b 上轴提示约 35）→ LASSO 后 6 个。正文目前只能写「约 35 个进入 LASSO」，建议改为精确数字。
 4. **ICC 的实际取值**：流程图写了「n=20 做观察者内/间一致性检验」，但未报告 ICC 范围或中位数。
-5. **DeLong 检验**：Model A/B/C 的两两比较 p 值，以及 NRI / IDI。没有这些，「联合模型更优」只能停留在描述层面（已按此处理）。
+5. **DeLong 检验** → 🔴 **未解决（提供的是另一个检验）**。收到的是同一模型训练集 vs 验证集的非配对 DeLong（p=0.547），已写入判别力一节。但支撑「联合模型优于单一成分」所需的是**同一队列内 Model A/B/C 的配对 DeLong**（`pROC::roc.test(..., paired=TRUE)`），以及 NRI / IDI。在补上之前，"Incremental value" 一节的降级表述必须保留。
 6. **验证集校准的处理方案**：Fig 8b 显示系统性高估（截距 −0.688）。请确认是否要（a）如实报告并在 Discussion 讨论，或（b）补做截距再校准并报告校准后指标。目前正文按 (a) 处理。
 7. **Fig 7（旧 8）的 AUC 数值**：原图注承诺给出各变量 AUC，图中无数值。建议在图中加注，或按修订后的图注表述。
 8. **文末两条无关参考文献**（Ao Q et al. 铁死亡与类风湿关节炎；Shen H et al. α7 nAChR 与慢性间歇低氧）与本研究无关，应删除。
