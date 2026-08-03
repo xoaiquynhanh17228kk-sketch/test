@@ -175,7 +175,31 @@ def fp3():
     fig.savefig(f"{OUT}/fp3.png", facecolor="white"); plt.close(fig); print("   fp3")
 
 
+# ── fp4 预实验结果合并（6 分钟版专用）─────────────────────────────
+def fp4():
+    fig = plt.figure(figsize=(12.2, 3.5))
+    specs = [([4.13, 2.40, 1.30], [0.25, 0.10, 0.10], "28 d 增重 (g)", "P < 0.001", True),
+             ([903.2, 666.2, 961.6], [113.1, 198.6, 95.1], "总路程 (cm)", "P = 0.094", False),
+             ([22.89, 39.10, 20.09], [5.16, 17.08, 3.01], "不动时间 (%)", "P = 0.061", False),
+             ([71.7, 227.7, 113.8], [69.7, 82.6, 55.8], "新物体潜伏期 (s)", "P = 0.080", False),
+             ([45.80, 116.46, 54.35], [1.44, 48.15, 13.21], "蜷缩时间 (s)", "P = 0.046", False)]
+    for i, (m, sd, ylab, pt, isw) in enumerate(specs):
+        a = fig.add_axes([0.052 + i * 0.194, 0.235, 0.138, 0.60])
+        bars(a, m, sd, ylab, pt, fs=8.5)
+        a.set_xticklabels(["Sham", "CIH", "+BHD"], fontsize=8)
+        if isw:
+            a.set_title("造模验证", fontsize=9.5, color=RED, pad=4)
+        elif i == 1:
+            a.set_title("运动与探索动机（四项方向一致）", fontsize=9.5, color=BLUE,
+                        pad=4, loc="left")
+    fig.text(0.5, 0.075,
+             "造模成立：三组增重范围完全不重叠　·　运动与动机四项均达方向性信号标准（P<0.10 或 |d|≥0.8）"
+             "，且与体重无关（|r|≤0.13）　·　n=3/组，均值±SD",
+             ha="center", va="center", fontsize=9, color=INK)
+    fig.savefig(f"{OUT}/fp4.png", facecolor="white"); plt.close(fig); print("   fp4")
+
+
 if __name__ == "__main__":
     print("生成预实验配图：")
-    fp1(); fp2(); fp3()
+    fp1(); fp2(); fp3(); fp4()
     print("完成 →", OUT)
