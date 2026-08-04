@@ -227,14 +227,14 @@ function contentSlide(spec) {
 {
   const s = contentSlide({
     title: "汇报提纲", lead: "按《重庆医科大学研究生学位论文开题报告评分指标》的五个板块组织　·　全程 6 分钟",
-    notes: "【约 15 s】一句话带过：顺序与各位手上的评分表一致；分值最高的第四部分包含已完成的第一作者综述与预实验结果。不要逐条念。",
+    notes: "【约 10 s】一句话带过：顺序与各位手上的评分表一致；分值最高的第四部分包含已完成的第一作者综述与预实验结果。不要逐条念。",
   });
   cards(s, [
-    { tag: "A　20 分　约 70 s", head: "一、选题依据", body: "临床问题与切入点 · 假说 · 关键问题 · 创新点", tagColor: TEAL, headColor: TEAL, bodySize: 11.5 },
-    { tag: "B　20 分　约 90 s", head: "二、研究方法", body: "技术路线 · 三队列四模块 · 统计与质控 · 风险与进度", tagColor: NAVY, headColor: NAVY, bodySize: 11.5 },
-    { tag: "C　20 分　约 35 s", head: "三、研究条件", body: "平台与技术条件 · 经费概算及落实", tagColor: GOLD, headColor: GOLD, bodySize: 11.5 },
-    { tag: "D　30 分　约 110 s　分值最高", head: "四、文献综述及研究基础", body: "证据地图与核心分歧 · 第一作者综述 · 预实验结果", tagColor: RED, headColor: RED, bodySize: 11.5 },
-    { tag: "E　10 分　约 25 s", head: "五、总结", body: "三句话收口", tagColor: MUTED, headColor: MUTED, bodySize: 11.5 },
+    { tag: "A　20 分　约 62 s", head: "一、选题依据", body: "临床问题与切入点 · 假说与关键问题 · 创新点\n研究内容 · 理论意义与应用价值 · 预期目标", tagColor: TEAL, headColor: TEAL, bodySize: 11.5 },
+    { tag: "B　20 分　约 80 s", head: "二、研究方法", body: "技术路线 · 三队列四模块\n统计与质控 · 风险预案 · 12 个月进度", tagColor: NAVY, headColor: NAVY, bodySize: 11.5 },
+    { tag: "C　20 分　约 30 s", head: "三、研究条件", body: "学术条件与依托平台 · 实验设备条件\n经费概算、来源与落实 · 伦理", tagColor: GOLD, headColor: GOLD, bodySize: 11.5 },
+    { tag: "D　30 分　约 130 s　分值最高", head: "四、文献综述及研究基础", body: "领域动态与核心分歧 · 文献查阅量化\n第一作者综述 · 预实验结果与局限", tagColor: RED, headColor: RED, bodySize: 11.5 },
+    { tag: "E　10 分　约 22 s", head: "五、总结", body: "三句话收口", tagColor: MUTED, headColor: MUTED, bodySize: 11.5 },
     { tag: "", head: "细节全部保留在备用页", body: "文献、TEM 指标定义、组学决策树、经费明细、\n完整风险表与进度表等，提问时随时调出", tagColor: MUTED, headColor: INK, headSize: 13, bodySize: 11.5 },
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2, h: BODY_H - 0.28 }, { cols: 3, gap: 0.3 });
 }
@@ -244,7 +244,7 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "选题依据：临床问题与切入点", mod: "A", modLabel: "A 选题依据",
     lead: "★ 立论基于近年公开发表的前沿证据，而非课题组既有数据 —— 开题报告正文中已明确声明",
-    notes: "【约 40 s】三句话：一，OSA 相关认知障碍存在治疗缺口，CPAP 对已成神经损伤逆转有限；二，现有机制研究停留在终末效应层面，没回答损伤从何处启动、为何在特定细胞器区域被放大；三，两条公开证据一衔接，就把切入点指向 ERMCS。最后一条补注必须讲——空间首发热点不等于时间起始事件。",
+    notes: "【约 35 s】三句话：一，OSA 相关认知障碍存在治疗缺口，CPAP 对已成神经损伤逆转有限；二，现有机制研究停留在终末效应层面，没回答损伤从何处启动、为何在特定细胞器区域被放大；三，两条公开证据一衔接，就把切入点指向 ERMCS。最后一条补注必须讲——空间首发热点不等于时间起始事件。",
   });
   bullets(s, [
     { text: "临床缺口：CPAP 纠正气道阻塞，对已形成的神经损伤逆转有限，依从性亦差", b: true },
@@ -254,6 +254,7 @@ function contentSlide(spec) {
     { text: "证据一：CIH 海马的脂质过氧化—铁代谢—GPX4/ACSL4 级联已有较充分文献支持", b: true },
     { text: "证据二：Sassano 2025 Nat Cell Biol —— ERMCS 是磷脂过氧化的空间首发热点", b: true },
     { text: "→ 两条证据衔接，提出以 ERMCS 为切入点解释 CIH 海马损伤", b: true, hi: true },
+    "　该衔接属跨系统外推（证据等级 Extrapolated，见第 9 页证据地图）—— 在 CIH 海马中检验它，正是本课题的任务",
     { text: "★ 关键补注：局部磷脂氢过氧化物在时间上先于可测的接触扩张", hi: true },
     { text: "　故几何更宜理解为过氧化「传播与放大」的控制变量，而非时间起始事件", hi: true, b: true },
   ], { x: M, y: BODY_TOP + 0.28, w: 7.6, h: BODY_H - 0.28 }, 12.5);
@@ -264,7 +265,7 @@ function contentSlide(spec) {
 {
   const s = contentSlide({
     title: "科学假说 · 关键科学问题 · 创新点", mod: "A", modLabel: "A 选题依据",
-    notes: "【约 30 s】假说读一遍即可。三个关键问题按现象→因果→机制一句话带过。创新点只讲第②条振荡接触模型——那是最原创的一条。若被问「你到底认为几何是不是起因」：这正是本课题要判定的问题之一，判据来自队列 C。",
+    notes: "【约 27 s】假说读一遍即可。三个关键问题按现象→因果→机制一句话带过。创新点只讲第②条振荡接触模型——那是最原创的一条。右栏的意义与预期目标一句话扫过即可，但必须出现（评分表 A 栏四项细目中的两项）。若被问「你到底认为几何是不是起因」：这正是本课题要判定的问题之一，判据来自队列 C。",
   });
   s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 1.30, rectRadius: 0.07, fill: { color: "FBEEEC" }, line: { color: RED, width: 1.4 } });
   s.addText([
@@ -282,13 +283,19 @@ function contentSlide(spec) {
   ], { x: M, y: BODY_TOP + 1.48, w: 8.5, h: 1.62 }, { cols: 3, gap: 0.24 });
 
   bullets(s, [
+    { text: "研究内容：四个模块 —— ① 表型与 ERMCS 形态学　② CA1 子区 TMT 组学　③ 周期内动态　④ EML 距离梯度因果验证（第 6 页展开）", b: true },
+    { text: "创新点", b: true },
     { text: "① 首次在哺乳动物在体 CIH 海马中检验 ERMCS 几何的因果作用（既有证据均来自非 CIH 细胞体系）", b: true },
     { text: "② 提出并检验「振荡接触」模型，尝试调和文献中相互矛盾的终点观察 —— 本课题最具原创性的一条", b: true, hi: true },
     { text: "③ 首次将 BHD 的神经保护与 ERMCS 结构重塑相联系，并预设依赖性判据（G9 vs G6）", b: true },
     { text: "④ 首次将 EML 距离梯度工具用于中枢神经系统药理学，且不预设剂量-反应形状", b: true },
     { text: "⑤ 建立多层级证据体系并预先锁定统计终点层级；以动物为生物学重复", b: true },
-  ], { x: M, y: BODY_TOP + 3.28, w: 8.5, h: BODY_H - 3.28 }, 11.5);
-  figImage(s, { x: M + 8.85, y: BODY_TOP + 1.48, w: W - M * 2 - 8.85, h: BODY_H - 1.48 }, "figures/f12.png");
+  ], { x: M, y: BODY_TOP + 3.22, w: 8.5, h: BODY_H - 3.22 }, 11);
+  cards(s, [
+    { tag: "理论意义", head: "", body: "把 CIH 海马损伤的解释层级，从并列的分子通路提升到细胞器接触几何这一空间层面", headSize: 1, tagColor: TEAL, bodySize: 10.5 },
+    { tag: "应用价值", head: "", body: "为 OSA 相关认知障碍提供结构层面的上游干预方向；为半夏厚朴汤的临床再评价与二次开发提供实验依据", headSize: 1, tagColor: TEAL, bodySize: 10.5 },
+    { tag: "预期目标与成果", head: "", body: "博士学位论文主体 + SCI 论文 ≥1 篇；L1「BHD 逆转 CIH-ERMCS 重塑」为必胜底，L2–L4 受挫时仍可独立成文", headSize: 1, tagColor: TEAL, bodySize: 10.5 },
+  ], { x: M + 8.85, y: BODY_TOP + 1.48, w: W - M * 2 - 8.85, h: BODY_H - 1.48 }, { cols: 1, gap: 0.16, lineSpacing: 12 });
 }
 
 // —— M5 B 总体技术路线 ——
@@ -296,7 +303,7 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "总体技术路线", mod: "B", modLabel: "B 研究方法",
     lead: "设计原则：先结构、后组学、再因果 —— 分层推进，避免全链条同时失败　·　M6 决策会议为全课题关键节点",
-    notes: "【约 30 s】按箭头顺序走一遍，只点三处：入口是三队列；中间 M6 决策会议锁定下游通路；出口是 EML 距离梯度因果验证。不要展开细节。",
+    notes: "【约 20 s】按箭头顺序走一遍，只点三处：入口是三队列；中间 M6 决策会议锁定下游通路；出口是 EML 距离梯度因果验证。不要展开细节。",
   });
   figImage(s, { x: M, y: BODY_TOP + 0.3, w: W - M * 2, h: BODY_H - 0.3 }, "figures/f15.png");
 }
@@ -306,69 +313,94 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "研究对象、三队列设计与四个研究模块", mod: "B", modLabel: "B 研究方法",
     lead: "C57BL/6J 雄性小鼠　·　造模 21% O₂ ↔ 7.5±0.5% O₂，1 cycle/min，6 h/d × 6 周　·　BHD 7.01 g/kg/d 灌胃",
-    notes: "【约 35 s】重点讲队列 C：把原来三个慢性时点改成复氧相即刻取材，与队列 A 的慢性时点构成急性-慢性对照，这是检验振荡接触模型的关键。队列 B 不做行为学是为避免应激干扰组学，要主动说。",
+    notes: "【约 30 s】重点讲队列 C：队列 A 与 C 处于同一慢性暴露背景（均 6 周），差别只在取材相位——A 在末次暴露后次日晨，C 在末次循环复氧相结束即刻。这样才能把「周期内瞬变」与「慢性漂移」分开，这是检验振荡接触模型的关键。队列 B 不做行为学是为避免应激干扰组学，队列 C 不设加药组是因为它回答的不是药效问题——这两点都要主动说，否则会被当成设计漏洞追问。",
   });
   table(s, ["队列", "分组与样本量", "取材时点", "主要读出"], [
-    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 慢性时点", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
+    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 末次暴露后次日晨（非复氧相）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
     [{ t: "队列 B", b: true }, "Sham / CIH / CIH+BHD，n=4/组，共 12 只", "CIH 结束次日晨（不做行为学，避免应激干扰组学）", "CA1 显微切割 ＋ TMT 16-plex 蛋白组学"],
-    [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "单次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
+    [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "W6 末次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2 }, [1.3, 3.5, 4.2, 5.23]);
   cards(s, [
     { tag: "模块一 · 队列 A", head: "表型与 ERMCS 形态学", body: "行为学 ＋ 海马病理 ＋ TEM 五指标 ＋ 原位 PLA", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
     { tag: "模块二 · 队列 B", head: "CA1 子区 TMT 组学", body: "显微切割 ＋ 16-plex ＋ 双轴生信 → 锁定下游通路", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
     { tag: "模块三 · 队列 C", head: "周期内动态", body: "复氧相急性时点 vs 慢性时点，检验相位结构", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
     { tag: "模块四 · 体外", head: "EML 距离梯度因果验证", body: "HT22 + H/R；15 / 20 / 30 nm 三档；检验剂量反应", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
-  ], { x: M, y: BODY_TOP + 2.75, w: W - M * 2, h: 1.55 }, { cols: 4, gap: 0.24 });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.50, w: W - M * 2, h: 0.76, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
+  ], { x: M, y: BODY_TOP + 2.72, w: W - M * 2, h: 1.42 }, { cols: 4, gap: 0.24, lineSpacing: 16 });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.64, w: W - M * 2, h: 0.94, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
   s.addText([
-    { text: "总动物数 52 只（24 + 12 + 16），计 15% 备用后购买 60 只　·　", options: { fontFace: FONT, fontSize: 12, bold: true, color: NAVY } },
-    { text: "分层保底：即使 L2–L4 受挫，「CIH 是否伴随 ERMCS 重塑、BHD 能否逆转」这一层仍可独立成文", options: { fontFace: FONT, fontSize: 12, color: INK } },
-  ], { x: M + 0.2, y: H - 1.42, w: W - M * 2 - 0.4, h: 0.60, margin: 0, valign: "middle" });
+    { text: "总动物数 52 只（24+12+16），计 15% 备用后购买 60 只　·　n=8/组 依 ERMICC_std 效应量与设计效应测算（ICC=0.2，40 点/鼠 ≈ 4.55 有效独立观测）\n", options: { fontFace: FONT, fontSize: 10.5, color: INK, breakLine: true } },
+    { text: "队列 A 与 C 同一慢性暴露背景、仅取材相位不同 → 分离「周期内瞬变」与「慢性漂移」；队列 C 不设加药组：它回答因果位置，药效判读在队列 A 与体外 G9 vs G6", options: { fontFace: FONT, fontSize: 10.5, bold: true, color: NAVY } },
+  ], { x: M + 0.2, y: H - 1.54, w: W - M * 2 - 0.4, h: 0.74, margin: 0, valign: "middle", lineSpacing: 15 });
 }
 
 // —— M7 B 统计 · 质控 · 风险 · 进度 ——
 {
   const s = contentSlide({
-    title: "统计设计、质量控制与风险预案", mod: "B", modLabel: "B 研究方法",
-    notes: "【约 25 s】只讲两句：第一，实验单位是动物不是接触点，报 n 必须报动物数，否则构成伪重复；第二，右侧三项方法学局限是我自己在综述里提出的判据，主动交代，不等评委问。进度一句话带过。",
+    title: "统计设计、质量控制、风险预案与进度", mod: "B", modLabel: "B 研究方法",
+    notes: "【约 30 s】只讲三句：第一，主要终点是唯一的 ERMICC_std，三级终点分层在揭盲前锁定；第二，实验单位是动物不是接触点，报 n 必须报动物数，否则构成伪重复；第三，右侧三项方法学局限是我自己在综述里提出的判据，主动交代。进度条指一下 M6 决策会议即可，不要逐条念。若被问毕业时间：M1 起算的十二个月完成主体数据与成文，之后预留送审与答辩窗口（起始月与预留期见图注）。",
   });
   bullets(s, [
+    { text: "★ 主要终点（唯一）：ERMICC_std，双侧 α=0.05；关键次要终点：接触覆盖率、平均最小膜间距（Bonferroni α=0.025）；余为探索性（BH-FDR）", b: true, hi: true },
+    { text: "　三级终点分层与全部几何终点的双侧检验，均于揭盲前锁定", b: true },
     { text: "★ TEM 的 ERMCS 指标采用线性混合效应模型：指标 ~ 组别 + (1 | 动物/神经元)", b: true, hi: true },
-    { text: "　数据三层嵌套（接触点 ⊂ 神经元 ⊂ 动物），实验单位是动物而非接触点", b: true },
-    { text: "　报 n 必须报动物数，严禁以接触点数作 n —— 那构成伪重复，会低估标准误", hi: true },
+    { text: "　数据三层嵌套（接触点 ⊂ 神经元 ⊂ 动物），实验单位是动物而非接触点；报 n 必须报动物数，严禁以接触点数作 n —— 那构成伪重复，会低估标准误", hi: true },
     "三组比较 one-way ANOVA + Tukey（正态）／ Kruskal-Wallis + Dunn；组学 BH-FDR 校正",
-    { text: "★ 几何终点全部双侧检验；距离-结局关系形状不预设，两步检验（omnibus → 线性与二次对比并列拟合）", b: true },
-    "三级 TEM 终点分层于揭盲前锁定；戊二醛储存天数作协变量；效应量必报；全程双盲编码",
-    { text: "进度：M1 伦理与动物到位 → M2 队列 C → M3–M5 队列 A/B 与组学 → M6 决策会议 → M9 EML 因果实验 → M10–M12 成文", b: true },
-  ], { x: M, y: BODY_TOP, w: 7.3, h: BODY_H }, 12);
-  cards(s, [
-    { tag: "主动交代 · 方法学局限", head: "S1　以 2D TEM 而非 3D 电镜量化", body: "→ 以组间相对差异为结论依据，系统随机取样 + 双盲仲裁；3D EM 列为后续基金方向", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 11, fill: "FBEEEC", line: "E8C4BE" },
-    { tag: "主动交代 · 方法学局限", head: "S2　队列 C 仅一个周期内时点", body: "→ 定位为「首个周期内时点」，足以回答最小判别问题；完整相位序列另行立项", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 11, fill: "FBEEEC", line: "E8C4BE" },
-    { tag: "主动交代 · 方法学局限", head: "S3　铁死亡因果依组学判定，无遗传操作", body: "→ 不预设下游为铁死亡；若组学指向铁死亡，再补两种机制不同的 rescue", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 11, fill: "FBEEEC", line: "E8C4BE" },
-    { tag: "其他风险", head: "阴性结果 · 方向相反 · 质粒延迟", body: "阴性如实报告；方向相反可提「急性扩张＋慢性破坏」时程模型；质粒四级获取路径已备", tagColor: MUTED, headColor: NAVY, headSize: 12.5, bodySize: 11 },
-  ], { x: M + 7.65, y: BODY_TOP, w: W - M * 2 - 7.65, h: BODY_H }, { cols: 1, gap: 0.14, lineSpacing: 16 });
+    { text: "距离-结局关系形状不预设，两步检验：omnibus → 线性对比与二次对比在同一模型内并列拟合", b: true },
+    "戊二醛储存天数作协变量；体重作协变量；效应量必报；全程双盲编码与双人独立定量",
+    { text: "其他风险：阴性结果如实报告；几何方向若与预期相反，可提「急性扩张 + 慢性破坏」时程模型（情形 H）；EML 质粒四级获取路径已备", b: true },
+  ], { x: M, y: BODY_TOP, w: 7.3, h: 3.30 }, 11.5);
+
+  s.addShape(pres.ShapeType.roundRect, { x: M + 7.65, y: BODY_TOP, w: W - M * 2 - 7.65, h: 3.30, rectRadius: 0.07, fill: { color: "FBEEEC" }, line: { color: "E8C4BE", width: 1.4 } });
+  s.addText([
+    { text: "★ 主动交代 · 三项方法学局限\n", options: { fontFace: FONT, fontSize: 12, bold: true, color: RED, breakLine: true } },
+    { text: "均出自本人综述提出的「决定性实验」判据\n", options: { fontFace: FONT, fontSize: 10, color: MUTED, breakLine: true } },
+    { text: "S1　以 2D TEM 而非 3D 电镜量化\n", options: { fontFace: FONT, fontSize: 10, bold: true, color: NAVY, breakLine: true } },
+    { text: "→ 以组间相对差异为结论依据；系统随机取样 + 双盲定量 + 第三方仲裁；3D EM 列为后续基金方向\n", options: { fontFace: FONT, fontSize: 10, color: INK, breakLine: true } },
+    { text: "S2　队列 C 仅一个周期内时点，非完整相位序列\n", options: { fontFace: FONT, fontSize: 10, bold: true, color: NAVY, breakLine: true } },
+    { text: "→ 定位为「首个周期内时点」，足以回答最小判别问题；完整相位序列另行立项\n", options: { fontFace: FONT, fontSize: 10, color: INK, breakLine: true } },
+    { text: "S3　铁死亡因果依组学判定，无遗传操作\n", options: { fontFace: FONT, fontSize: 10, bold: true, color: NAVY, breakLine: true } },
+    { text: "→ 不预设下游为铁死亡；若组学指向铁死亡，再补两种机制不同的 rescue", options: { fontFace: FONT, fontSize: 10, color: INK } },
+  ], { x: M + 7.81, y: BODY_TOP + 0.12, w: W - M * 2 - 7.97, h: 3.06, margin: 0, valign: "top", lineSpacing: 12 });
+
+  figImage(s, { x: 0.74, y: BODY_TOP + 3.48, w: 11.86, h: 1.80 }, "figures/fp5.png");
 }
 
 // —— M8 C 研究条件 ——
 {
   const s = contentSlide({
-    title: "研究条件：平台、技术与经费", mod: "C", modLabel: "C 研究条件",
-    lead: "多数为成熟共享平台；TEM 与 TMT 组学要求高，已配套波动控制措施　·　总预算 14.85 万元",
-    notes: "【约 35 s】讲快。一句：所需平台均为校内共享或成熟外协，两项要求高的已配套控制措施；经费 14.85 万控制在 15 万以内，核心问题优先、拓展验证递进。",
+    title: "研究条件：学术条件、实验平台、经费与伦理", mod: "C", modLabel: "C 研究条件",
+    notes: "【约 30 s】按评分表 C 栏三项细目走：一，学术条件——导师团队方向对口，且造模与行为学流程已由本人跑过一轮；二，设备条件——所需平台均为校内共享或成熟外协，两项要求高的已配套控制措施；三，经费——14.85 万控制在 15 万以内，来源已落实，核心问题优先、拓展验证递进。伦理一句话带过：按 60 只动物报批，M1 完成。",
   });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 0.86, rectRadius: 0.07, fill: { color: "FBF3E2" }, line: { color: GOLD, width: 1.4 } });
+  s.addText([
+    { text: "学术条件　", options: { fontFace: FONT, fontSize: 12, bold: true, color: GOLD } },
+    { text: "依托学科：重庆医科大学【填】老年医学　·　导师：吕　洋 教授（睡眠呼吸障碍与神经损伤机制）\n", options: { fontFace: FONT, fontSize: 11.5, color: INK, breakLine: true } },
+    { text: "本人已完成：系统文献调研与第一作者机制综述（初稿）· 4 周 CIH 造模验证 · 行为学全流程预试并完成范式修订", options: { fontFace: FONT, fontSize: 11.5, color: INK } },
+  ], { x: M + 0.2, y: BODY_TOP + 0.06, w: W - M * 2 - 0.4, h: 0.74, margin: 0, valign: "middle", lineSpacing: 16 });
+
   table(s, ["所需平台 / 技术", "落实方式", "成熟度", "波动风险控制"], [
-    ["动物平台、CIH 造模舱", "校内共享", { t: "成熟", b: true }, "每周 SpO₂ 抽测；双 O₂ 监测、漏气报警、紧急制氧"],
-    ["行为学（MWM / NOR / 旷场）", "校内共享，已跑通", { t: "成熟", b: true }, "全程操作与分析双盲；范式修订已完成（见研究基础）"],
-    ["透射电镜", "校内共享（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "标准化固定 SOP、全组配平、系统随机取样、双盲两人独立定量 + 第三方仲裁", hi: true }],
+    ["动物平台、CIH 造模舱", "校内共享；已完成 4 周造模验证", { t: "已跑通", b: true }, "每周 SpO₂ 抽测；双 O₂ 监测、漏气报警、紧急制氧"],
+    ["行为学（MWM / NOR / 旷场）", "校内共享；已完成流程预试", { t: "需复测", b: true, hi: true }, { t: "六项修正已落实，待复测（第 12 页）；MWM 为记忆学主判据", hi: true }],
+    ["透射电镜", "校内共享（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "固定 SOP、全组配平、系统随机取样、双盲定量 + 第三方仲裁", hi: true }],
     ["蛋白组学 TMT 16-plex", "外协成熟路径", { t: "要求高", b: true, hi: true }, { t: "单设组学队列避免行为学应激；4 个 pooled QC 通道；CV<20%", hi: true }],
-    ["病理/免疫组化、共聚焦 PLA、分子与细胞培养", "校内共享 + 病理科外协", { t: "成熟", b: true }, "统一批次；PLA 四类对照同批处理；转染效率预实验验证"],
-  ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2 }, [3.0, 2.9, 1.35, 4.98]);
-  table(s, ["科目", "万元", "主要用途"], [
+    ["病理 / IHC、共聚焦 PLA、细胞培养", "校内共享 + 病理科外协", { t: "成熟", b: true }, "统一批次；PLA 四类对照同批处理；转染效率预试验证"],
+  ], { x: M, y: BODY_TOP + 0.94, w: W - M * 2 }, [3.0, 2.9, 1.35, 4.98]);
+
+  table(s, ["经费科目", "万元", "主要用途 / 落实情况"], [
     [{ t: "材料费", b: true }, { t: "6.95", b: true }, "动物、药材、抗体、试剂盒、Addgene 质粒、细胞耗材"],
     [{ t: "测试化验加工费", b: true }, { t: "5.90", b: true }, "TMT 组学、TEM、PLA、共聚焦机时、外协检测"],
     ["劳务 / 出版 / 差旅", "2.00", "研究生劳务、论文发表与文献、学术交流"],
     [{ t: "合计", b: true }, { t: "14.85", b: true, hi: true }, { t: "严格控制在 15 万元以内；核心问题优先，拓展验证递进", b: true }],
-  ], { x: M, y: BODY_TOP + 3.15, w: W - M * 2 }, [2.4, 1.3, 8.53]);
+    [{ t: "经费来源", b: true, hi: true }, { t: "【填】", b: true, hi: true }, { t: "【填：导师课题编号 / 科室经费 / 研究生创新项目】　已落实【填】万元", b: true, hi: true }],
+  ], { x: M, y: BODY_TOP + 3.25, w: 8.35 }, [1.9, 1.0, 5.45]);
+
+  s.addShape(pres.ShapeType.roundRect, { x: M + 8.70, y: BODY_TOP + 3.25, w: W - M * 2 - 8.70, h: 1.90, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
+  bullets(s, [
+    { text: "伦理与学术规范", b: true },
+    "IACUC：按 60 只动物（含队列 A/B/C）报批，计划 M1 完成审查，批件下达前不启动动物实验",
+    "3R：队列 B 不做行为学、队列 C 与 A 共用慢性背景，均为减少动物用量的设计",
+    "原始数据按 FAIR 原则归档（组学数据拟存 PRIDE / GEO）",
+  ], { x: M + 8.88, y: BODY_TOP + 3.35, w: W - M * 2 - 9.06, h: 1.70 }, 10.5);
 }
 
 // —— M9 D 文献综述 ——
@@ -376,7 +408,7 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "文献综述：证据地图与核心分歧", mod: "D", modLabel: "D 文献综述",
     lead: "PubMed + Web of Science，建库至 2026 年 7 月，四组检索词交叉　·　逐篇标注证据等级与实验系统",
-    notes: "【约 40 s】这一页要传达的是「不只是读过文献，而是对文献做了分级评估」。核心一句：跨系统外推的推理距离是显式可见的。分歧一栏要点出——提示破坏的两项恰是间歇低氧＋哺乳动物在体，与本模型最接近，所以我不预设方向。",
+    notes: "【约 33 s】这一页要传达的是「不只是读过文献，而是对文献做了分级评估」。检索漏斗的四个数字必须是真实数字，不得估算——评委会问「你精读了多少篇」。核心一句：跨系统外推的推理距离是显式可见的。分歧一栏要点出——提示破坏的两项恰是间歇低氧＋哺乳动物在体，与本模型最接近，所以我不预设方向。",
   });
   table(s, ["证据域", "实验系统", "已直接证明", "对 CIH 海马 CA1 仍未证明", "等级"], [
     ["CIH 与认知", "大鼠 / 小鼠在体", "空间学习、氧化应激、CA1 突触可塑性改变", "低氧血症、睡眠片段化与共病的相对贡献未分离", { t: "Direct", b: true }],
@@ -387,18 +419,19 @@ function contentSlide(spec) {
   cards(s, [
     { tag: "核心分歧 · 提示接触扩张", head: "Sassano 2025 肿瘤细胞　Yan 2026 鱼肝细胞（持续低氧）　Jiang 2026 小鼠脊髓神经元（SCI）", body: "", tagColor: BLUE, headColor: BLUE, headSize: 11.5, fill: "EDF3FA", line: "C4D9EE" },
     { tag: "核心分歧 · 提示接触破坏 / 系链解体", head: "Moulin 2022 小鼠心 ＋ 人心房（IH 21 d）　Zhai 2026 小鼠脑 DA 神经元（CIH）", body: "", tagColor: RED, headColor: RED, headSize: 11.5, fill: "FBEEEC", line: "E8C4BE" },
-  ], { x: M, y: BODY_TOP + 3.55, w: W - M * 2, h: 1.02 }, { cols: 2, gap: 0.3, lineSpacing: 16 });
-  s.addText("★ 提示破坏的两项恰是「间歇低氧 ＋ 哺乳动物在体」，与本课题模型最接近 → 故对全部几何终点采用双侧检验，方向由数据判定", {
-    x: M, y: H - 1.30, w: W - M * 2, h: 0.5, margin: 0,
-    fontFace: FONT, fontSize: 12.5, bold: true, color: NAVY, valign: "middle",
-  });
+  ], { x: M, y: BODY_TOP + 3.45, w: W - M * 2, h: 1.02 }, { cols: 2, gap: 0.3, lineSpacing: 16 });
+  s.addText([
+    { text: "文献查阅　", options: { fontFace: FONT, fontSize: 11.5, bold: true, color: MUTED } },
+    { text: "检索命中【填】篇 → 去重初筛后【填】篇 → 全文精读【填】篇 → 引用【填】篇（近 5 年占【填】%）；另手工追溯核心文献的参考与引证文献\n", options: { fontFace: FONT, fontSize: 11.5, color: INK, breakLine: true } },
+    { text: "★ 提示破坏的两项恰是「间歇低氧 ＋ 哺乳动物在体」，与本课题模型最接近 → 故对全部几何终点采用双侧检验，方向由数据判定", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: NAVY } },
+  ], { x: M, y: H - 1.58, w: W - M * 2, h: 0.86, margin: 0, valign: "middle", lineSpacing: 17 });
 }
 
 // —— M10 D 研究基础① 综述与方法学准备 ——
 {
   const s = contentSlide({
     title: "研究基础①：第一作者综述与方法学准备", mod: "D", modLabel: "D 研究基础",
-    notes: "【约 30 s】开口第一句：本课题的科学问题不是临时想到的，是我系统梳理这个领域之后自己提出并写成文章的框架。综述提出的振荡接触模型、四级证据分级、三模型证伪标准，就是本开题报告第 A、B、D 三部分的骨架。",
+    notes: "【约 25 s】开口第一句：本课题的科学问题不是临时想到的，是我系统梳理这个领域之后自己提出并写成文章的框架。综述提出的振荡接触模型、四级证据分级、三模型证伪标准，就是本开题报告第 A、B、D 三部分的骨架。",
   });
   s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 1.72, rectRadius: 0.08, fill: { color: "FBF3E2" }, line: { color: GOLD, width: 1.5 } });
   s.addText([
@@ -424,14 +457,14 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "研究基础②：预实验结果 —— 造模成立，行为学呈方向性信号", mod: "D", modLabel: "D 研究基础",
     lead: "Pilot V4.5 赛道 A　·　C57BL/6J 雄性 9 只，Sham / CIH / CIH+BHD 各 n=3　·　CIH 6 h/d × 4 周　·　均值±SD",
-    notes: "【约 40 s】两句话：第一，造模成立——三组增重范围完全不重叠，CIH 较 Sham 少 41.9%；第二，运动与探索动机四项指标方向完全一致，Sham 正常、CIH 恶化、加药回复，且与体重无关。第三句必须主动交代：CIH+BHD 增重比 CIH 还低，提示可能有胃肠道反应，主实验已有对策。n=3 只作方向性判断，不用来推算样本量。",
+    notes: "【约 37 s】三句话：第一，造模成立——三组增重范围完全不重叠，CIH 较 Sham 少 41.9%；第二，不依赖物体区域判定的三项轨迹与姿态指标方向完全一致，Sham 正常、CIH 恶化、加药回复；第三，依赖区域判定的两项（新物体潜伏期、分析区进入次数）与 DI 共用同一个被判定为有误的判定点，本轮不作为独立证据——这一层要自己讲，讲了是严谨，被问出来是漏洞。最后交代增重悖论：加药组增重更低但活动量更高，这恰恰说明活动量差异不是体重掉出来的。n=3 只作方向性判断，不用来推算样本量。",
   });
-  figImage(s, { x: M, y: BODY_TOP + 0.30, w: W - M * 2, h: 3.55 }, "figures/fp4.png");
+  figImage(s, { x: 0.87, y: BODY_TOP + 0.30, w: 11.60, h: 3.71 }, "figures/fp4.png");
   cards(s, [
-    { tag: "结论一 · 造模", head: "4 周 CIH 造模成立", body: "三组 28 d 增重完全不重叠（P<0.001）；CIH 较 Sham 减少 41.9%，d = −9.05，与文献报道的间歇低氧表型一致", tagColor: RED, headColor: RED, headSize: 13, bodySize: 11 },
-    { tag: "结论二 · 行为学", head: "四项指标方向一致", body: "总路程、不动时间、新物体潜伏期、蜷缩时间均呈 Sham 正常→CIH 恶化→加药回复；熟悉期分析区进入次数 P=0.024（本轮唯一 P<0.05）", tagColor: BLUE, headColor: BLUE, headSize: 13, bodySize: 11 },
-    { tag: "★ 主动交代", head: "CIH+BHD 增重低于 CIH", body: "1.30 vs 2.40 g（d = −11.00），提示 7.01 g/kg/d 可能存在胃肠道反应或摄食抑制 → 主实验增加摄食饮水监测，并考虑设半剂量组", tagColor: GOLD, headColor: GOLD, headSize: 13, bodySize: 11, fill: "FBF3E2", line: "E4D2A8" },
-  ], { x: M, y: BODY_TOP + 3.98, w: W - M * 2, h: BODY_H - 3.98 }, { cols: 3, gap: 0.28, lineSpacing: 16 });
+    { tag: "结论一 · 造模成立", head: "三组增重完全不重叠", body: "P<0.001；CIH 较 Sham 减少 41.9%（d = −9.05），与文献报道的间歇低氧表型一致 → 4 周造模有效", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 10 },
+    { tag: "结论二 · 可用证据", head: "三项轨迹 / 姿态指标方向一致", body: "总路程、不动时间、蜷缩姿态：Sham 正常 → CIH 恶化 → 加药回复，均达预设方向性信号标准", tagColor: BLUE, headColor: BLUE, headSize: 12.5, bodySize: 10 },
+    { tag: "★ 主动交代", head: "两项须降级 · 增重悖论", body: "新物体潜伏期与分析区进入次数依赖区域判定，与 DI 同受影响；加药组增重更低而活动量更高 → 活动量差异非体重驱动（主实验以体重为协变量）", tagColor: GOLD, headColor: GOLD, headSize: 12.5, bodySize: 10, fill: "FBF3E2", line: "E4D2A8" },
+  ], { x: M, y: BODY_TOP + 4.14, w: W - M * 2, h: BODY_H - 4.14 }, { cols: 3, gap: 0.28, lineSpacing: 13 });
 }
 
 // —— M12 D 研究基础③ 预实验局限与修正 ——
@@ -439,12 +472,13 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "研究基础③：预实验的局限与主实验修正", mod: "D", modLabel: "D 研究基础",
     lead: "★ 主动交代：本轮新物体识别未建立有效读出，尚不能判断 CIH 对识别记忆的影响，亦不能判断 BHD 的干预效应",
-    notes: "【约 40 s】这一页是加分项，不要跳。关键一句：正常对照组自己都没有表现出可靠的新物体偏好，那么任何组间比较都不可解释——所以我不拿这一轮的 DI 说事。六条局限都是自己查出来的，且每条都有修正方案；最后一句讲判读规则：TEM 的 ERMCS 量化才是决定主实验能否开展的唯一核心指标，行为学本轮未获支持不构成 No-Go。",
+    notes: "【约 35 s】这一页是加分项，不要跳。关键一句：正常对照组自己都没有表现出可靠的新物体偏好，那么任何组间比较都不可解释——所以我不拿这一轮的 DI 说事。六条局限都是自己查出来的，且每条都有修正方案；最后一句讲判读规则：TEM 的 ERMCS 量化才是决定主实验能否开展的唯一核心指标，行为学本轮未获支持不构成 No-Go。",
   });
   figImage(s, { x: M, y: BODY_TOP + 0.30, w: 6.15, h: 3.87 }, "figures/fp3.png");
   bullets(s, [
     { text: "六项局限主要来自方法学而非样本量 —— 逐项已有修正", b: true },
     { text: "① 探索以身体中心点落区计时　→ 改鼻尖点判定（朝向物体、≤2 cm、伴嗅闻触碰），抽 2–3 只人工双盲计时校验（ICC ≥0.80）", hi: true },
+    { text: "　该判定点同时波及 DI、新物体接近潜伏期、熟悉期分析区进入次数 —— 三者本轮一并降级；总路程 / 不动时间 / 蜷缩姿态为纯轨迹与姿态指标，不经区域判定，故仍可用（第 11 页即按此分层）", b: true, hi: true },
     "② 熟悉期原定 2 天实际执行 1 天　→ 恢复 2 天训练",
     "③ 物体种类与左右位置未平衡　→ 动物间做双重平衡",
     "④ 运行顺序与分组共线　→ 改为组间交错随机",
@@ -502,7 +536,7 @@ function contentSlide(spec) {
     { tag: "C 研究条件", head: "P38–P39", body: "平台与技术条件全表 · 经费概算与落实路径（含预算构成图）", tagColor: GOLD, headColor: GOLD, headSize: 15, bodySize: 11 },
     { tag: "D 文献与研究基础", head: "P40–P48", body: "检索策略 · 研究进展时间轴 · 核心分歧详解 · BHD 进展与不足 · 预实验四页（造模 / 运动与动机 / NOR / 局限）· 后续预实验计划 P1–P6", tagColor: RED, headColor: RED, headSize: 15, bodySize: 11 },
     { tag: "B1–B10 补充资料", head: "P49–P58", body: "完整参考文献 · 造模参数与 SpO₂ 监测 · TEM 五指标定义与公式 · 样本量与设计效应测算 · EML 质粒清单与获取路径 · 抗体核查表 · 组学决策树八情形 · 伦理与数据管理 · 经费明细 · 公开数据集横向比较", tagColor: MUTED, headColor: MUTED, headSize: 15, bodySize: 11 },
-    { tag: "最常被追问", head: "四处预演答案", body: "① 实验单位是动物不是接触点（伪重复）\n② 2D TEM 与 3D EM 的取舍\n③ 预实验 Sham 组 DI 不显著怎么办\n④ 几何是起因还是放大环节", tagColor: RED, headColor: INK, headSize: 15, bodySize: 11, fill: "FBEEEC", line: "E8C4BE" },
+    { tag: "最常被追问", head: "六处预演答案", body: "① 实验单位是动物不是接触点（伪重复）\n② 2D TEM 与 3D EM 的取舍\n③ Sham 组 DI 不显著，这批数据还能用吗\n④ 几何是起因还是放大环节\n⑤ 队列 C 为什么不设加药组\n⑥ 经费来源与伦理批件到位情况", tagColor: RED, headColor: INK, headSize: 15, bodySize: 10.5, fill: "FBEEEC", line: "E8C4BE" },
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2, h: BODY_H - 0.28 }, { cols: 3, gap: 0.28 });
 }
 
@@ -664,9 +698,9 @@ BACKUP = true;
     { text: "三组：Sham（常氧＋生理盐水）／ CIH（＋生理盐水）／ CIH+BHD（7.01 g/kg/d 灌胃）", b: true },
   ], { x: M, y: BODY_TOP, w: W - M * 2, h: 1.62 }, 12.5);
   table(s, ["队列", "分组与样本量", "取材时点", "主要读出"], [
-    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 慢性时点", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
+    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 末次暴露后次日晨（非复氧相）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
     [{ t: "队列 B", b: true }, "Sham / CIH / CIH+BHD，n=4/组，共 12 只", "CIH 结束次日晨（不做行为学，避免应激干扰组学）", "CA1 显微切割 ＋ TMT 16-plex 蛋白组学"],
-    [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "单次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
+    [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "W6 末次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
   ], { x: M, y: BODY_TOP + 1.75, w: W - M * 2 }, [1.3, 3.5, 4.2, 5.23]);
   s.addText("总动物数 52 只（24 + 12 + 16），考虑 15% 备用后计划购买 60 只", {
     x: M, y: H - 1.35, w: W - M * 2, h: 0.36, margin: 0, fontFace: FONT, fontSize: 12.5, bold: true, color: NAVY, valign: "middle",
@@ -980,7 +1014,7 @@ BACKUP = true;
     ["动物实验平台、CIH 造模舱", "校内共享", { t: "成熟", b: true }, "每周 SpO₂ 抽测；双 O₂ 监测、漏气报警、紧急制氧"],
     ["行为学（MWM / NOR / 旷场）", "校内共享（已跑通，见预实验各页）", { t: "成熟", b: true }, "全程操作与分析双盲；范式修订已完成"],
     ["海马病理学与免疫组化", "校内共享 + 病理科外协", { t: "成熟", b: true }, "外协 IHC 60 张，统一批次"],
-    ["透射电镜", "校内共享平台（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "标准化固定 SOP、全组配平、系统随机取样、双盲两人独立定量 + 第三方仲裁", hi: true }],
+    ["透射电镜", "校内共享平台（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "固定 SOP、全组配平、系统随机取样、双盲定量 + 第三方仲裁", hi: true }],
     ["共聚焦显微平台（PLA）", "校内共享", { t: "成熟", b: true }, "四类对照同批处理"],
     ["蛋白组学（TMT 16-plex）", "外协成熟路径", { t: "要求高", b: true, hi: true }, { t: "单独设组学队列避免行为学应激；4 个 pooled QC 通道；CV<20%", hi: true }],
     ["分子生物学与细胞培养", "课题组 + 校内共享", { t: "成熟", b: true }, "转染效率预实验验证（P5）"],
@@ -1132,8 +1166,8 @@ BACKUP = true;
 {
   const s = contentSlide({
     title: "预实验：运动与探索动机指标", mod: "D", modLabel: "D 研究基础",
-    lead: "四项指标方向一致：Sham 正常 → CIH 恶化 → CIH+BHD 回复",
-    notes: "这是本轮最有分量的一组结果。四项指标方向完全一致，且都达到预设的方向性信号标准。要点出相关分析：这些差异与体重无关（|r|≤0.13），否则评委会怀疑是掉体重掉出来的。",
+    lead: "★ 须按是否经过物体区域判定分层：轨迹 / 姿态三项可用；新物体潜伏期与分析区进入次数与 DI 同源，降级为提示",
+    notes: "这是本轮最有分量的一组结果，但必须分层讲。总路程、不动时间、蜷缩姿态是纯轨迹与姿态指标，不经过物体区域判定，方向一致且达预设方向性信号标准；新物体接近潜伏期与熟悉期分析区进入次数依赖与 DI 相同的区域判定点，本轮一并降级。相关分析只作提示：n=9 功效有限，主实验以体重为协变量。",
   });
   figImage(s, { x: M, y: BODY_TOP + 0.30, w: W - M * 2, h: BODY_H - 0.30 }, "figures/fp2.png");
 }
