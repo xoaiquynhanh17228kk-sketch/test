@@ -370,18 +370,18 @@ function contentSlide(spec) {
 {
   const s = contentSlide({
     title: "研究条件：学术条件、实验平台、经费与伦理", mod: "C", modLabel: "C 研究条件",
-    notes: "【约 30 s】按评分表 C 栏三项细目走：一，学术条件——导师团队方向对口，且造模与行为学流程已由本人跑过一轮；二，设备条件——所需平台均为校内共享或成熟外协，两项要求高的已配套控制措施；三，经费——14.85 万控制在 15 万以内，来源已落实，核心问题优先、拓展验证递进。伦理一句话带过：按 60 只动物报批，M1 完成。",
+    notes: "【约 30 s】按评分表 C 栏三项细目走：一，学术条件——导师团队方向对口，且造模与行为学流程已由本人跑过一轮；二，设备条件——所需平台均为校内共享或成熟外协，两项要求高的已配套控制措施；若被问 MWM 有没有跑过，如实答：这一轮预实验只做了 NOR，MWM 与旷场排在 M1 预试；三，经费——14.85 万控制在 15 万以内，来源已落实，核心问题优先、拓展验证递进。伦理一句话带过：按 60 只动物报批，M1 完成。",
   });
   s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 0.86, rectRadius: 0.07, fill: { color: "FBF3E2" }, line: { color: GOLD, width: 1.4 } });
   s.addText([
     { text: "学术条件　", options: { fontFace: FONT, fontSize: 12, bold: true, color: GOLD } },
     { text: "依托学科：重庆医科大学【填】老年医学　·　导师：吕　洋 教授（睡眠呼吸障碍与神经损伤机制）\n", options: { fontFace: FONT, fontSize: 11.5, color: INK, breakLine: true } },
-    { text: "已完成：文献调研与第一作者综述（初稿）· 4 周 CIH 造模验证 · 行为学流程预试与范式修订（方案与数据分析由本人完成，动物实验委托【填】平台执行）", options: { fontFace: FONT, fontSize: 11, color: INK } },
+    { text: "本人 / 课题组已自行完成：文献调研与第一作者综述（初稿）· 4 周 CIH 造模验证 · NOR 流程预试与范式修订 · 海马组织取材固定（TEM 制样中）", options: { fontFace: FONT, fontSize: 11, color: INK } },
   ], { x: M + 0.2, y: BODY_TOP + 0.06, w: W - M * 2 - 0.4, h: 0.74, margin: 0, valign: "middle", lineSpacing: 16 });
 
   table(s, ["所需平台 / 技术", "落实方式", "成熟度", "波动风险控制"], [
     ["动物平台、CIH 造模舱", "校内共享；已完成 4 周造模验证", { t: "已跑通", b: true }, "每周 SpO₂ 抽测；双 O₂ 监测、漏气报警、紧急制氧"],
-    ["行为学（MWM / NOR / 旷场）", "校内共享；已完成流程预试", { t: "需复测", b: true, hi: true }, { t: "六项修正已落实，待复测（第 12 页）；MWM 为记忆学主判据", hi: true }],
+    ["行为学：NOR / MWM / 旷场", { t: "校内共享；本轮仅 NOR 完成预试", b: true, hi: true }, { t: "NOR 需复测\nMWM 待预试", b: true, hi: true }, { t: "NOR 六项修正已落实待复测（第 12 页）；MWM 为主实验记忆学主判据，尚未预试，排入 M1 完成参数标定", hi: true }],
     ["透射电镜", "校内共享（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "固定 SOP、全组配平、系统随机取样、双盲定量 + 第三方仲裁", hi: true }],
     ["蛋白组学 TMT 16-plex", "外协成熟路径", { t: "要求高", b: true, hi: true }, { t: "单设组学队列避免行为学应激；4 个 pooled QC 通道；CV<20%", hi: true }],
     ["病理 / IHC、共聚焦 PLA、细胞培养", "校内共享 + 病理科外协", { t: "成熟", b: true }, "统一批次；PLA 四类对照同批处理；转染效率预试验证"],
@@ -449,7 +449,7 @@ function contentSlide(spec) {
   s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP + 4.25, w: W - M * 2, h: 0.72, rectRadius: 0.07, fill: { color: "EDF3FA" }, line: { color: BLUE, width: 1.5 } });
   s.addText([
     { text: "④ 已完成预实验：", options: { fontFace: FONT, fontSize: 13, bold: true, color: BLUE } },
-    { text: "Pilot V4.5 赛道 A 体内预实验（Sham / CIH / CIH+BHD 各 n=3，CIH 4 周）—— 造模成立　→ 见下两页", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
+    { text: "预实验（2026-07-22 轮次；Sham / CIH / CIH+BHD 各 n=3，CIH 4 周）—— 造模成立；海马组织已取材固定，TEM 制样 / 拍照进行中，ERMCS 量化待判读　→ 见下两页", options: { fontFace: FONT, fontSize: 12, color: INK } },
   ], { x: M + 0.2, y: BODY_TOP + 4.32, w: W - M * 2 - 0.4, h: 0.58, margin: 0, valign: "middle" });
 }
 
@@ -457,7 +457,7 @@ function contentSlide(spec) {
 {
   const s = contentSlide({
     title: "研究基础②：预实验结果 —— 造模成立，行为学呈方向性信号", mod: "D", modLabel: "D 研究基础",
-    lead: "Pilot V4.5 赛道 A　·　雄性 C57BL/6J 9 只（n=3/组）　·　CIH 6 h/d × 28 d　·　BHD 工作日给药共 20 次、100 µL/只　·　均值±SD",
+    lead: "预实验 2026-07-22 轮次　·　雄性 C57BL/6J 9 只（n=3/组）　·　CIH 6 h/d × 28 d　·　BHD 工作日给药共 20 次、100 µL/只　·　均值±SD",
     notes: "【约 37 s】给药口径先说清：低氧连续 28 天，但灌胃只在工作日、共 20 次，累积 140.2 g/kg，折合全程平均 5.01 g/kg/d——低于文献的每日 7.01，主实验改为每日给药。然后三句话：第一，造模成立——三组增重范围完全不重叠，CIH 较 Sham 少 41.9%；第二，不依赖物体区域判定的三项轨迹与姿态指标方向完全一致，Sham 正常、CIH 恶化、加药回复；第三，依赖区域判定的两项（新物体潜伏期、分析区进入次数）与 DI 共用同一个被判定为有误的判定点，本轮不作为独立证据——这一层要自己讲，讲了是严谨，被问出来是漏洞。最后交代增重悖论：加药组增重更低但活动量更高，这恰恰说明活动量差异不是体重掉出来的。n=3 只作方向性判断，不用来推算样本量。",
   });
   figImage(s, { x: 0.87, y: BODY_TOP + 0.30, w: 11.60, h: 3.71 }, "figures/fp4.png");
@@ -468,12 +468,29 @@ function contentSlide(spec) {
   ], { x: M, y: BODY_TOP + 4.14, w: W - M * 2, h: BODY_H - 4.14 }, { cols: 3, gap: 0.28, lineSpacing: 13 });
 }
 
+// —— M11b TEM 初步结果（数据到位后取消注释启用；启用后配时 D 组 +25 s，从第 5 页匀）——
+// {
+//   const s = contentSlide({
+//     title: "研究基础②补：海马 CA1 TEM 的 ERMCS 初步量化", mod: "D", modLabel: "D 研究基础",
+//     lead: "预实验 2026-07-22 轮次取材　·　n=【填】/组　·　双盲编码定量　·　主要终点 ERMICC_std",
+//     notes: "【约 25 s】只讲两句：一，能在 CA1 稳定分辨 ER 与线粒体膜并完成五指标量化，说明制样与判读流程跑通；二，组间差异的方向按预设双侧检验判读，不预设方向。n 小，只作可行性判断。",
+//   });
+//   figImage(s, { x: M, y: BODY_TOP + 0.30, w: 7.4, h: 3.9 }, "figures/fp6.png");
+//   bullets(s, [
+//     { text: "流程可行性：CA1 锥体神经元 ER 与线粒体膜界面可稳定分辨，五指标均可量化", b: true },
+//     "ERMICC_std（主要终点）：Sham 【填】 vs CIH 【填】 vs CIH+BHD 【填】",
+//     "接触覆盖率 / 平均最小膜间距（关键次要终点）：【填】",
+//     "≤10 nm 紧密接触比例 / 线粒体形态（探索性）：【填】",
+//     { text: "判读：本轮 n 小，仅作制样与判读流程的可行性判断，不作方向性结论", b: true, hi: true },
+//   ], { x: M + 7.75, y: BODY_TOP + 0.30, w: W - M * 2 - 7.75, h: 3.9 }, 11);
+// }
+
 // —— M12 D 研究基础③ 预实验局限与修正 ——
 {
   const s = contentSlide({
     title: "研究基础③：预实验的局限与主实验修正", mod: "D", modLabel: "D 研究基础",
     lead: "★ 主动交代：本轮新物体识别未建立有效读出，尚不能判断 CIH 对识别记忆的影响，亦不能判断 BHD 的干预效应",
-    notes: "【约 35 s】这一页是加分项，不要跳。关键一句：正常对照组自己都没有表现出可靠的新物体偏好，那么任何组间比较都不可解释——所以我不拿这一轮的 DI 说事。六条局限都是自己查出来的，且每条都有修正方案；最后一句讲判读规则：TEM 的 ERMCS 量化才是决定主实验能否开展的唯一核心指标，行为学本轮未获支持不构成 No-Go。",
+    notes: "【约 35 s】这一页是加分项，不要跳。关键一句：正常对照组自己都没有表现出可靠的新物体偏好，那么任何组间比较都不可解释——所以我不拿这一轮的 DI 说事。六条局限都是自己查出来的，且每条都有修正方案；最后一句讲判读规则：决定主实验能否开展的核心指标是 TEM 的 ERMCS 量化，它现在还在制样拍照、结果没出来——这一点要自己讲清楚，不能让评委以为预实验已经全部完成；行为学本轮未获支持不构成 No-Go。",
   });
   figImage(s, { x: M, y: BODY_TOP + 0.30, w: 6.15, h: 3.87 }, "figures/fp3.png");
   bullets(s, [
@@ -487,17 +504,17 @@ function contentSlide(spec) {
     "⑥ 加药组增重偏低　→ 增加摄食饮水监测，必要时设半剂量组",
     { text: "⑦ 给药与低氧不同步：低氧连续 28 d，灌胃仅工作日共 20 次（周末停药），累积剂量为标称的 71%　→ 主实验改为每日给药", hi: true },
     "⑧ 给药体积固定 100 µL/只，未按体重校正（仅在 20 g 时恰为 7.01 g/kg）　→ 按每周体重调整体积，体重纳入协变量",
-    { text: "复测判读：Sham 组 DI 须显著 > 0；若仍不成立，改人工盲法计时，并以 MWM 为唯一记忆学主判据、NOR 降为次要报告", b: true },
+    { text: "复测判读：Sham 组 DI 须显著 > 0（与 MWM 首次预试同期完成）；若仍不成立，改人工盲法计时，并以 MWM 为唯一记忆学主判据、NOR 降为次要报告", b: true },
   ], { x: M + 6.5, y: BODY_TOP + 0.30, w: W - M * 2 - 6.5, h: 3.87 }, 10);
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.50, w: W - M * 2, h: 0.76, rectRadius: 0.07, fill: { color: "EDF3FA" }, line: { color: BLUE, width: 1.5 } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.58, w: W - M * 2, h: 0.84, rectRadius: 0.07, fill: { color: "EDF3FA" }, line: { color: BLUE, width: 1.5 } });
   s.addText([
-    { text: "按预实验方案 V4.5 的判读规则：", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: BLUE } },
-    { text: "海马 CA1 TEM 的 ERMCS 量化是决定主实验能否开展的", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
-    { text: "唯一核心指标", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: RED } },
-    { text: "；行为学本轮未获支持", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
-    { text: "不构成 No-Go", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: BLUE } },
-    { text: "，但提示 NOR 流程须在主实验前完成优化。", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
-  ], { x: M + 0.2, y: H - 1.42, w: W - M * 2 - 0.4, h: 0.60, margin: 0, valign: "middle" });
+    { text: "按预实验预设的判读规则：", options: { fontFace: FONT, fontSize: 12, bold: true, color: BLUE } },
+    { text: "决定主实验能否开展的核心指标是海马 CA1 TEM 的 ERMCS 量化 ——", options: { fontFace: FONT, fontSize: 12, color: INK } },
+    { text: "该指标目前制样 / 拍照进行中，结果待判读", options: { fontFace: FONT, fontSize: 12, bold: true, color: RED } },
+    { text: "（预计【填】）。行为学本轮未获支持", options: { fontFace: FONT, fontSize: 12, color: INK } },
+    { text: "不构成 No-Go", options: { fontFace: FONT, fontSize: 12, bold: true, color: BLUE } },
+    { text: "，但提示 NOR 流程须在主实验前完成优化，并与 MWM 首次预试同期进行。", options: { fontFace: FONT, fontSize: 12, color: INK } },
+  ], { x: M + 0.2, y: H - 1.50, w: W - M * 2 - 0.4, h: 0.68, margin: 0, valign: "middle", lineSpacing: 17 });
 }
 
 // —— M13 E 总结 ——
@@ -783,7 +800,7 @@ BACKUP = true;
     notes: "终点三级分层是 B 组的关键得分点，必须单独成表展示，并强调『揭盲前锁定』。术语注一句话带过，但能显示功底。",
   });
   bullets(s, [
-    { text: "行为学：MWM 为海马依赖性记忆主判据，NOR 为次要判据（因两轮预实验 NOR 均未建立有效读出）", b: true, hi: true },
+    { text: "行为学：MWM 为海马依赖性记忆主判据，NOR 为次要判据（因预实验 NOR 未建立有效读出）", b: true, hi: true },
     "　NOR 依预实验修正：鼻尖点判定探究行为、熟悉期恢复 2 天、物体与左右位置双重平衡、组间交错随机、≥20 s 预注册排除，全程双盲",
     "病理：HE、Nissl、TUNEL、IHC 三联（4-HNE / Iba1 / GFAP）",
     { text: "TEM 五指标：接触间距、ERMICC、接触覆盖率、≤10 nm 紧密接触比例、线粒体形态", b: true },
@@ -1015,7 +1032,7 @@ BACKUP = true;
   });
   table(s, ["所需平台 / 技术", "落实方式", "成熟度", "波动风险控制"], [
     ["动物实验平台、CIH 造模舱", "校内共享", { t: "成熟", b: true }, "每周 SpO₂ 抽测；双 O₂ 监测、漏气报警、紧急制氧"],
-    ["行为学（MWM / NOR / 旷场）", "校内共享（已跑通，见预实验各页）", { t: "成熟", b: true }, "全程操作与分析双盲；范式修订已完成"],
+    ["行为学：NOR / MWM / 旷场", { t: "校内共享；本轮仅 NOR 完成预试", b: true, hi: true }, { t: "NOR 需复测\nMWM 待预试", b: true, hi: true }, { t: "NOR 范式修订已完成待复测；MWM 与旷场尚未预试，排入 M1；全程操作与分析双盲", hi: true }],
     ["海马病理学与免疫组化", "校内共享 + 病理科外协", { t: "成熟", b: true }, "外协 IHC 60 张，统一批次"],
     ["透射电镜", "校内共享平台（需预约档期）", { t: "要求高", b: true, hi: true }, { t: "固定 SOP、全组配平、系统随机取样、双盲定量 + 第三方仲裁", hi: true }],
     ["共聚焦显微平台（PLA）", "校内共享", { t: "成熟", b: true }, "四类对照同批处理"],
@@ -1149,7 +1166,7 @@ BACKUP = true;
 {
   const s = contentSlide({
     title: "预实验：设计与造模验证", mod: "D", modLabel: "D 研究基础",
-    lead: "Pilot V4.5 赛道 A　·　C57BL/6J 雄性 9 只，Sham / CIH / CIH+BHD 各 n=3　·　CIH 4 周",
+    lead: "预实验 2026-07-22 轮次　·　C57BL/6J 雄性 9 只，Sham / CIH / CIH+BHD 各 n=3　·　CIH 4 周",
     notes: "先讲造模成立：三组增重完全不重叠，CIH 较 Sham 少 41.9%。然后主动交代 CIH+BHD 增重比 CIH 更低这件事——不讲的话评委看表就会问。",
   });
   bullets(s, [
@@ -1205,7 +1222,7 @@ BACKUP = true;
   const s = contentSlide({
     title: "预实验局限与主实验优化", mod: "D", modLabel: "D 研究基础",
     lead: "本轮行为学的局限主要来自方法学而非样本量 —— 逐项已有修正方案",
-    notes: "这一页是加分项。六条局限都是自己查出来的，且每条都有对应修正。最后的 No-Go 规则要讲：TEM 的 EMCS 量化才是决定主实验能否开展的唯一核心指标，行为学本轮未获支持不构成 No-Go。",
+    notes: "这一页是加分项。六条局限都是自己查出来的，且每条都有对应修正。最后的 No-Go 规则要讲：决定主实验能否开展的核心指标是 TEM 的 ERMCS 量化，目前制样拍照进行中、结果待判读；行为学本轮未获支持不构成 No-Go。",
   });
   table(s, ["#", "本轮的问题", "主实验的修正"], [
     ["1", { t: "探索行为以身体中心点落区计时", b: true }, { t: "改用鼻尖点判定（朝向物体、距离 ≤2 cm、伴嗅闻或触碰）；抽 2–3 只视频人工双盲计时校验", b: true }],
@@ -1217,12 +1234,12 @@ BACKUP = true;
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2 }, [0.5, 4.7, 7.03]);
   s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.62, w: W - M * 2, h: 0.88, rectRadius: 0.07, fill: { color: "EDF3FA" }, line: { color: BLUE, width: 1.6 } });
   s.addText([
-    { text: "按预实验方案 V4.5 的判读规则：", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: BLUE } },
-    { text: "海马 CA1 TEM 的 ERMCS 量化是决定主实验能否开展的", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
-    { text: "唯一核心指标", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: RED } },
-    { text: "；行为学本轮未获支持", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
-    { text: "不构成 No-Go", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: BLUE } },
-    { text: "，但提示 NOR 流程须在主实验前完成优化。", options: { fontFace: FONT, fontSize: 12.5, color: INK } },
+    { text: "按预实验预设的判读规则：", options: { fontFace: FONT, fontSize: 12, bold: true, color: BLUE } },
+    { text: "决定主实验能否开展的核心指标是海马 CA1 TEM 的 ERMCS 量化 ——", options: { fontFace: FONT, fontSize: 12, color: INK } },
+    { text: "该指标目前制样 / 拍照进行中，结果待判读", options: { fontFace: FONT, fontSize: 12, bold: true, color: RED } },
+    { text: "（预计【填】）。行为学本轮未获支持", options: { fontFace: FONT, fontSize: 12, color: INK } },
+    { text: "不构成 No-Go", options: { fontFace: FONT, fontSize: 12, bold: true, color: BLUE } },
+    { text: "，但提示 NOR 流程须在主实验前完成优化，并与 MWM 首次预试同期进行。", options: { fontFace: FONT, fontSize: 12, color: INK } },
   ], { x: M + 0.22, y: H - 1.52, w: W - M * 2 - 0.44, h: 0.68, margin: 0, valign: "middle", lineSpacing: 20 });
 }
 
@@ -1233,13 +1250,14 @@ BACKUP = true;
     title: "后续预实验计划（M1–M2）", mod: "D", modLabel: "D 研究基础",
     notes: "本页的重点在最右一列：每一项都有不通过时的处置路径。收尾一句——关键假设不存在「赌一把」的环节。",
   });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 0.62, rectRadius: 0.07, fill: { color: "E8F3EC" }, line: { color: "5B9E78", width: 1.5 } });
-  s.addText("✔ 已完成：CIH 造模有效性验证（Pilot V4.5，n=3/组，4 周）　　✔ 已完成：行为学流程预试 —— 识别六项方法学问题并完成方案修订", {
-    x: M + 0.2, y: BODY_TOP + 0.06, w: W - M * 2 - 0.4, h: 0.5, margin: 0,
-    fontFace: FONT, fontSize: 12.5, bold: true, color: "2E6B4F", valign: "middle",
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: BODY_TOP, w: W - M * 2, h: 0.68, rectRadius: 0.07, fill: { color: "E8F3EC" }, line: { color: "5B9E78", width: 1.5 } });
+  s.addText("✔ 已完成：CIH 造模有效性验证（预实验 2026-07-22 轮次，n=3/组，4 周）　✔ 已完成：NOR 流程预试，识别六项方法学问题并完成方案修订　◐ 进行中：海马 TEM 制样 / 拍照", {
+    x: M + 0.2, y: BODY_TOP + 0.05, w: W - M * 2 - 0.4, h: 0.58, margin: 0,
+    fontFace: FONT, fontSize: 11.5, bold: true, color: "2E6B4F", valign: "middle",
   });
   table(s, ["#", "待验证事项", "时间", "通过判读标准", "不通过 → 处置"], [
-    ["P1", { t: "行为学范式修正后复测（六项修正落实）", b: true }, "M1", { t: "Sham 组 DI 显著 > 0；鼻尖点评分与人工盲法计时 ICC ≥0.80", b: true }, "改人工盲法计时；MWM 作为唯一记忆学主判据；NOR 仅作次要报告"],
+    ["P0", { t: "★ 海马 CA1 TEM 的 ERMCS 量化判读（本轮取材，制样 / 拍照进行中）", b: true, hi: true }, { t: "进行中\n预计【填】", b: true, hi: true }, { t: "能在 CA1 锥体神经元稳定分辨 ER 与线粒体膜并完成五指标量化；组间可比", b: true, hi: true }, { t: "查制样与包埋质量、复检固定延迟；必要时重新取材。此项为主实验能否开展的核心判读指标", b: true, hi: true }],
+    ["P1", { t: "行为学范式修正后复测（六项修正落实）＋ MWM 首次预试", b: true }, "M1", { t: "Sham 组 DI 显著 > 0；鼻尖点评分与人工盲法计时 ICC ≥0.80；MWM 完成水温 / 平台 / 泳道 / 遮蔽物参数标定", b: true }, "改人工盲法计时；MWM 作为唯一记忆学主判据；若 MWM 亦不稳定，改用 Barnes 迷宫"],
     ["P2", "IP3R1 一抗验证（19962-1-AP 于小鼠海马）", "M1", "IHC-P 在 CA1 呈预期分布；PLA 四类对照背景可接受", "更换 ER 侧抗体，保持一鼠一兔搭配，PLA 试剂盒不变"],
     ["P3", { t: "TEM 固定延迟敏感性自检", b: true }, "M1–M2", "同一动物组织分第 1 天与第 4–5 天上锇酸，比较 ERMICC / ≤10 nm 比例 / 膜间距", "据实测差异固化储存天数安全上限；储存天数纳入模型作协变量"],
     ["P4", "EML 质粒到货与测序验证", "M2", "Addgene 到货，测序比对与 15/20/30 nm 构建一致", "联系存放者 Lim 实验室；国内基因合成兜底（4–6 周）"],
