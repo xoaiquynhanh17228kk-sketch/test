@@ -313,10 +313,10 @@ function contentSlide(spec) {
   const s = contentSlide({
     title: "研究对象、三队列设计与四个研究模块", mod: "B", modLabel: "B 研究方法",
     lead: "C57BL/6J 雄性小鼠　·　造模 21% O₂ ↔ 7.5±0.5% O₂，1 cycle/min，6 h/d × 6 周　·　BHD 7.01 g/kg/d 灌胃",
-    notes: "【约 30 s】重点讲队列 C：队列 A 与 C 处于同一慢性暴露背景（均 6 周），差别只在取材相位——A 在末次暴露后次日晨，C 在末次循环复氧相结束即刻。这样才能把「周期内瞬变」与「慢性漂移」分开，这是检验振荡接触模型的关键。队列 B 不做行为学是为避免应激干扰组学，队列 C 不设加药组是因为它回答的不是药效问题——这两点都要主动说，否则会被当成设计漏洞追问。",
+    notes: "【约 30 s】重点讲三个取材时点：队列 C 在末次循环的复氧相结束即刻（周期内瞬变）、队列 B 在末次暴露次日晨（暴露末、未做行为学）、队列 A 在行为学结束后（约 7–10 d，带恢复期成分，但能与同一动物的行为数据配对）。三点覆盖瞬变—暴露末—恢复期。若被问「队列 A 的 TEM 是不是慢性暴露状态」：要承认它带恢复期成分，暴露末的形态学由队列 B 的取材时点提供。队列 C 不设加药组是因为它回答的不是药效问题——主动说，否则会被当成设计漏洞追问。",
   });
   table(s, ["队列", "分组与样本量", "取材时点", "主要读出"], [
-    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 末次暴露后次日晨（非复氧相）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
+    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "行为学结束后（末次暴露后约 7–10 d）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
     [{ t: "队列 B", b: true }, "Sham / CIH / CIH+BHD，n=4/组，共 12 只", "CIH 结束次日晨（不做行为学，避免应激干扰组学）", "CA1 显微切割 ＋ TMT 16-plex 蛋白组学"],
     [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "W6 末次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
   ], { x: M, y: BODY_TOP + 0.28, w: W - M * 2 }, [1.3, 3.5, 4.2, 5.23]);
@@ -325,12 +325,13 @@ function contentSlide(spec) {
     { tag: "模块二 · 队列 B", head: "CA1 子区 TMT 组学", body: "显微切割 ＋ 16-plex ＋ 双轴生信 → 锁定下游通路", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
     { tag: "模块三 · 队列 C", head: "周期内动态", body: "复氧相急性时点 vs 慢性时点，检验相位结构", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
     { tag: "模块四 · 体外", head: "EML 距离梯度因果验证", body: "HT22 + H/R；15 / 20 / 30 nm 三档；检验剂量反应", tagColor: NAVY, headSize: 13.5, bodySize: 11.5 },
-  ], { x: M, y: BODY_TOP + 2.72, w: W - M * 2, h: 1.42 }, { cols: 4, gap: 0.24, lineSpacing: 16 });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.64, w: W - M * 2, h: 0.94, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
+  ], { x: M, y: BODY_TOP + 2.60, w: W - M * 2, h: 1.28 }, { cols: 4, gap: 0.24, lineSpacing: 14 });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 2.00, w: W - M * 2, h: 1.26, rectRadius: 0.07, fill: { color: LIGHT }, line: { color: "DDE4E9", width: 1 } });
   s.addText([
     { text: "总动物数 52 只（24+12+16），计 15% 备用后购买 60 只　·　n=8/组 依 ERMICC_std 效应量与设计效应测算（ICC=0.2，40 点/鼠 ≈ 4.55 有效独立观测）\n", options: { fontFace: FONT, fontSize: 10.5, color: INK, breakLine: true } },
-    { text: "队列 A 与 C 同一慢性暴露背景、仅取材相位不同 → 分离「周期内瞬变」与「慢性漂移」；队列 C 不设加药组：它回答因果位置，药效判读在队列 A 与体外 G9 vs G6", options: { fontFace: FONT, fontSize: 10.5, bold: true, color: NAVY } },
-  ], { x: M + 0.2, y: H - 1.54, w: W - M * 2 - 0.4, h: 0.74, margin: 0, valign: "middle", lineSpacing: 15 });
+    { text: "三个取材时点覆盖「瞬变 — 暴露末 — 恢复期」：队列 C 周期内复氧相即刻 · 队列 B 末次暴露次日晨 · 队列 A 行为学后（可与同一动物的行为数据配对，但带恢复期成分）\n", options: { fontFace: FONT, fontSize: 10.5, bold: true, color: NAVY, breakLine: true } },
+    { text: "队列 C 不设加药组：它回答的是「几何改变处于何种因果位置」，药效判读在队列 A（含行为-结构配对）与体外 G9 vs G6 完成", options: { fontFace: FONT, fontSize: 10.5, color: INK } },
+  ], { x: M + 0.2, y: H - 1.94, w: W - M * 2 - 0.4, h: 1.14, margin: 0, valign: "middle", lineSpacing: 15 });
 }
 
 // —— M7 B 统计 · 质控 · 风险 · 进度 ——
@@ -375,7 +376,7 @@ function contentSlide(spec) {
   s.addText([
     { text: "学术条件　", options: { fontFace: FONT, fontSize: 12, bold: true, color: GOLD } },
     { text: "依托学科：重庆医科大学【填】老年医学　·　导师：吕　洋 教授（睡眠呼吸障碍与神经损伤机制）\n", options: { fontFace: FONT, fontSize: 11.5, color: INK, breakLine: true } },
-    { text: "本人已完成：系统文献调研与第一作者机制综述（初稿）· 4 周 CIH 造模验证 · 行为学全流程预试并完成范式修订", options: { fontFace: FONT, fontSize: 11.5, color: INK } },
+    { text: "已完成：文献调研与第一作者综述（初稿）· 4 周 CIH 造模验证 · 行为学流程预试与范式修订（方案与数据分析由本人完成，动物实验委托【填】平台执行）", options: { fontFace: FONT, fontSize: 11, color: INK } },
   ], { x: M + 0.2, y: BODY_TOP + 0.06, w: W - M * 2 - 0.4, h: 0.74, margin: 0, valign: "middle", lineSpacing: 16 });
 
   table(s, ["所需平台 / 技术", "落实方式", "成熟度", "波动风险控制"], [
@@ -456,12 +457,12 @@ function contentSlide(spec) {
 {
   const s = contentSlide({
     title: "研究基础②：预实验结果 —— 造模成立，行为学呈方向性信号", mod: "D", modLabel: "D 研究基础",
-    lead: "Pilot V4.5 赛道 A　·　C57BL/6J 雄性 9 只，Sham / CIH / CIH+BHD 各 n=3　·　CIH 6 h/d × 4 周　·　均值±SD",
-    notes: "【约 37 s】三句话：第一，造模成立——三组增重范围完全不重叠，CIH 较 Sham 少 41.9%；第二，不依赖物体区域判定的三项轨迹与姿态指标方向完全一致，Sham 正常、CIH 恶化、加药回复；第三，依赖区域判定的两项（新物体潜伏期、分析区进入次数）与 DI 共用同一个被判定为有误的判定点，本轮不作为独立证据——这一层要自己讲，讲了是严谨，被问出来是漏洞。最后交代增重悖论：加药组增重更低但活动量更高，这恰恰说明活动量差异不是体重掉出来的。n=3 只作方向性判断，不用来推算样本量。",
+    lead: "Pilot V4.5 赛道 A　·　雄性 C57BL/6J 9 只（n=3/组）　·　CIH 6 h/d × 28 d　·　BHD 工作日给药共 20 次、100 µL/只　·　均值±SD",
+    notes: "【约 37 s】给药口径先说清：低氧连续 28 天，但灌胃只在工作日、共 20 次，累积 140.2 g/kg，折合全程平均 5.01 g/kg/d——低于文献的每日 7.01，主实验改为每日给药。然后三句话：第一，造模成立——三组增重范围完全不重叠，CIH 较 Sham 少 41.9%；第二，不依赖物体区域判定的三项轨迹与姿态指标方向完全一致，Sham 正常、CIH 恶化、加药回复；第三，依赖区域判定的两项（新物体潜伏期、分析区进入次数）与 DI 共用同一个被判定为有误的判定点，本轮不作为独立证据——这一层要自己讲，讲了是严谨，被问出来是漏洞。最后交代增重悖论：加药组增重更低但活动量更高，这恰恰说明活动量差异不是体重掉出来的。n=3 只作方向性判断，不用来推算样本量。",
   });
   figImage(s, { x: 0.87, y: BODY_TOP + 0.30, w: 11.60, h: 3.71 }, "figures/fp4.png");
   cards(s, [
-    { tag: "结论一 · 造模成立", head: "三组增重完全不重叠", body: "P<0.001；CIH 较 Sham 减少 41.9%（d = −9.05），与文献报道的间歇低氧表型一致 → 4 周造模有效", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 10 },
+    { tag: "结论一 · 造模成立", head: "三组增重完全不重叠", body: "P<0.001；CIH 较 Sham 减少 41.9%（d = −9.05）。本轮无 SpO₂ 等暴露验证，判据仅为体表型 → 主实验加每周 SpO₂ 与 W3 海马 4-HNE / Fe²⁺ 抽检", tagColor: RED, headColor: RED, headSize: 12.5, bodySize: 10 },
     { tag: "结论二 · 可用证据", head: "三项轨迹 / 姿态指标方向一致", body: "总路程、不动时间、蜷缩姿态：Sham 正常 → CIH 恶化 → 加药回复，均达预设方向性信号标准", tagColor: BLUE, headColor: BLUE, headSize: 12.5, bodySize: 10 },
     { tag: "★ 主动交代", head: "两项须降级 · 增重悖论", body: "新物体潜伏期与分析区进入次数依赖区域判定，与 DI 同受影响；加药组增重更低而活动量更高 → 活动量差异非体重驱动（主实验以体重为协变量）", tagColor: GOLD, headColor: GOLD, headSize: 12.5, bodySize: 10, fill: "FBF3E2", line: "E4D2A8" },
   ], { x: M, y: BODY_TOP + 4.14, w: W - M * 2, h: BODY_H - 4.14 }, { cols: 3, gap: 0.28, lineSpacing: 13 });
@@ -478,14 +479,16 @@ function contentSlide(spec) {
   bullets(s, [
     { text: "六项局限主要来自方法学而非样本量 —— 逐项已有修正", b: true },
     { text: "① 探索以身体中心点落区计时　→ 改鼻尖点判定（朝向物体、≤2 cm、伴嗅闻触碰），抽 2–3 只人工双盲计时校验（ICC ≥0.80）", hi: true },
-    { text: "　该判定点同时波及 DI、新物体接近潜伏期、熟悉期分析区进入次数 —— 三者本轮一并降级；总路程 / 不动时间 / 蜷缩姿态为纯轨迹与姿态指标，不经区域判定，故仍可用（第 11 页即按此分层）", b: true, hi: true },
+    { text: "　该判定点同时波及 DI、新物体潜伏期、分析区进入次数（三者一并降级）；总路程 / 不动时间 / 蜷缩姿态不经区域判定，仍可用", b: true, hi: true },
     "② 熟悉期原定 2 天实际执行 1 天　→ 恢复 2 天训练",
     "③ 物体种类与左右位置未平衡　→ 动物间做双重平衡",
-    "④ 运行顺序与分组共线　→ 改为组间交错随机",
+    "④ 运行顺序与分组共线，各组距末次低氧的间隔随之不同　→ 组间交错随机，并统一「末次低氧 → 行为学」间隔",
     "⑤ 软件「活跃状态」模块参数未配置，数据无效已剔除　→ 主实验前完成阈值设定",
     "⑥ 加药组增重偏低　→ 增加摄食饮水监测，必要时设半剂量组",
+    { text: "⑦ 给药与低氧不同步：低氧连续 28 d，灌胃仅工作日共 20 次（周末停药），累积剂量为标称的 71%　→ 主实验改为每日给药", hi: true },
+    "⑧ 给药体积固定 100 µL/只，未按体重校正（仅在 20 g 时恰为 7.01 g/kg）　→ 按每周体重调整体积，体重纳入协变量",
     { text: "复测判读：Sham 组 DI 须显著 > 0；若仍不成立，改人工盲法计时，并以 MWM 为唯一记忆学主判据、NOR 降为次要报告", b: true },
-  ], { x: M + 6.5, y: BODY_TOP + 0.30, w: W - M * 2 - 6.5, h: 3.87 }, 11);
+  ], { x: M + 6.5, y: BODY_TOP + 0.30, w: W - M * 2 - 6.5, h: 3.87 }, 10);
   s.addShape(pres.ShapeType.roundRect, { x: M, y: H - 1.50, w: W - M * 2, h: 0.76, rectRadius: 0.07, fill: { color: "EDF3FA" }, line: { color: BLUE, width: 1.5 } });
   s.addText([
     { text: "按预实验方案 V4.5 的判读规则：", options: { fontFace: FONT, fontSize: 12.5, bold: true, color: BLUE } },
@@ -698,7 +701,7 @@ BACKUP = true;
     { text: "三组：Sham（常氧＋生理盐水）／ CIH（＋生理盐水）／ CIH+BHD（7.01 g/kg/d 灌胃）", b: true },
   ], { x: M, y: BODY_TOP, w: W - M * 2, h: 1.62 }, 12.5);
   table(s, ["队列", "分组与样本量", "取材时点", "主要读出"], [
-    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "W6 末次暴露后次日晨（非复氧相）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
+    [{ t: "队列 A", b: true }, "Sham / CIH / CIH+BHD，n=8/组，共 24 只", "行为学结束后（末次暴露后约 7–10 d）", "MWM、NOR、TEM、PLA、WB、生化、IHC"],
     [{ t: "队列 B", b: true }, "Sham / CIH / CIH+BHD，n=4/组，共 12 只", "CIH 结束次日晨（不做行为学，避免应激干扰组学）", "CA1 显微切割 ＋ TMT 16-plex 蛋白组学"],
     [{ t: "队列 C", b: true, hi: true }, { t: "Sham / CIH，n=8/组，共 16 只", hi: true }, { t: "W6 末次低氧-复氧循环的复氧相结束即刻", hi: true, b: true }, { t: "TEM、PLA、4-HNE —— 周期内急性时点证据", hi: true }],
   ], { x: M, y: BODY_TOP + 1.75, w: W - M * 2 }, [1.3, 3.5, 4.2, 5.23]);
@@ -1152,8 +1155,10 @@ BACKUP = true;
   bullets(s, [
     { text: "造模：21% O₂ 经 30–60 s 降至 7.5±0.5% O₂ 后恢复，1 min/cycle", b: true },
     "　10:00–16:00（6 h/d），连续 4 周；Sham 同舱同时段持续 21% O₂",
-    "给药：每日进舱前 30 min 灌胃，1.4 g/mL、7.01 g/kg/d、100 µL/只；对照组等体积生理盐水",
-    "读出：体重每周 1 次共 5 次；造模结束后行新物体识别（熟悉期与测试期各 300 s）",
+    { text: "给药：工作日进舱前 30 min 灌胃，共 20 次；1.4 g/mL、100 µL/只（按 20 g 体重折 7.01 g/kg/d）；对照组等体积生理盐水", hi: true },
+    "　累积 140.2 g/kg，折合全程平均 5.01 g/kg/d —— 低氧连续 28 d 而给药仅 20 次，周末为无保护暴露",
+    "读出：体重每周 1 次共 5 次；全部动物完成行为学后统一取材（总时程 42 d = 适应 7 + 低氧 28 + 行为学 7）",
+    "　新物体识别：方案定训练 2 d + 正式 1 d，实际执行 1 次熟悉期（300 s）+ 测试期（300 s）",
     { text: "判读规则（预设）：n=3/组统计效力不足，以方向性判断为主", b: true, hi: true },
     "　P<0.10 或 |d|≥0.8 视为方向性信号；不以 P 值作唯一依据，不以本轮效应量推算主实验样本量",
     { text: "结论：4 周造模成立 —— 三组增重数值范围完全不重叠（ANOVA P<0.001）", b: true, hi: true },
