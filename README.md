@@ -237,3 +237,93 @@ generating .drawio files does not need it. Upstream warns against the snap build
 on servers — its AppArmor sandbox denies keyring access and crashes.
 
 Licensed MIT — see `.claude/skills/drawio-skill/LICENSE`.
+
+---
+
+# ARIS — experiments & compute (curated subset)
+
+15 skills selected from
+[`wanshuiyin/Auto-claude-code-research-in-sleep`](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)
+(ARIS, "Auto-Research-In-Sleep", 82 total, MIT), pinned at commit
+`2f00c51`, under `.claude/skills/aris/`.
+
+This is the one group that fills a real gap here: nothing else installed plans,
+runs, queues, monitors, or audits ML experiments. Everything else ARIS offers —
+paper writing, literature search, figures, posters, slides, rebuttal — is
+already covered by ARS, nature-skills, and claude-scholar.
+
+| Sub-area | Skills |
+|----------|--------|
+| Plan & bridge | `experiment-plan` `experiment-bridge` `ablation-planner` |
+| Execute | `run-experiment` `experiment-queue` `dse-loop` |
+| Remote & cloud compute | `vast-gpu` `serverless-modal` `qzcli` `system-profile` |
+| Observe | `monitor-experiment` `training-check` |
+| Interpret & audit | `analyze-results` `result-to-claim` `experiment-audit` |
+
+Descriptions total ~1k tokens against ~6k for all 82. A full install was also
+rejected because ARIS ships its own `exa-search`, colliding with the one already
+installed under `scientific/`.
+
+## Cross-model review is optional here
+
+ARIS's signature is a cross-model loop — Claude Code executes, an external LLM
+reviews — which needs the `codex` MCP server:
+
+```bash
+claude mcp add codex -s user -- codex mcp-server   # then restart Claude Code
+```
+
+Only 5 of the 15 reference it (`experiment-bridge`, `training-check`,
+`experiment-audit`, `result-to-claim`, `ablation-planner`), and each skips the
+external review with a logged note when it is absent. The other 10 need no MCP
+server at all. The review-loop skills that make this the centrepiece
+(`auto-review-loop` and friends) are not installed.
+
+## Handoff pointers that lead outside this subset
+
+The group references skills that are not installed here — `/auto-review-loop`
+(9 sites), `/proof-checker` (3), `/research-pipeline`,
+`/research-refine-pipeline`, `/idea-discovery`, `/idea-creator`,
+`/research-refine`, `/paper-writing`, `/paper-write`. These are left as upstream
+wrote them rather than rewritten to name local equivalents, so re-copying from a
+fresh clone stays a clean diff. To add any of them:
+`bash tools/install_aris.sh --skills <name>` from an upstream clone.
+
+## Adjacent, not duplicate
+
+`analyze-results` compares ML training runs (seeds, configs, ablation tables);
+scholar's `results-analysis` does statistical analysis of finished results.
+`monitor-experiment` watches live jobs over SSH; `nature-experiment-log` writes
+lab-notebook entries. Both pairs are kept.
+
+## Permissions and credentials
+
+This is the most privileged group in the repo, by design — it SSHes into remote
+hosts, rents GPUs, and submits cloud jobs. Most skills declare
+`allowed-tools: Bash(*)`, and `experiment-queue/scripts/queue_manager.py` uses
+`subprocess.run(..., shell=True)` to build SSH command strings. Point it only at
+infrastructure you control.
+
+Credentials it can reach: `WANDB_API_KEY` (`training-check`), vast.ai
+(`vast-gpu`), Modal (`serverless-modal`), Qizhi via `~/.qzcli/config.json`
+(`qzcli`), and your SSH keys. None are stored here.
+
+Otherwise the scan is clean — no `eval`, `pickle.loads`, or piped-shell installs.
+
+## Support files
+
+`.claude/skills/aris/shared-references/` carries all 30 upstream reference docs.
+Twelve are referenced directly by these skills (`external-cadence.md` alone 15
+times) and those link on to five more, so the whole set is vendored — it costs
+nothing until read.
+
+`.aris/tools/` holds three stdlib-only helpers — `research_wiki.py`,
+`watchdog.py`, `evidence_check.py` — needed by `result-to-claim` and
+`training-check`. That path is upstream's own resolver location, so both skills
+work with no setup; without it they warn and skip the helper step.
+`experiment-queue`'s helpers ship inside the skill and need nothing.
+
+Upstream's `docs/` (16MB), `assets/`, `community_papers/`, `tests/`,
+`mcp-servers/`, and `aris-monitor/` are not installed.
+
+Licensed MIT, © 2026 wanshuiyin — see `.claude/skills/aris/LICENSE`.
