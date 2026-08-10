@@ -90,7 +90,7 @@ Features with an inter-reader intraclass correlation coefficient (ICC) at or bel
 
 Six features survived at the selected λ (Figure 2c). Four carried positive weights: RunVariance.11 (β=0.306), Idn.6 (β=0.271), Imc1.9 (β=0.198) and MCC.7 (β=0.055). One carried a negative weight, SmallAreaEmphasis.8 (β=−0.173). The remaining term, ZoneVariance.2, was retained with a coefficient of 0.002 and therefore contributes negligibly to the score. The signature is dominated by run-length, co-occurrence and size-zone texture descriptors rather than by shape or first-order intensity, indicating that intralesional heterogeneity rather than lesion size drives the radiomic signal. The Rad-score, defined as the linear combination of these six features weighted by their LASSO coefficients, was computed for every patient in both sets using the training-derived coefficients and was carried forward as a single composite predictor.
 
-The Rad-score was higher in patients presenting with massive haemoptysis than in those with mild-to-moderate haemoptysis in the training cohort (median −1.043, IQR −1.189 to −0.706, n=30 versus median −1.361, IQR −1.640 to −1.062, n=101; Mann–Whitney U, p<0.01). The difference ran in the same direction in the internal validation cohort (median −1.029, IQR −1.275 to −0.596, n=12 versus median −1.189, IQR −1.523 to −0.954, n=45) but did not reach statistical significance (p=0.122). With 12 cases available for that comparison, this is an indeterminate rather than a negative result (Figure 3, Table 4).
+The Rad-score was higher in patients presenting with massive haemoptysis than in those with mild-to-moderate haemoptysis in the training cohort (median −1.043, IQR −1.189 to −0.706, n=30 versus median −1.361, IQR −1.640 to −1.062, n=101; Mann–Whitney U, p=1.49 × 10⁻⁵). The difference ran in the same direction in the internal validation cohort (median −1.029, IQR −1.275 to −0.596, n=12 versus median −1.189, IQR −1.523 to −0.954, n=45) but did not reach statistical significance (p=0.122). With 12 cases available for that comparison, this is an indeterminate rather than a negative result (Figure 3, Table 4).
 
 ### Variables associated with massive haemoptysis
 
@@ -104,7 +104,7 @@ A clinical–radiomic nomogram was constructed from the four independent variabl
 
 A single classification cut-point of 0.255 in estimated probability was derived from the maximum Youden index of the training-set ROC curve. This cut-point was then applied unchanged to the internal validation set; no cut-point was re-optimised in the validation data.
 
-Discrimination was good in the training set, with an area under the receiver operating characteristic curve (AUC) of 0.840 (95% CI 0.764 to 0.915), accuracy 0.817 (107/131), sensitivity 0.733 (22/30) and specificity 0.842 (85/101). In the internal validation set the point estimate remained similar but the estimate was far less precise: AUC 0.781 (95% CI 0.614 to 0.949), accuracy 0.719 (41/57), sensitivity 0.667 (8/12) and specificity 0.733 (33/45) (Table 3, Figure 6). The validation interval spans 0.335 AUC units and its lower bound approaches the 0.5 no-discrimination line, so the validation result is compatible with performance ranging from marginal to excellent and should not be read as confirmation of the training estimate.
+Discrimination was good in the training cohort, with an area under the receiver operating characteristic curve (AUC) of 0.850 (95% CI 0.775 to 0.925), sensitivity 0.767 (23/30) and specificity 0.842 (85/101) at the 0.255 cut-point, giving an accuracy of 0.824 (108/131). In the internal validation cohort the point estimate remained similar but was far less precise: AUC 0.794 (95% CI 0.631 to 0.958) (Table 3, Figure 6). The validation interval spans 0.327 AUC units and its lower bound lies close to the 0.5 no-discrimination line, so the validation result is compatible with performance ranging from marginal to excellent and should not be read as confirmation of the training estimate.
 
 An unpaired DeLong test comparing the two cohorts did not detect a difference between the training and validation AUCs (D=0.604, df=80.7, p=0.547). Two features of this comparison limit what it establishes. The training AUC is an apparent estimate obtained on the data used to fit the model and is therefore optimistically biased, whereas the validation AUC is not, so the two quantities are not exchangeable. The validation set also contains only 12 events, which leaves the test with little power to detect a drop in discrimination. The result therefore indicates that the available data do not detect deterioration between cohorts, not that discrimination has been shown to be stable. This comparison is also distinct from the between-model comparisons reported in the next section, and the two cannot substitute for one another.
 
@@ -120,9 +120,13 @@ Taken together, the incremental value of the radiomic component over clinical va
 
 ### Calibration and clinical utility
 
+> ⛔ **整段数字待重算。** 现有校准图是**旧模型**生成的，证据是图内打印的 Somers' Dxy：训练集 0.679 = 2×0.840−1，验证集 0.563 = 2×0.781−1，对应的正是已被弃用的 0.840/0.781。采用 0.850/0.794 后，Dxy 应分别变为约 0.700 与 0.588，而 Brier、截距、斜率、Emax、E90、Eavg、R²、以及 Hosmer–Lemeshow 的 χ² 全部会跟着变。下文保留旧值以维持句式，**投稿前必须用新拟合重新生成校准图并逐一替换**。定性结论（验证集系统性高估）预计仍成立，但幅度不可照搬。
+
 In the training set the nomogram showed close agreement between estimated and observed probabilities, with a Brier score of 0.129, Dxy 0.679 and R² 0.364 (Figure 8a). The calibration intercept of 0.000 and slope of 1.000 are apparent values obtained on the data used to fit the model; no bootstrap optimism correction was applied, so they quantify fit rather than transportability.
 
 Calibration was weaker in the internal validation set (Figure 8b). The Brier score was 0.138, Dxy 0.563 and R² 0.228, and the logistic calibration curve lay below the diagonal across most of its range, with a calibration intercept of −0.688 and a slope of 0.804. This pattern indicates systematic overestimation of the probability of massive haemoptysis, becoming pronounced above an estimated probability of approximately 0.4, where the maximum absolute error reached 0.251 (E90 0.222, average error 0.088). The Hosmer–Lemeshow test detected no significant departure from the fitted model in either set (training χ²=9.11, df=8, p=0.333; validation χ²=10.76, df=8, p=0.216), but with 57 patients and 12 events in the validation set this test has little power, and a non-significant result cannot be taken as evidence of adequate calibration. Recalibration of the intercept would be required before the estimated probabilities could be used as absolute risks outside the development sample.
+
+> ⚠️ **DCA 亦为旧模型生成**，阈值区间需按新拟合重跑后核对。定性结论（临床可用区间内净获益为正）预计稳健。
 
 Decision-curve analysis indicated net benefit over the treat-all and treat-none strategies over a clinically usable range of threshold probabilities (Figure 9). In the training set the nomogram was the preferred strategy from approximately 0.05 to 0.70, with net benefit falling to zero or marginally below beyond 0.72. In the internal validation set the advantage held from approximately 0.05 to 0.60, after which net benefit oscillated around zero; few patients received estimated probabilities in that upper range, so the high-threshold portion of the validation curve is unstable. Across the threshold band most relevant to triage at presentation, roughly 0.10 to 0.40, the nomogram retained a positive net benefit in both sets.
 
@@ -231,7 +235,30 @@ A 与 C 对调了。新图与新表内部一致，但与原稿图完全相反。
 
 **处理方式**：正文一律改用描述性名称（the combined nomogram / the clinical model / the Rad-score alone），字母只在 Fig 7 图注与 Table 5 中定义。这样无论最终采用哪套字母都不会出错。**但 Discussion 里若引用过 Model A/B/C，必须逐处核对。**
 
-### ⛔ P1 仍未解决：AUC 两套数字
+### ✅ P1 已定版：采用 0.850 / 0.796 / 0.794（作者 2026-08-10 确认）
+
+作者确认**训练集联合模型 0.850、临床模型 0.796**，即新一次拟合为最终版。正文的判别力一节与模型比较一节均已改用此套数字，两节现已内部一致。
+
+**由此产生的连带影响（重要）：**
+
+1. **校准图确认是旧模型生成的，整段数字失效。** 判据是图内打印的 Somers' Dxy 与 C 统计量的恒等关系 Dxy = 2C − 1：
+
+   | | 图内 Dxy | 旧模型 2C−1 | 新模型 2C−1 |
+   |---|---|---|---|
+   | 训练 | 0.679 | 0.840 → **0.680** ✅ | 0.850 → 0.700 |
+   | 验证 | 0.563 | 0.781 → **0.562** ✅ | 0.794 → 0.588 |
+
+   两个队列都指向旧模型。因此 Brier（0.129 / 0.138）、截距（0.000 / −0.688）、斜率（1.000 / 0.804）、Emax（0.091 / 0.251）、E90、Eavg、R²、以及 HL 的 χ²（9.11 / 10.76）**全部需要用新拟合重新生成**。正文已在该节开头加了显著标记。
+
+2. **Table 3 训练集三项指标已更新。** 新版 ROC 图在切点 0.255 处标注 (spec 0.842, sens 0.767)，反解得 23/30 与 85/101，故准确率 = 108/131 = 0.824。与旧值相比只有敏感度差 1 例（22→23）。**这三个数是我从图注反解的，请核对。**
+
+3. **Table 3 验证集三项指标仍缺。** 新版验证集 ROC 只标注了 0.447 这个（须删除的）验证集自优化切点，没有标注 0.255 处的操作点。旧值 0.667 / 0.733 / 0.719 是旧模型算的，**不能与新 AUC 并列**。正文已暂时移除，请补：新模型在切点 0.255 下验证集的敏感度、特异度、准确率。
+
+4. **DCA 亦为旧模型生成**，阈值区间需重跑核对。
+
+5. **请确认列线图（Fig 5）与 Table 2 的多因素 OR 是否出自同一次拟合。** 若模型有变，列线图分值与 OR 也应同步更新。
+
+### ~~⛔ P1：AUC 两套数字~~（以下为定版前的分析记录，保留备查）
 
 新材料**全部**使用 0.850 / 0.794（ROC 图、DeLong 输出、Table 5、Table 6、四联图 c/d 面板），原稿 Table 3、列线图 ROC、校准图仍是 0.840 / 0.781。
 
@@ -241,9 +268,9 @@ A 与 C 对调了。新图与新表内部一致，但与原稿图完全相反。
 
 **若最终采用 0.850 / 0.794，需同步重做**：Table 3 的四项指标、校准图（图内 C(ROC) 及截距/斜率/Brier/Emax 全部会变）、DCA，并确认列线图分值与 Table 2 的多因素 OR 是否随之改变。
 
-### ⚠️ 训练集 Rad-score 比较的 p 值有三种写法
+### ✅ 训练集 Rad-score 的 p 值已定：1.49 × 10⁻⁵
 
-初版图 `****`（p<0.0001）→ 二版图 `<0.01` → Table 4 `＜0.05`。正文暂用 `p<0.01`（与当前图一致）。请提供精确 p 并让图、表、正文三处统一。
+正文已改用精确值。回头看，初版图的 `****`（p<0.0001）是**对的**，二版图的 `<0.01` 和 Table 4 的 `＜0.05` 都严重低报了自己的结果。**请把 Fig 3a 与 Table 4 都改成 `p=1.49 × 10⁻⁵`**（或按目标期刊惯例写 `p<0.001`），三处统一。
 
 ### 制图遗留（两项未动）
 
