@@ -96,11 +96,21 @@ The Rad-score was higher in patients presenting with massive haemoptysis than in
 
 Six variables were associated with massive haemoptysis in univariable logistic regression (Table 2, Figure 4a): tuberculosis (OR 4.23, 95% CI 1.43 to 12.51; p=0.009), bronchiectasis (OR 2.36, 95% CI 1.03 to 5.41; p=0.042), BAPF (OR 4.88, 95% CI 1.60 to 14.90; p=0.005), BAM (OR 3.84, 95% CI 1.03 to 14.31; p=0.045), fibrinogen (OR 0.57, 95% CI 0.39 to 0.83; p=0.004) and the Rad-score (OR 7.96, 95% CI 2.75 to 23.11; p<0.001). Age, sex, smoking status, duration of smoking, malignancy, fungal infection, antiplatelet and antithrombotic use, PLT, D-D and INR showed no association (all p>0.20). The confidence intervals for tuberculosis, BAPF, BAM and the Rad-score are wide and their lower bounds lie close to unity, which is consistent with the small number of events available (42 in total, 30 in the training set).
 
-Four variables remained independently associated with massive haemoptysis after mutual adjustment (Table 2, Figure 4b): tuberculosis (OR 4.96, 95% CI 1.39 to 17.70; p=0.014), BAPF (OR 4.09, 95% CI 1.11 to 15.04; p=0.034), fibrinogen (OR 0.65, 95% CI 0.45 to 0.95; p=0.026) and the Rad-score (OR 5.21, 95% CI 1.70 to 15.94; p=0.004). Bronchiectasis and BAM did not retain independent associations. Higher fibrinogen was associated with a lower probability of massive presentation. With 30 events and four retained predictors, the multivariable model operates at roughly 7.5 events per variable, below the conventional threshold of ten, so the adjusted point estimates should be read as provisional.
+Before multivariable modelling, BAPF and BAM were combined into a single bronchial artery abnormality variable. Both lesions are abnormalities of the bronchial arterial circulation; their univariable odds ratios were closely similar (4.88 and 3.84) with widely overlapping confidence intervals; and each was individually uncommon (27 and 18 patients respectively), so that combining them increases the number of events supporting the term and narrows its interval.
+
+The multivariable model therefore comprised tuberculosis, the combined bronchial artery abnormality, fibrinogen and the Rad-score (Table 2, Figure 4b). Bronchiectasis, although associated on univariable testing, did not retain an independent association and was not carried into the final model. Higher fibrinogen was associated with a lower probability of massive presentation. With 30 events and four retained predictors, the model operates at roughly 7.5 events per variable, below the conventional threshold of ten, so the adjusted point estimates should be read as provisional.
+
+> ⛔ **本段的调整后 OR 待补。** 原稿 Table 2 多因素列的四个 OR（tuberculosis 4.96、BAPF 4.09、fibrinogen 0.65、Rad-score 5.21）出自**合并前**的模型（BAPF 单独入模、BAM 在多因素中被剔除），不描述已采用的模型，故已从正文移除而非沿用。请提供合并后模型的四个调整 OR、95% CI 与 p 值，并同步重绘 Figure 4b。
+>
+> **命名建议**：合并后的变量若仍标注为「BAPF」会与原始 BAPF 混淆（列线图旧版轴标即为 BAPF）。建议改用 **bronchial artery abnormality (BAA)**，定义为 BAPF 和/或 BAM，并在 Table 1 增加该合并变量一行（含合并后的 n 与百分比；注意两者若有重叠，n 不等于 27+18）。
+>
+> **Methods 必须交代**：合并的依据，以及该决定是在查看结局数据**之前**还是**之后**作出的。这一点会被审稿人追问——合并使联合模型 AUC 从 0.840 升至 0.850，若属事后调整则须如实披露并在 Limitations 说明其对乐观度的影响。上文列出的三条依据（同属支气管动脉异常、单因素 OR 相近、各自事件数偏少）是可用的正当理由，但不能替代对时序的说明。
 
 ### Nomogram development and discrimination
 
-A clinical–radiomic nomogram was constructed from the four independent variables, converting each into a partial point score and mapping the total to an individualised probability of massive haemoptysis at presentation (Figure 5). The Rad-score carries the largest weight, spanning the full 0 to 100 point range across its observed interval of −4 to 0.5. Fibrinogen contributes up to approximately 50 points on an inverted scale, so that lower values attract more points. Tuberculosis and BAPF contribute approximately 21 and 19 points respectively when present. Total scores range from 0 to 160, and the diagnostic probability scale becomes informative above a total of roughly 80 points.
+A clinical–radiomic nomogram was constructed from the four independent variables, converting each into a partial point score and mapping the total to an individualised probability of massive haemoptysis at presentation (Figure 5). The Rad-score carries the largest weight. Fibrinogen is plotted on a descending scale, so that lower values attract more points, and tuberculosis and the bronchial artery abnormality each contribute a smaller fixed number of points when present.
+
+> ⛔ **列线图待重绘，分值分配待补。** 现有 Figure 5 出自合并前的模型，其轴标为「BAPF」而非合并变量，因此分值分配（Rad-score 0–100、fibrinogen 0–50、TB≈21、BAPF≈19、总分 0–160）不适用于已采用的模型。上文已改为只描述权重次序这一预期稳健的定性特征；请提供重绘后的列线图，我再把具体分值填回。
 
 A single classification cut-point of 0.255 in estimated probability was derived from the maximum Youden index of the training-set ROC curve. This cut-point was then applied unchanged to the internal validation set; no cut-point was re-optimised in the validation data.
 
@@ -140,9 +150,9 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 **Figure 3.** *(new)* Distribution of the Rad-score by presentation group in (a) the training cohort and (b) the internal validation cohort. Boxes show the median and interquartile range, whiskers extend to 1.5 times the interquartile range, and individual patients are overlaid. Groups were compared by the Mann–Whitney U test. ✅ 面板顺序已修正（(a) n=131，(b) n=57），星号已改为 p 值。⚠️ **仍需处理：**(1) 训练集面板的 p 目前显示 `<0.01`，而 Table 4 写的是 `＜0.05`，我此前依据初版图的 `****` 写成 `<0.0001` —— 三处不一致，**请提供精确 p 并统一**；(2) 训练集面板 x 轴标签 `No massive hemoptysis0` 有多余的 `0`。
 
-**Figure 4.** *(previously Figure 3)* Forest plots of (a) univariable and (b) multivariable logistic regression for massive haemoptysis in the training cohort. Squares denote odds-ratio point estimates and horizontal lines the 95% confidence intervals. Arrowheads in (a) indicate intervals extending beyond the plotted axis.
+**Figure 4.** *(previously Figure 3)* Forest plots of (a) univariable and (b) multivariable logistic regression for massive haemoptysis in the training cohort. Squares denote odds-ratio point estimates and horizontal lines the 95% confidence intervals. Arrowheads in (a) indicate intervals extending beyond the plotted axis. ⛔ **面板 (b) 需重绘**：现图出自 BAPF/BAM 合并前的模型。面板 (a) 可保留。
 
-**Figure 5.** *(previously Figure 4)* Nomogram for the individualised probability of massive haemoptysis at presentation, built from tuberculosis, BAPF, fibrinogen and the Rad-score. Fibrinogen is plotted on a descending scale, so lower values attract more points.
+**Figure 5.** *(previously Figure 4)* Nomogram for the individualised probability of massive haemoptysis at presentation, built from tuberculosis, the combined bronchial artery abnormality, fibrinogen and the Rad-score. Fibrinogen is plotted on a descending scale, so lower values attract more points. ⛔ **需重绘**：现图轴标为 BAPF（合并前变量），分值分配亦出自旧拟合。
 
 **Figure 6.** *(previously Figure 5)* ROC curves of the clinical–radiomic nomogram in (a) the training cohort and (b) the internal validation cohort. The classification cut-point of 0.255 was derived from the maximum Youden index in the training cohort and applied unchanged to the validation cohort. ⚠️ **制图注意：验证集面板上标注的 0.447 必须删除** —— 那是验证集自身优化的切点，留在图上会被读作切点在验证集重新寻优。
 
@@ -235,7 +245,48 @@ A 与 C 对调了。新图与新表内部一致，但与原稿图完全相反。
 
 **处理方式**：正文一律改用描述性名称（the combined nomogram / the clinical model / the Rad-score alone），字母只在 Fig 7 图注与 Table 5 中定义。这样无论最终采用哪套字母都不会出错。**但 Discussion 里若引用过 Model A/B/C，必须逐处核对。**
 
-### ✅ P1 已定版：采用 0.850 / 0.796 / 0.794（作者 2026-08-10 确认）
+### 🔑 P1 的根因已查明：模型重新拟合，**BAM 并入 BAPF**（作者 2026-08-10 确认）
+
+这一条把之前所有对不上的地方一次性解释清楚了：
+
+| 现象 | 是否被「合并 BAM+BAPF」解释 |
+|---|---|
+| 临床模型 0.769 → 0.796 | ✅ 模型成分变了 |
+| 联合模型 0.840 → 0.850 | ✅ 同上 |
+| **Rad-score 单独模型 0.761 纹丝不动** | ✅ 该模型不含临床变量，本就不该受影响 |
+| 训练集切点 0.255 处敏感度 22/30 → 23/30 | ✅ 预测概率变了，一例跨过切点 |
+
+我此前猜的「列线图总分 vs 线性预测值」是错的，真正原因是变量重编码。
+
+**合并本身有正当依据**（建议写进 Methods）：
+- BAPF 与 BAM 同属支气管动脉循环异常，临床上可归为一类；
+- 两者单因素 OR 相近（4.88 vs 3.84），CI 大幅重叠；
+- 各自事件数偏少（27 例、18 例），CI 都很宽（1.60–14.90、1.03–14.31），合并后该项估计更稳定。
+
+⚠️ **但必须交代时序**：合并使联合模型 AUC 由 0.840 升至 0.850。若该决定是在查看结局数据之后作出的，属事后调整，须如实披露并在 Limitations 说明其对乐观度估计的影响。上述三条理由是充分的正当性依据，但替代不了对「何时决定」的说明。
+
+**命名**：合并后仍叫「BAPF」会与原始 BAPF 混淆。建议改为 **bronchial artery abnormality (BAA)**，定义为 BAPF 和/或 BAM。
+
+#### 合并所波及的范围
+
+**确定失效、必须重做：**
+
+| 对象 | 原因 |
+|---|---|
+| Table 2 多因素列（四个 OR 全部） | 出自合并前模型 |
+| Figure 4b 多因素森林图 | 同上 |
+| **Figure 5 列线图**（轴标 + 全部分值） | 轴标仍是 BAPF，分值出自旧拟合 |
+| Table 3 验证集三项指标 | 旧拟合 |
+| Figure 8 校准曲线（全部统计量） | 已由 Dxy 判据证明为旧拟合 |
+| Figure 9 DCA | 旧拟合 |
+| Table 1 | 需增加合并变量一行（注意 BAPF 与 BAM 若有重叠，合并后 n ≠ 27+18） |
+
+**不受影响、可保留：**
+Table 2 单因素列与 Figure 4a（单因素结果本身仍有效）、Figure 2 与 Rad-score 构建、Table 4 与 Figure 3、Table 5/6 DeLong、Table 7 NRI/IDI、Figure 7 四联图（后四项本就出自新拟合）。
+
+EPV 不变：合并后预测因子仍是 4 个，30 events ÷ 4 = 7.5。
+
+### ✅ P1 数值已定版：采用 0.850 / 0.796 / 0.794
 
 作者确认**训练集联合模型 0.850、临床模型 0.796**，即新一次拟合为最终版。正文的判别力一节与模型比较一节均已改用此套数字，两节现已内部一致。
 
@@ -256,7 +307,7 @@ A 与 C 对调了。新图与新表内部一致，但与原稿图完全相反。
 
 4. **DCA 亦为旧模型生成**，阈值区间需重跑核对。
 
-5. **请确认列线图（Fig 5）与 Table 2 的多因素 OR 是否出自同一次拟合。** 若模型有变，列线图分值与 OR 也应同步更新。
+5. ~~请确认列线图与 Table 2 的多因素 OR 是否出自同一次拟合~~ → ✅ **已答复：模型重新拟合过，BAM 并入 BAPF。** 因此列线图与 Table 2 多因素列**均出自旧拟合，均需重做**。详见上方「合并所波及的范围」。
 
 ### ~~⛔ P1：AUC 两套数字~~（以下为定版前的分析记录，保留备查）
 
