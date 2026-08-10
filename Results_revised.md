@@ -66,12 +66,11 @@
 > | Fig 4 | 森林图 | 3 |
 > | Fig 5 | 列线图 | 4 |
 > | Fig 6 | 列线图 ROC | 5 |
-> | Fig 7 | 多模型 ROC | 9 |
+> | **Fig 7** | **四联图：(a)(b) 单变量 ROC，(c)(d) 模型比较，均含双队列（新，取代旧 8 + 旧 9）** | 8 + 9 |
 > | Fig 8 | 校准曲线 | 6 |
 > | Fig 9 | DCA | 7 |
-> | **Supp. Fig S1** | 单变量 ROC | 8 |
 >
-> 若希望单变量 ROC 留在主文，则它为 Fig 8，校准与 DCA 顺延为 Fig 9、Fig 10（主文变 10 图）。**请同步更新 Discussion 及正文其他位置的图号交叉引用。**
+> 主文 9 图，全部含训练 + 验证双队列，不再需要 Supplementary Figure。表格 6 张（Table 1–3 不变，新增 Rad-score 分布、模型 AUC+DeLong 合并表、NRI/IDI）。**请同步更新 Discussion 及正文其他位置的图号与表号交叉引用**，尤其是任何引用过 Model A/B/C 字母的地方（含义已颠倒）。
 
 ---
 
@@ -91,7 +90,7 @@ Features with an inter-reader intraclass correlation coefficient (ICC) at or bel
 
 Six features survived at the selected λ (Figure 2c). Four carried positive weights: RunVariance.11 (β=0.306), Idn.6 (β=0.271), Imc1.9 (β=0.198) and MCC.7 (β=0.055). One carried a negative weight, SmallAreaEmphasis.8 (β=−0.173). The remaining term, ZoneVariance.2, was retained with a coefficient of 0.002 and therefore contributes negligibly to the score. The signature is dominated by run-length, co-occurrence and size-zone texture descriptors rather than by shape or first-order intensity, indicating that intralesional heterogeneity rather than lesion size drives the radiomic signal. The Rad-score, defined as the linear combination of these six features weighted by their LASSO coefficients, was computed for every patient in both sets using the training-derived coefficients and was carried forward as a single composite predictor.
 
-The Rad-score separated the two groups in the training set, where patients presenting with massive haemoptysis had higher scores than those with mild-to-moderate haemoptysis (median [X] vs [Y]; p<0.0001). The difference ran in the same direction in the internal validation set but did not reach statistical significance (median [X] vs [Y]; p=[Z]). With 12 cases available for that comparison, this is an indeterminate rather than a negative result (Figure 3).
+The Rad-score was higher in patients presenting with massive haemoptysis than in those with mild-to-moderate haemoptysis in the training cohort (median −1.043, IQR −1.189 to −0.706, n=30 versus median −1.361, IQR −1.640 to −1.062, n=101; Mann–Whitney U, p<0.01). The difference ran in the same direction in the internal validation cohort (median −1.029, IQR −1.275 to −0.596, n=12 versus median −1.189, IQR −1.523 to −0.954, n=45) but did not reach statistical significance (p=0.122). With 12 cases available for that comparison, this is an indeterminate rather than a negative result (Figure 3, Table 4).
 
 ### Variables associated with massive haemoptysis
 
@@ -107,11 +106,17 @@ A single classification cut-point of 0.255 in estimated probability was derived 
 
 Discrimination was good in the training set, with an area under the receiver operating characteristic curve (AUC) of 0.840 (95% CI 0.764 to 0.915), accuracy 0.817 (107/131), sensitivity 0.733 (22/30) and specificity 0.842 (85/101). In the internal validation set the point estimate remained similar but the estimate was far less precise: AUC 0.781 (95% CI 0.614 to 0.949), accuracy 0.719 (41/57), sensitivity 0.667 (8/12) and specificity 0.733 (33/45) (Table 3, Figure 6). The validation interval spans 0.335 AUC units and its lower bound approaches the 0.5 no-discrimination line, so the validation result is compatible with performance ranging from marginal to excellent and should not be read as confirmation of the training estimate.
 
-An unpaired DeLong test comparing the two cohorts did not detect a difference between the training and validation AUCs (D=0.604, df=80.7, p=0.547). Two features of this comparison limit what it establishes. The training AUC is an apparent estimate obtained on the data used to fit the model and is therefore optimistically biased, whereas the validation AUC is not, so the two quantities are not exchangeable. The validation set also contains only 12 events, which leaves the test with little power to detect a drop in discrimination. The result therefore indicates that the available data do not detect deterioration between cohorts, not that discrimination has been shown to be stable.
+An unpaired DeLong test comparing the two cohorts did not detect a difference between the training and validation AUCs (D=0.604, df=80.7, p=0.547). Two features of this comparison limit what it establishes. The training AUC is an apparent estimate obtained on the data used to fit the model and is therefore optimistically biased, whereas the validation AUC is not, so the two quantities are not exchangeable. The validation set also contains only 12 events, which leaves the test with little power to detect a drop in discrimination. The result therefore indicates that the available data do not detect deterioration between cohorts, not that discrimination has been shown to be stable. This comparison is also distinct from the between-model comparisons reported in the next section, and the two cannot substitute for one another.
 
 ### Incremental value of the radiomic and clinical components
 
-Three models were compared in the training set (Figure 7). Model A, the Rad-score alone, achieved an AUC of 0.761 (95% CI 0.672 to 0.850). Model B, the clinical model combining tuberculosis, BAPF and fibrinogen, achieved 0.769 (95% CI 0.663 to 0.876). Model C, the combined clinical–radiomic nomogram, achieved the numerically highest value at 0.840 (95% CI 0.764 to 0.915). The three confidence intervals overlap substantially, and no formal comparison of correlated ROC curves (DeLong test) or reclassification analysis (NRI, IDI) was performed. The apparent gain from combining the clinical and radiomic components is therefore suggestive rather than established. The unpaired DeLong test reported above compares the same model across the two cohorts and does not bear on this question; a paired DeLong test among Models A, B and C within the training cohort would be required, and was not performed. Single-variable ROC analyses for each candidate predictor are shown for reference in Supplementary Figure S1, where the combined nomogram curve lies outside every individual predictor curve across most of the operating range and the Rad-score is the strongest single contributor.
+Three models were compared within each cohort: the Rad-score alone, the clinical model combining tuberculosis, BAPF and fibrinogen, and the combined clinical–radiomic nomogram (Figure 7c and 7d, Table 5). In the training cohort the combined model reached an AUC of 0.850 (95% CI 0.775 to 0.925), against 0.796 (95% CI 0.693 to 0.898) for the clinical model and 0.761 (95% CI 0.672 to 0.850) for the Rad-score alone. The corresponding validation figures were 0.794 (95% CI 0.631 to 0.958), 0.744 (95% CI 0.555 to 0.934) and 0.647 (95% CI 0.456 to 0.839).
+
+Paired DeLong tests gave a mixed picture. In the training cohort the combined model outperformed the Rad-score alone (ΔAUC 0.089; Z=2.058, p=0.040), but its advantage over the clinical model did not reach significance (ΔAUC 0.054; Z=1.841, p=0.066), and the Rad-score and clinical models did not differ from one another (Z=−0.514, p=0.608). Three pairwise comparisons were made in each cohort, so the nominal p of 0.040 does not survive a Bonferroni-corrected threshold of 0.0167. None of the three comparisons reached significance in the internal validation cohort (p=0.170, 0.333 and 0.506 respectively).
+
+Reclassification metrics were more favourable to the combined model than the change in AUC was. Adding the Rad-score to the clinical model yielded a continuous net reclassification improvement of 0.428 (95% CI 0.029 to 0.827; p=0.036) and an integrated discrimination improvement of 0.062 (95% CI 0.013 to 0.111; p=0.013) in the training cohort (Table 6). Neither reached significance in validation (NRI 0.544, 95% CI −0.076 to 1.165, p=0.085; IDI 0.064, 95% CI −0.044 to 0.171, p=0.245). Continuous NRI is known to reject the null more often than its nominal level implies, and the lower bound of the training estimate lies only just above zero, so it carries less weight than the IDI result.
+
+Taken together, the incremental value of the radiomic component over clinical variables alone is supported by the reclassification metrics in the training cohort, is not supported by the change in AUC in that cohort, and is not confirmed by either metric in the internal validation cohort, where 12 events leave every comparison underpowered. Single-variable ROC curves are shown in Figure 7a and 7b. The combined nomogram lies outside every individual predictor across most of the operating range in the training cohort, whereas in validation the fibrinogen curve falls below the diagonal over much of its range, indicating that this variable alone carries little discriminative information in that sample.
 
 ### Calibration and clinical utility
 
@@ -129,7 +134,7 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 **Figure 2.** Radiomic feature selection by LASSO logistic regression in the training cohort. (a) LASSO coefficient profiles against log(λ). (b) Ten-fold cross-validation curve of binomial deviance; the green dashed line marks log(λ.min)=−3.3748, which was adopted, and the blue dashed line marks log(λ.1se)=−2.2584. (c) The six retained features and their coefficients.
 
-**Figure 3.** *(new)* Distribution of the Rad-score by presentation group in (a) the training cohort and (b) the internal validation cohort. Boxes show the median and interquartile range, whiskers extend to 1.5 times the interquartile range, and individual patients are overlaid. ⚠️ **制图注意：文档中提供的两张图顺序与题注相反 —— 12 个病例点的那张是验证集，30 个病例点的那张是训练集，请对调。** 另请将显著性标记由星号改为精确 p 值，注明所用检验（Mann–Whitney U 或 t 检验），并修正 x 轴标签中多余的 "0"（"No massive hemoptysis0"）。
+**Figure 3.** *(new)* Distribution of the Rad-score by presentation group in (a) the training cohort and (b) the internal validation cohort. Boxes show the median and interquartile range, whiskers extend to 1.5 times the interquartile range, and individual patients are overlaid. Groups were compared by the Mann–Whitney U test. ✅ 面板顺序已修正（(a) n=131，(b) n=57），星号已改为 p 值。⚠️ **仍需处理：**(1) 训练集面板的 p 目前显示 `<0.01`，而 Table 4 写的是 `＜0.05`，我此前依据初版图的 `****` 写成 `<0.0001` —— 三处不一致，**请提供精确 p 并统一**；(2) 训练集面板 x 轴标签 `No massive hemoptysis0` 有多余的 `0`。
 
 **Figure 4.** *(previously Figure 3)* Forest plots of (a) univariable and (b) multivariable logistic regression for massive haemoptysis in the training cohort. Squares denote odds-ratio point estimates and horizontal lines the 95% confidence intervals. Arrowheads in (a) indicate intervals extending beyond the plotted axis.
 
@@ -137,15 +142,19 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 **Figure 6.** *(previously Figure 5)* ROC curves of the clinical–radiomic nomogram in (a) the training cohort and (b) the internal validation cohort. The classification cut-point of 0.255 was derived from the maximum Youden index in the training cohort and applied unchanged to the validation cohort. ⚠️ **制图注意：验证集面板上标注的 0.447 必须删除** —— 那是验证集自身优化的切点，留在图上会被读作切点在验证集重新寻优。
 
-**Figure 7.** *(previously Figure 9)* Comparison of ROC curves for three models in the training cohort. Model A, Rad-score alone; Model B, clinical model (tuberculosis, BAPF and fibrinogen); Model C, combined clinical–radiomic nomogram. Confidence intervals overlap and no formal test of curve difference was performed.
+**Figure 7.** *(new four-panel figure, replacing previous Figures 8 and 9)* ROC analysis of individual predictors and of the three candidate models. (a) Individual candidate predictors in the training cohort and (b) in the internal validation cohort; TB and BAPF are binary, so their curves consist of two linear segments, and Nomo denotes the combined nomogram. (c) Model comparison in the training cohort and (d) in the internal validation cohort. ModA, combined clinical–radiomic model; ModB, clinical model (tuberculosis, BAPF and fibrinogen); ModC, Rad-score alone. ⚠️ **注意：ModA/ModB/ModC 的含义与原稿旧图完全颠倒**（旧图 ModA=Rad-score、ModC=联合）。正文已改用描述性名称以避免混淆；若 Discussion 中引用过旧的字母编号，必须一并更正。图 (a)(b) 面板不显示各变量的 AUC 数值，图注亦不应承诺给出。
 
 **Figure 8.** *(previously Figure 6)* Calibration of the nomogram in (a) the training cohort and (b) the internal validation cohort. The grey line is the ideal diagonal, the solid black line the logistic calibration curve and the dotted line the non-parametric estimate. Training values are apparent and uncorrected for optimism. Hosmer–Lemeshow: training χ²=9.11, df=8, p=0.333; validation χ²=10.76, df=8, p=0.216.
 
 **Figure 9.** *(previously Figure 7)* Decision-curve analysis in (a) the training cohort and (b) the internal validation cohort, showing net benefit of the nomogram against the treat-all and treat-none reference strategies.
 
-**Supplementary Figure S1.** *(previously Figure 8)* ROC curves for each individual candidate predictor and for the combined nomogram (Nomo) in the training cohort. TB and BAPF are binary variables, so their curves consist of two linear segments.
+**Table 3 footnote (建议新增).** Accuracy, sensitivity and specificity were derived at an estimated-probability cut-point of 0.255, obtained from the maximum Youden index of the training-cohort ROC curve and applied unchanged to the internal validation cohort.
 
-**Table 3 footnote (建议新增).** Accuracy, sensitivity and specificity were derived at a single cut-point of estimated probability; the cut-point and its derivation (for example the Youden index in the training cohort) should be stated and the same value applied to the validation cohort.
+**Table 4.** Distribution of the Rad-score by presentation group in the training and internal validation cohorts. 建议：删除冗余的 IQR 列（IQR = Q3 − Q1，四组均已核对相符：0.578 / 0.483 / 0.570 / 0.679），只保留 Median (Q1, Q3)；`Mann–Whitney U` 由数据列改为表注，适用于全部四行。
+
+**Table 5.** *(合并原 Table 5 与 Table 6)* Discrimination of the combined, clinical and Rad-score models, and pairwise comparison by DeLong's test, in the training and internal validation cohorts. 建议列：Cohort / Comparison / AUC (Model 1) / AUC (Model 2) / Z / P。原 Table 5 的三列 AUC 已完整包含在原 Table 6 之中，无须单列。表注定义：combined model = Rad-score + TB + BAPF + fibrinogen；clinical model = TB + BAPF + fibrinogen。
+
+**Table 6.** *(原 Table 7)* Continuous NRI and IDI of the combined model compared with the clinical model, in the training and internal validation cohorts.
 
 ---
 
@@ -202,16 +211,58 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 ---
 
+## D-1b. 第二批补充材料回执（问题 1–4 的答复）
+
+### ✅ 已修好
+
+- **箱线图标签互换已修正**。现在 (a) 训练集 n≈131、标 `<0.01`，(b) 验证集 n≈57、标 `0.122`，顺序与题注一致；星号也已换成 p 值。
+- **Table 4 数值与箱线图逐一吻合**（四组箱体中位数与 Q1/Q3 我逐个核对过），n 值 101/30/45/12 与队列构成一致。IQR 列与 Q3−Q1 亦全部相符。
+- **问题 4 提供的正是此前所缺的队列内配对 DeLong**（Table 6）加 NRI/IDI（Table 7）。六个 DeLong 的 Z 与 p 互相自洽，NRI/IDI 的点估计、CI 宽度与 p 也自洽 —— 这两张表算术上没有问题。
+- **新四联图补齐了验证集面板**。原稿的单变量 ROC 与模型比较都只有训练集，现在两者都有双队列，这是实质性改进。
+
+### ⛔ 新发现 P4（H）：Model A/B/C 的字母含义新旧完全颠倒
+
+| | ModA | ModB | ModC |
+|---|---|---|---|
+| 原稿多模型 ROC 图 | Rad-score (0.761) | 临床 (0.769) | 联合 (0.840) |
+| **新图 + 新 Table 5** | **联合 (0.850)** | 临床 (0.796) | **Rad-score (0.761)** |
+
+A 与 C 对调了。新图与新表内部一致，但与原稿图完全相反。
+
+**处理方式**：正文一律改用描述性名称（the combined nomogram / the clinical model / the Rad-score alone），字母只在 Fig 7 图注与 Table 5 中定义。这样无论最终采用哪套字母都不会出错。**但 Discussion 里若引用过 Model A/B/C，必须逐处核对。**
+
+### ⛔ P1 仍未解决：AUC 两套数字
+
+新材料**全部**使用 0.850 / 0.794（ROC 图、DeLong 输出、Table 5、Table 6、四联图 c/d 面板），原稿 Table 3、列线图 ROC、校准图仍是 0.840 / 0.781。
+
+一条重要线索：**Rad-score 单独模型的 AUC 新旧完全一致（0.761，CI 也一致）**，变的只有临床模型（0.769→0.796）和联合模型（0.840→0.850）。这说明 Rad-score 本身稳定，改变发生在临床变量进入模型的方式上。
+
+一个待验证的假设：0.840 可能是**列线图总分**的 AUC（分值离散化后略降），0.850 是**模型线性预测值**的 AUC。若成立，两者可并存但必须分别标注。**但该假设解释不了临床模型 0.769→0.796**（临床模型没有列线图），所以仍需回原始脚本查证。
+
+**若最终采用 0.850 / 0.794，需同步重做**：Table 3 的四项指标、校准图（图内 C(ROC) 及截距/斜率/Brier/Emax 全部会变）、DCA，并确认列线图分值与 Table 2 的多因素 OR 是否随之改变。
+
+### ⚠️ 训练集 Rad-score 比较的 p 值有三种写法
+
+初版图 `****`（p<0.0001）→ 二版图 `<0.01` → Table 4 `＜0.05`。正文暂用 `p<0.01`（与当前图一致）。请提供精确 p 并让图、表、正文三处统一。
+
+### 制图遗留（两项未动）
+
+- 验证集 ROC 上的 `0.447` 标注仍在，**必须删除**。
+- 训练集箱线图 x 轴仍是 `No massive hemoptysis0`。
+
+---
+
 ## D-2. 尚未闭合的数据缺口（无法从图中读出，需作者补充）
 
 这些内容**没有**写进正文，因为图里没有对应数据，凭空写会构成编造。
 
 1. ~~**判定阈值（cut-point）**~~ → ✅ **已解决**（0.255，训练集 Youden，固定应用于验证集）。附带要求：验证集 ROC 图上的 0.447 标注须删除。
-2. **Rad-score 的组间分布** → 🟡 **部分解决**。方向与显著性已明确（训练集 p<0.0001，验证集 ns），但仍缺四组中位数/IQR、验证集精确 p 值、所用检验方法。另需修正两图标签互换（见 P2）。
+2. ~~**Rad-score 的组间分布**~~ → ✅ **已解决**（Table 4 四组 median/IQR + n + Mann–Whitney U + 验证集 p=0.122；图标签互换已修正）。**唯一残留**：训练集精确 p（现有三种写法）。
 3. **特征筛选各步的数量级联**：提取特征总数 → ICC>0.75 后剩余 → mRMR 后剩余（图 2b 上轴提示约 35）→ LASSO 后 6 个。正文目前只能写「约 35 个进入 LASSO」，建议改为精确数字。
 4. **ICC 的实际取值**：流程图写了「n=20 做观察者内/间一致性检验」，但未报告 ICC 范围或中位数。
-5. **DeLong 检验** → 🔴 **未解决（提供的是另一个检验）**。收到的是同一模型训练集 vs 验证集的非配对 DeLong（p=0.547），已写入判别力一节。但支撑「联合模型优于单一成分」所需的是**同一队列内 Model A/B/C 的配对 DeLong**（`pROC::roc.test(..., paired=TRUE)`），以及 NRI / IDI。在补上之前，"Incremental value" 一节的降级表述必须保留。
+5. ~~**DeLong 检验**~~ → ✅ **已解决**。队列内配对 DeLong（Table 6）+ NRI/IDI（Table 7）均已提供，"Incremental value" 一节已据此重写。结论并非一边倒：训练集中联合模型显著优于 Rad-score 单独（p=0.040，但未通过 Bonferroni），**对临床模型的优势未达显著（p=0.066）**，而重分类指标显著（NRI p=0.036，IDI p=0.013）；验证集全部不显著。正文已如实并列报告两类指标的分歧。
 6. **验证集校准的处理方案**：Fig 8b 显示系统性高估（截距 −0.688）。请确认是否要（a）如实报告并在 Discussion 讨论，或（b）补做截距再校准并报告校准后指标。目前正文按 (a) 处理。
-7. **Fig 7（旧 8）的 AUC 数值**：原图注承诺给出各变量 AUC，图中无数值。建议在图中加注，或按修订后的图注表述。
+7. ~~**单变量 ROC 图的 AUC 数值**~~ → ✅ **已按图注表述解决**。新四联图的 (a)(b) 面板同样不显示各变量 AUC，修订后的图注不再作此承诺，图文一致。
+7b. **AUC 版本核对（最高优先，见 D-1b 的 P1）** → 🔴 **未解决**。这是目前唯一阻断定稿的问题。
 8. **文末两条无关参考文献**（Ao Q et al. 铁死亡与类风湿关节炎；Shen H et al. α7 nAChR 与慢性间歇低氧）与本研究无关，应删除。
 9. **样本量/EPV**：30 events ÷ 4 predictors = 7.5 EPV，低于常规下限 10。正文已如实说明，建议 Discussion 的 Limitations 呼应，或补做 bootstrap 内部验证（500–1000 次）报告乐观度校正后的 AUC 与校准斜率。
