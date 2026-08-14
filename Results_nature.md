@@ -36,7 +36,7 @@ Baseline characteristics were comparable between cohorts for age, sex, smoking s
 
 Two thoracic radiologists delineated three-dimensional regions of interest on each baseline contrast-enhanced chest CT volume. After resampling to 0.5 × 0.5 × 0.5 mm, Laplacian-of-Gaussian and wavelet filtering and intensity normalisation, we extracted shape, first-order and texture descriptors. All feature reduction and coefficient estimation were confined to the training cohort, so that no validation data informed the signature.
 
-Features with an inter-reader intraclass correlation coefficient at or below 0.75 were discarded and the remainder pruned by maximum-relevance minimum-redundancy selection, leaving approximately 35 features for least absolute shrinkage and selection operator (LASSO) logistic regression. Ten-fold cross-validation minimised binomial deviance at log(λ) = −3.3748 (Fig. 2a,b); the one-standard-error solution retained only two features and was not used. Six features survived: RunVariance.11 (β = 0.306), Idn.6 (β = 0.271), Imc1.9 (β = 0.198), MCC.7 (β = 0.055), SmallAreaEmphasis.8 (β = −0.173) and ZoneVariance.2 (β = 0.002, a negligible contribution) (Fig. 2c). Run-length, co-occurrence and size-zone texture descriptors dominate the signature; no shape or first-order intensity feature was retained.
+Of 1,315 features extracted, 484 (36.8%) had an inter-reader intraclass correlation coefficient (ICC) above 0.75 and were retained, with ICCs ranging from 0.760 to 0.914 (median 0.849). Maximum-relevance minimum-redundancy selection reduced these to 35, which entered least absolute shrinkage and selection operator (LASSO) logistic regression. Ten-fold cross-validation minimised binomial deviance at log(λ) = −3.3748 (Fig. 2a,b); the one-standard-error solution retained only two features and was not used. Six features survived: RunVariance.11 (β = 0.306), Idn.6 (β = 0.271), Imc1.9 (β = 0.198), MCC.7 (β = 0.055), SmallAreaEmphasis.8 (β = −0.173) and ZoneVariance.2 (β = 0.002, a negligible contribution) (Fig. 2c). Run-length, co-occurrence and size-zone texture descriptors dominate the signature; no shape or first-order intensity feature was retained.
 
 The resulting Rad-score, computed for every patient from the training-derived coefficients, was higher in massive than in non-massive haemoptysis in the training cohort (median −1.043, interquartile range (IQR) −1.189 to −0.706 versus −1.361, IQR −1.640 to −1.062; Mann–Whitney *U*, *P* = 1.49 × 10⁻⁵; Fig. 3a and Table 4). The difference ran in the same direction in the validation cohort (−1.029, IQR −1.275 to −0.596 versus −1.189, IQR −1.523 to −0.954) but did not reach significance (*P* = 0.122; Fig. 3b), a comparison resting on 12 cases.
 
@@ -85,10 +85,8 @@ Decision-curve analysis showed net benefit over treat-all and treat-none strateg
 
 1. **Percentages reduced to one decimal** (22.3% rather than 22.34%). With *n* = 188 one patient shifts a proportion by 0.53%, so two decimals is false precision. Tables may retain their current precision; confirm if you want prose and tables identical.
 2. **Nomogram point allocations read from the figure**, not from `nomogram()` output. Confirm 0–100 / ~55 / ~23 / ~21 and total 0–180.
-3. **Approximately 35 features entering LASSO** is read from the Fig. 2b upper axis. The exact cascade (extracted → post-ICC → post-mRMR) is still outstanding.
-4. **Observed proportions at estimated 0.6 and 0.8** (≈0.42 and ≈0.55) are read from the validation calibration curve. Replace with exact values if available.
-5. **Merge timing undeclared.** The Methods must state whether combining BAPF and BAM preceded or followed inspection of outcome data, since the merge moved the combined-model AUC from 0.840 to 0.850.
-6. Artwork items unchanged from the audit file: the two decision-curve panels are transposed, the nomogram axis still reads BAPF, the validation ROC still carries the 0.447 annotation, and the training boxplot x-axis carries a stray zero.
+3. **ICC 的具体形式待确认。** 正文只写「inter-reader ICC > 0.75」，未指明是 ICC(2,1) 还是其他形式。Methods 需交代当初实际使用的形式。这是本节唯一仍未闭合的数据项。
+4. 制图任务见 `Results_revised.md` 的「Phase C 图表清单」，本文件正文已按最终数据写定。
 
 ## Claim–evidence map
 

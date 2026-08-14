@@ -88,7 +88,7 @@ One variable was the exception. Bronchial artery abnormality (BAA), a composite 
 
 Two thoracic radiologists independently delineated three-dimensional regions of interest on each baseline contrast-enhanced chest CT volume in 3D Slicer v5.3.0. Images were resampled to 0.5 × 0.5 × 0.5 mm, filtered (Laplacian of Gaussian and wavelet) and normalised before extraction of shape, first-order and texture descriptors (GLCM, GLRLM, GLSZM, NGTDM and GLDM). **Every selection step was performed within the training set alone**, so that no information from the validation set entered feature reduction or coefficient estimation.
 
-Features with an inter-reader intraclass correlation coefficient (ICC) at or below 0.75 were discarded, and the survivors were further pruned by the maximum-relevance minimum-redundancy (mRMR) algorithm. Approximately 35 features entered the least absolute shrinkage and selection operator (LASSO) step (Figure 2b, upper axis). Ten-fold cross-validation minimised the binomial deviance at log(λ)=−3.3748, and this value was adopted for the final signature; the more parsimonious one-standard-error solution (log(λ)=−2.2584) retained only two features and was not used (Figure 2a and 2b).
+Of 1,315 features extracted, 484 (36.8%) had an inter-reader intraclass correlation coefficient (ICC) above 0.75 and were retained, with ICCs ranging from 0.760 to 0.914 (median 0.849). The maximum-relevance minimum-redundancy (mRMR) algorithm reduced these to 35, which entered the least absolute shrinkage and selection operator (LASSO) step. Ten-fold cross-validation minimised the binomial deviance at log(λ)=−3.3748, and this value was adopted for the final signature; the more parsimonious one-standard-error solution (log(λ)=−2.2584) retained only two features and was not used (Figure 2a and 2b).
 
 Six features survived at the selected λ (Figure 2c). Four carried positive weights: RunVariance.11 (β=0.306), Idn.6 (β=0.271), Imc1.9 (β=0.198) and MCC.7 (β=0.055). One carried a negative weight, SmallAreaEmphasis.8 (β=−0.173). The remaining term, ZoneVariance.2, was retained with a coefficient of 0.002 and therefore contributes negligibly to the score. The signature is dominated by run-length, co-occurrence and size-zone texture descriptors rather than by shape or first-order intensity, indicating that intralesional heterogeneity rather than lesion size drives the radiomic signal. The Rad-score, defined as the linear combination of these six features weighted by their LASSO coefficients, was computed for every patient in both sets using the training-derived coefficients and was carried forward as a single composite predictor.
 
@@ -394,14 +394,51 @@ EPV 不变：合并后预测因子仍是 4 个，30 events ÷ 4 = 7.5。
 
 ---
 
+## Phase C — 图表清单（数据已全部定死，可以开始制图）
+
+✅ **正文数值已全部锁定**，不会再变。以下按图/表逐项列出要改什么。
+
+### 图
+
+| 图 | 状态 | 具体改动 |
+|---|---|---|
+| **Fig 1** 流程图 | ⚠️ 改 | (1) 图注占位符 `BAPF, 1, 2;` 改为完整缩写定义；(2) 在特征筛选框内补入**精确级联**：提取 1315 → ICC>0.75 保留 484 → mRMR 保留 35 → LASSO 保留 6；(3) 临床变量框中 `BAPF, BAM` 合并为 `BAA` |
+| **Fig 2** LASSO | ✅ 不动 | Rad-score 构建未受合并影响，三个面板均可直接使用 |
+| **Fig 3** Rad-score 分布 | ⚠️ 改 | (1) 训练集面板 p 由 `<0.01` 改为 **`P = 1.49 × 10⁻⁵`**（或按期刊惯例 `P < 0.001`），须与 Table 4 一致；(2) 训练集面板 x 轴标签 `No massive hemoptysis0` 删除多余的 `0`。面板顺序已正确，勿再调 |
+| **Fig 4** 森林图 | 🔴 **重绘两个面板** | 出自合并前模型。(a) 单因素 16 行，`BAPF`+`BAM` 两行合为**单一 BAA 行**（OR 5.27, 1.96–14.16）；(b) 多因素 4 行，用新 OR：TB 5.18 (1.42–18.93)、BAA 4.32 (1.33–14.10)、Fibrinogen 0.65 (0.45–0.95)、Rad-score 4.73 (1.53–14.63) |
+| **Fig 5** 列线图 | ⚠️ 改 | 第二行轴标 `BAPF` → **`BAA`**。图形本身已出自新拟合，无需重跑 |
+| **Fig 6** 列线图 ROC | ⚠️ 改 | **删除验证集面板上的 `0.447` 标注**（验证集自优化切点，留着会被读作在验证集重新寻优）。训练集面板的 `0.255` 保留。可选：在验证集面板标出 0.255 对应的操作点 (0.667, 0.750) |
+| **Fig 7** 四联图 | ⚠️ 改 | (1) (a)(b) 面板图例 `BAPF` → `BAA`；(2) **建议把 (c)(d) 的 `ModA/ModB/ModC` 直接改成 `Combined` / `Clinical` / `Rad-score`** —— 字母在新旧图中含义相反，直接写名称可彻底消除歧义，正文也已改用描述性名称 |
+| **Fig 8** 校准曲线 | ✅ 不动 | 已出自新拟合（Dxy 0.700 / 0.589 已核对） |
+| **Fig 9** DCA | 🔴 **两面板对调** | 现标注「训练集」的实为验证集（阈值 0 处净获益 0.209 = 12/57），标注「验证集」的实为训练集（0.228 = 30/131）。建议重绘时把队列名写进 `main=` 参数，避免第三次贴错 |
+
+### 表
+
+| 表 | 改动 |
+|---|---|
+| **Table 1** | 删 `BAPF`、`BAM` 两行，只留 **BAA**（全体 38/188 20.21%；训练 21/131 16.03%；验证 17/57 29.82%；p=0.049）。表注：`BAA, bronchial artery abnormality, comprising bronchial artery–pulmonary fistula (n = 27) and bronchial artery malformation (n = 18), with 7 patients carrying both.` |
+| **Table 2** | 16 行（原 17 项，BAPF+BAM 合为 BAA）。单因素列全填，多因素列只填 4 项、其余破折号。**`P` 与 `P-raw` 合并为一列精确 p**；Rad-score 单因素的 `0.000` 改为 `<0.001` |
+| **Table 3** | 训练：AUC 0.850 (0.775–0.925)、Sens 0.767、Spec 0.842、Acc 0.824；验证：AUC 0.794 (0.631–0.958)、Sens 0.750、Spec 0.667、Acc 0.684。表注写明切点 0.255 由训练集 Youden 得出、固定应用于验证集 |
+| **Table 4** | 删冗余的 `IQR` 列（= Q3−Q1，四组已核对）。`Mann–Whitney U` 由数据列改为表注。训练集 p 改为 `1.49 × 10⁻⁵` |
+| **Table 5** | 合并原 Table 5 与 Table 6（三模型 AUC 已完整包含在 DeLong 比较表中）。列：Cohort / Comparison / AUC (Model 1) / AUC (Model 2) / Z / P |
+| **Table 6** | 原 Table 7，NRI/IDI，不变 |
+
+### 图表以外
+
+- 删除文末两条与本研究无关的参考文献（Ao 等铁死亡/类风湿；Shen 等 α7 nAChR）
+- Discussion 中所有图号、表号交叉引用需按新编号更新；**特别核对任何引用过 Model A/B/C 字母的地方**
+- Methods 需交代 ICC 的具体形式（见 D-2 第 4 项）
+
+---
+
 ## D-2. 尚未闭合的数据缺口（无法从图中读出，需作者补充）
 
 这些内容**没有**写进正文，因为图里没有对应数据，凭空写会构成编造。
 
 1. ~~**判定阈值（cut-point）**~~ → ✅ **已解决**（0.255，训练集 Youden，固定应用于验证集）。附带要求：验证集 ROC 图上的 0.447 标注须删除。
 2. ~~**Rad-score 的组间分布**~~ → ✅ **已解决**（Table 4 四组 median/IQR + n + Mann–Whitney U + 验证集 p=0.122；图标签互换已修正）。**唯一残留**：训练集精确 p（现有三种写法）。
-3. **特征筛选各步的数量级联**：提取特征总数 → ICC>0.75 后剩余 → mRMR 后剩余（图 2b 上轴提示约 35）→ LASSO 后 6 个。正文目前只能写「约 35 个进入 LASSO」，建议改为精确数字。
-4. **ICC 的实际取值**：流程图写了「n=20 做观察者内/间一致性检验」，但未报告 ICC 范围或中位数。
+3. ~~**特征筛选各步的数量级联**~~ → ✅ **已解决**（2026-08-10）：提取 **1315** → ICC>0.75 保留 **484**（36.8%）→ mRMR 保留 **35** → LASSO 保留 **6**。`n_mrmr = 35` 与图 2b 上轴读数吻合，级联自洽。
+4. ~~**ICC 的实际取值**~~ → 🟡 **数值已解决，形式待确认**：保留特征 ICC **0.760–0.914，中位数 0.849**。按 Koo & Li (2016) 分级，绝大多数落在「良好」区间（0.75–0.90），最高值刚触及「优秀」下限——如实报告即可，无需修饰。**仍缺**：当初实际使用的 ICC 形式（ICC(2,1) 双向随机、绝对一致、单次测量？还是其他），Methods 需交代。
 5. ~~**DeLong 检验**~~ → ✅ **已解决**。队列内配对 DeLong（Table 6）+ NRI/IDI（Table 7）均已提供，"Incremental value" 一节已据此重写。结论并非一边倒：训练集中联合模型显著优于 Rad-score 单独（p=0.040，但未通过 Bonferroni），**对临床模型的优势未达显著（p=0.066）**，而重分类指标显著（NRI p=0.036，IDI p=0.013）；验证集全部不显著。正文已如实并列报告两类指标的分歧。
 6. **验证集校准的处理方案**：Fig 8b 显示系统性高估（截距 −0.688）。请确认是否要（a）如实报告并在 Discussion 讨论，或（b）补做截距再校准并报告校准后指标。目前正文按 (a) 处理。
 7. ~~**单变量 ROC 图的 AUC 数值**~~ → ✅ **已按图注表述解决**。新四联图的 (a)(b) 面板同样不显示各变量 AUC，修订后的图注不再作此承诺，图文一致。
