@@ -85,7 +85,7 @@ Decision-curve analysis showed net benefit over treat-all and treat-none strateg
 
 1. **Percentages reduced to one decimal** (22.3% rather than 22.34%). With *n* = 188 one patient shifts a proportion by 0.53%, so two decimals is false precision. Tables may retain their current precision; confirm if you want prose and tables identical.
 2. **Nomogram point allocations read from the figure**, not from `nomogram()` output. Confirm 0–100 / ~55 / ~23 / ~21 and total 0–180.
-3. **ICC 的具体形式待确认。** 正文只写「inter-reader ICC > 0.75」，未指明是 ICC(2,1) 还是其他形式。Methods 需交代当初实际使用的形式。这是本节唯一仍未闭合的数据项。
+3. **无。** Results 所需数据已全部闭合。ICC 形式（双向随机 + 绝对一致 + 单次测量，即 ICC(2,1)）属 Methods 内容，不进 Results 正文；可直接粘用的 Methods 句子见 `Results_revised.md` 的 D-2 第 4 项。
 4. 制图任务见 `Results_revised.md` 的「Phase C 图表清单」，本文件正文已按最终数据写定。
 
 ## Claim–evidence map
