@@ -3,14 +3,14 @@
 # Figure 9. Decision-curve analysis of the clinical-radiomic nomogram in
 #           (a) the training cohort and (b) the internal validation cohort.
 #
-# The previous version of this figure had the two panels transposed relative to
-# their captions. This script prevents that structurally in two ways:
+# Regenerates the figure from the model so the whole set stays on one fit.
+# Two habits keep the panels honest:
 #
 #   1. Panel titles are read from the names of the data list, so a label cannot
 #      drift from the data it sits above.
-#   2. Net benefit at a threshold of zero equals the prevalence. The script
-#      checks that identity for each cohort and STOPS before drawing if the two
-#      disagree, which is exactly what a transposition would produce.
+#   2. Before drawing, the script checks each cohort's size and AUC against the
+#      published values and STOPS on a mismatch, so a crossed dat_train/dat_test
+#      or a wrong model is caught rather than plotted.
 #
 # Net benefit is computed directly rather than through rmda or dcurves, and is
 # not smoothed: the validation curve genuinely oscillates near zero at high

@@ -138,7 +138,7 @@ The Hosmer–Lemeshow test detected no significant departure from the fitted mod
 
 Decision-curve analysis indicated net benefit over the treat-all and treat-none strategies across a clinically usable range of threshold probabilities (Figure 9). In the training cohort the nomogram was the preferred strategy from approximately 0.05 to 0.72, with net benefit falling below zero only beyond that point. In the internal validation cohort the advantage held from approximately 0.05 to 0.60, after which net benefit oscillated around zero and became negative beyond about 0.75; few patients received estimated probabilities in that upper range, so the high-threshold portion of the validation curve is unstable. Across the threshold band most relevant to triage at presentation, roughly 0.10 to 0.40, the nomogram retained a clear positive net benefit in both cohorts.
 
-> ⛔ **制图注意：DCA 两个面板与题注相反，请对调。** 判据是 DCA 在阈值 0 处的净获益恒等于患病率，且 "All" 线过零点也等于患病率。我用像素校准测得：标注「训练集」的那张起点为 **0.209**（对应验证集 12/57 = 0.2105），标注「验证集」的那张起点为 **0.228**（对应训练集 30/131 = 0.2290）。两个判据一致。上文的阈值区间已按**更正后**的对应关系写。
+> ℹ️ **DCA 面板不需对调（2026-08-14 更正）。** 我此前依据像素读图判定两面板与题注相反，作者核对实际数据后确认：训练集阈值 0 处净获益 = 0.228（30/131），验证集 = 0.209（12/57），题注与面板一致。撤回原判定——两个值只差 0.019，已超出栅格图的读数分辨能力，我当时的测量不可靠。上文的阈值区间按原对应关系（训练至约 0.72、验证至约 0.60）保留。
 
 ---
 
@@ -160,7 +160,7 @@ Decision-curve analysis indicated net benefit over the treat-all and treat-none 
 
 **Figure 8.** *(previously Figure 6)* Calibration of the nomogram in (a) the training cohort and (b) the internal validation cohort. The grey line is the ideal diagonal, the solid black line the logistic calibration curve and the dotted line the non-parametric estimate. Training values are apparent and uncorrected for optimism. Hosmer–Lemeshow: training χ²=7.572, df=8, p=0.476; validation χ²=9.213, df=8, p=0.325.
 
-**Figure 9.** *(previously Figure 7)* Decision-curve analysis in (a) the training cohort and (b) the internal validation cohort, showing net benefit of the nomogram against the treat-all and treat-none reference strategies. ⛔ **两个面板与题注相反，请对调**（判据见正文该节的标记）。
+**Figure 9.** *(previously Figure 7)* Decision-curve analysis in (a) the training cohort and (b) the internal validation cohort, showing net benefit of the nomogram against the treat-all and treat-none reference strategies.
 
 **Table 3 footnote (建议新增).** Accuracy, sensitivity and specificity were derived at an estimated-probability cut-point of 0.255, obtained from the maximum Youden index of the training-cohort ROC curve and applied unchanged to the internal validation cohort.
 
@@ -311,7 +311,7 @@ EPV 不变：合并后预测因子仍是 4 个，30 events ÷ 4 = 7.5。
 
 3. ~~**Table 3 验证集三项指标仍缺**~~ → ✅ **已补齐**（第三批）：切点 0.255 下敏感度 **0.750 (9/12)**、特异度 **0.667 (30/45)**、准确率 **0.684 (39/57)**。三者反解自洽。
 
-4. ~~**DCA 亦为旧模型生成**~~ → ✅ **已重跑**（第三批），但两面板与题注相反，见 Phase C 清单。
+4. ~~**DCA 亦为旧模型生成**~~ → ✅ **已重跑**（第三批），题注与面板一致（我此前误判为对调，已于 2026-08-14 撤回，见下）。
 
 5. ~~请确认列线图与 Table 2 的多因素 OR 是否出自同一次拟合~~ → ✅ **已答复：模型重新拟合过，BAM 并入 BAPF。** 因此列线图与 Table 2 多因素列**均出自旧拟合，均需重做**。详见上方「合并所波及的范围」。
 
@@ -349,16 +349,18 @@ EPV 不变：合并后预测因子仍是 4 个，30 events ÷ 4 = 7.5。
 | 校准图 Dxy | 训练 **0.700**、验证 **0.589**，与我上一轮由 `Dxy = 2C − 1` 预测的 0.700 / 0.588 吻合 ✅ 反证「校准图出自旧拟合」的判断正确 |
 | 新校准图 C(ROC) | 0.850 / 0.794 ✅ 与已定版 AUC 一致，确认为新拟合 |
 
-### ⛔ P5（H）：DCA 两个面板与题注相反
+### ✅ P5：DCA 面板不需对调（原判定已撤回，2026-08-14）
 
-判据：DCA 在阈值 0 处的净获益恒等于患病率；"All" 线过零点也等于患病率。像素校准结果：
+我此前判定 DCA 两面板与题注相反，依据是像素读图测得的阈值 0 处净获益。**这个判定错了，已撤回。** 作者核对实际数据：
 
-| 文档标注 | 阈值 0 处净获益 | 实际对应 |
-|---|---|---|
-| 「训练集」 | **0.209** | 验证集（12/57 = 0.2105） |
-| 「验证集」 | **0.228** | 训练集（30/131 = 0.2290） |
+| 面板 | 阈值 0 处净获益 | 患病率 | 一致 |
+|---|---|---|---|
+| 训练集 | 0.228 | 30/131 = 0.229 | ✓ |
+| 验证集 | 0.209 | 12/57 = 0.211 | ✓ |
 
-这是**第二次**出现面板对调（上一轮箱线图已发生过一次）。正文的阈值区间已按更正后的对应关系写。建议出图时把队列名直接写进 R 的 `main=` 参数，避免再靠事后贴标签。
+题注与面板本就一致。**为什么我错了**：DCA 阈值 0 处净获益恒等于患病率这条判据本身没错，但训练与验证两个患病率只差 0.019，要从栅格图上把它们区分开已超出像素读数的精度——复核时我的自动网格线识别甚至直接崩了（映射出 0.7、0.9 这种无意义值）。对比上一轮箱线图的对调：那是靠**数散点个数**（12 vs 30）判定的，不受精度限制，所以成立且已修正。两者性质不同。
+
+`fig9_dca.R` 的队列规模守卫仍然保留——它只是确保 `dat_train` 确实是 131 例那一队，与本条无关，是中性的防错，无论面板是否对调都有价值。
 
 ### ⛔ P6（H）：补充材料的校准结论与其自身的图冲突
 
@@ -410,7 +412,7 @@ EPV 不变：合并后预测因子仍是 4 个，30 events ÷ 4 = 7.5。
 | **Fig 6** 列线图 ROC | ⚠️ 改 | **删除验证集面板上的 `0.447` 标注**（验证集自优化切点，留着会被读作在验证集重新寻优）。训练集面板的 `0.255` 保留。可选：在验证集面板标出 0.255 对应的操作点 (0.667, 0.750) |
 | **Fig 7** 四联图 | ⚠️ 改 | (1) (a)(b) 面板图例 `BAPF` → `BAA`；(2) **建议把 (c)(d) 的 `ModA/ModB/ModC` 直接改成 `Combined` / `Clinical` / `Rad-score`** —— 字母在新旧图中含义相反，直接写名称可彻底消除歧义，正文也已改用描述性名称 |
 | **Fig 8** 校准曲线 | ✅ 不动 | 已出自新拟合（Dxy 0.700 / 0.589 已核对） |
-| **Fig 9** DCA | ✅ **代码已提供** `fig9_dca.R` | 只需在脚本顶部填入 `fit` / `dat_train` / `dat_test` / 结局列名。面板标签取自数据 list 的 names，结构上无法与内容分离；另有两道守卫会在出图前报错停止——队列规模不符（拦对调）、AUC 偏离发表值超 0.05（拦 p 与 y 错配或用错模型）。两道守卫均已用合成数据实测触发 |
+| **Fig 9** DCA | ✅ **代码已提供** `fig9_dca.R`（原图无需对调，见 P5 更正） | 只需在脚本顶部填入 `fit` / `dat_train` / `dat_test` / 结局列名。面板标签取自数据 list 的 names，结构上无法与内容分离；另有两道守卫会在出图前报错停止——队列规模不符（拦队列接反）、AUC 偏离发表值超 0.05（拦 p 与 y 错配或用错模型）。两道守卫均已用合成数据实测触发。原稿那张 DCA 本身没问题，此脚本用于随新拟合一并重出、保持全套图同源 |
 
 ### 表
 
