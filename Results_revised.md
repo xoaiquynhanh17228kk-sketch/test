@@ -22,7 +22,7 @@
 | Fig 6（原编号 9）多模型 ROC | ModA 0.761 (0.672–0.850)；ModB 0.769 (0.663–0.876)；ModC 0.840 (0.764–0.915)。**三条 CI 大幅重叠，图中无 DeLong 检验** | 已使用，但结论强度超出证据 |
 | Fig 7（原编号 8）单变量 ROC | 图中**仅有图例（BAPF / fib / Nomo / Rad_Score / TB），无任何 AUC 数值**；Nomo 曲线整体位于最外侧，Rad_Score 次之 | 图注承诺「AUC for each individual variable」，图中并未给出 → 图注与图不符 |
 | Fig 8（原编号 6）校准曲线 | **训练**：Dxy 0.679、C 0.840、R² 0.364、Brier **0.129**、Intercept **0.000**、Slope **1.000**、Emax 0.091、E90 0.058、Eavg 0.025 → 截距恰为 0、斜率恰为 1，说明这是**表观（apparent）校准，未做 bootstrap 乐观度校正**。**验证**：Dxy 0.563、C 0.781、R² 0.228、Brier **0.138**、Intercept **−0.688**、Slope **0.804**、Emax **0.251**、E90 **0.222**、Eavg **0.088**；logistic 校准曲线**明显位于对角线下方**，即**系统性高估**风险，0.4 以上尤为明显 | ❌ **原文与图直接冲突**：原文称「估计值与观测值曲线在全概率范围内贴合对角线」 |
-| Fig 9（原编号 7）DCA | **两个子图（a 训练 / b 验证）**。训练：净获益优于 All/None 约在阈值 **0–0.72**，0.73–0.78 略低于 0。验证：优势区间约 **0–0.60**，0.60–0.77 在 0 附近震荡甚至略负。All 线过零点分别约 0.23 / 0.21（与患病率一致） | 原文按单图描述，且未给出阈值区间上界 |
+| Fig 9（原编号 7）DCA | **两个子图（a 训练 / b 验证）**。作者确认的可用阈值区间：训练 **0.01–0.73**、验证 **0.06–0.60**（离开点 / 融入点 X 位置）。All 线过零点分别约 0.23 / 0.21（与患病率一致，面板未对调） | 原文按单图描述，且未给出阈值区间上界 |
 
 ---
 
@@ -136,9 +136,9 @@ The Hosmer–Lemeshow test detected no significant departure from the fitted mod
 >
 > 另需注意：**合并 BAM 后验证集校准比合并前更差**（截距 −0.688→−0.781，斜率 0.804→0.741，Eavg 0.088→0.111）。判别力（AUC 0.781→0.794）与校准度朝相反方向变化，这一点值得在 Discussion 中说明。
 
-Decision-curve analysis indicated net benefit over the treat-all and treat-none strategies across a clinically usable range of threshold probabilities (Figure 9). In the training cohort the nomogram was the preferred strategy from approximately 0.05 to 0.72, with net benefit falling below zero only beyond that point. In the internal validation cohort the advantage held from approximately 0.05 to 0.60, after which net benefit oscillated around zero and became negative beyond about 0.75; few patients received estimated probabilities in that upper range, so the high-threshold portion of the validation curve is unstable. Across the threshold band most relevant to triage at presentation, roughly 0.10 to 0.40, the nomogram retained a clear positive net benefit in both cohorts.
+Decision-curve analysis indicated net benefit over the treat-all and treat-none strategies across a clinically usable range of threshold probabilities (Figure 9). In the training cohort the nomogram was the preferred strategy from 0.01 to 0.73, with net benefit falling below zero only beyond that point. In the internal validation cohort the advantage held from 0.06 to 0.60, after which net benefit hovered around zero; few patients received estimated probabilities in that upper range, so the high-threshold portion of the validation curve is unstable. Across the threshold band most relevant to triage at presentation, roughly 0.10 to 0.40, the nomogram retained a clear positive net benefit in both cohorts.
 
-> ℹ️ **DCA 面板不需对调（2026-08-14 更正）。** 我此前依据像素读图判定两面板与题注相反，作者核对实际数据后确认：训练集阈值 0 处净获益 = 0.228（30/131），验证集 = 0.209（12/57），题注与面板一致。撤回原判定——两个值只差 0.019，已超出栅格图的读数分辨能力，我当时的测量不可靠。上文的阈值区间按原对应关系（训练至约 0.72、验证至约 0.60）保留。
+> ℹ️ **DCA 面板不需对调（2026-08-14 更正）。** 我此前依据像素读图判定两面板与题注相反，作者核对实际数据后确认：训练集阈值 0 处净获益 = 0.228（30/131），验证集 = 0.209（12/57），题注与面板一致。撤回原判定——两个值只差 0.019，已超出栅格图的读数分辨能力，我当时的测量不可靠。上文的阈值区间已按作者从 DCA 工具读出的精确值写定：训练 0.01–0.73、验证 0.06–0.60（离开点 / 融入点 X 位置）。
 
 ---
 

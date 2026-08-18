@@ -186,5 +186,5 @@ render()
 dev.off()
 
 cat("\nFig9_dca.tiff and Fig9_dca.pdf written.\n")
-cat("Manuscript states roughly 0.05-0.72 (training) and 0.05-0.60 (validation).\n")
+cat("Manuscript states 0.01-0.73 (training) and 0.06-0.60 (validation).\n")
 cat("If the printed ranges differ materially, update the Results text to match.\n")
