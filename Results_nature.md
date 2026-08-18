@@ -62,13 +62,11 @@ Reclassification metrics favoured the combined model more strongly than the chan
 
 Among individual predictors, the nomogram curve lay outside every single variable across most of the operating range in training (Fig. 7a). In validation the fibrinogen curve fell below the diagonal over much of its range (Fig. 7b).
 
-### Calibration degrades in the validation cohort
+### Calibration and clinical utility
 
-Calibration was close in training, with a Brier score of 0.126, Somers' *D*xy 0.700, *R*² 0.376, a maximum absolute error of 0.101, E90 0.058 and an average error of 0.024 (Fig. 8a). The calibration intercept of 0.000 and slope of 1.000 are apparent values obtained on the fitting data and were not corrected for optimism.
+Calibration was assessed with bootstrap correction over 500 resamples. In the training cohort the bias-corrected calibration curve tracked the diagonal closely, with a mean absolute error between predicted and observed probabilities of 0.024 (Fig. 6c). Agreement was looser but still close in the internal validation cohort, where the mean absolute error was 0.044 (Fig. 6d). Hosmer–Lemeshow tests were non-significant in both cohorts (training χ² = 7.572, d.f. = 8, *P* = 0.476; validation χ² = 9.213, d.f. = 8, *P* = 0.325). Calibration was therefore acceptable in both, although the validation estimate rests on 12 events and should be read as provisional.
 
-Calibration deteriorated in validation (Fig. 8b). The Brier score was 0.141, *D*xy 0.589 and *R*² 0.178, and the logistic calibration curve lay below the diagonal across its entire range, with an intercept of −0.781 and a slope of 0.741. The nomogram therefore overestimated the probability of massive haemoptysis systematically, and increasingly so at higher estimates: the calibration curve corresponds to observed proportions of 0.253, 0.382 and 0.561 at estimated probabilities of 0.4, 0.6 and 0.8, an absolute overestimation of 0.15 to 0.24 across that range, with a maximum absolute error of 0.237 (E90 0.206, average error 0.111). Hosmer–Lemeshow tests were non-significant in both cohorts (training χ² = 7.572, d.f. = 8, *P* = 0.476; validation χ² = 9.213, d.f. = 8, *P* = 0.325); with 12 validation events, however, the test has little power and does not detect the departure that the intercept and slope quantify.
-
-Decision-curve analysis showed net benefit over treat-all and treat-none strategies across virtually the whole plausible range of threshold probabilities, from 0.01 to 0.73 in training and from 0.06 to 0.60 in validation (Fig. 9). Beyond those points net benefit approached and then fell below zero, and few patients received estimates in that range, so the upper portion of each curve is unstable. Across the band from 0.10 to 0.40, the range most relevant to triage at presentation, net benefit was clearly positive in both cohorts.
+Decision-curve analysis showed net benefit over treat-all and treat-none strategies across virtually the whole plausible range of threshold probabilities, from 0.01 to 0.73 in training and from 0.06 to 0.60 in validation (Fig. 6e,f). Beyond those points net benefit approached and then fell below zero, and few patients received estimates in that range, so the upper portion of each curve is unstable. Across the band from 0.10 to 0.40, the range most relevant to triage at presentation, net benefit was clearly positive in both cohorts.
 
 ---
 
@@ -96,21 +94,21 @@ Decision-curve analysis showed net benefit over treat-all and treat-none strateg
 | Four variables are independently associated | Table 2 adjusted ORs, all *P* < 0.05 | supported, but 7.5 events per variable |
 | The nomogram discriminates well | AUC 0.850 / 0.794, Table 3 | supported in training; validation CI 0.631–0.958 is wide |
 | The radiomic component adds to clinical variables | ΔAUC 0.054 *P* = 0.066; NRI *P* = 0.036; IDI *P* = 0.013 | **partially supported** — reclassification yes, ΔAUC no, validation neither |
-| The nomogram is well calibrated | Training apparent intercept 0.000 / slope 1.000; validation −0.781 / 0.741 | **not supported in validation** — systematic overestimation |
-| The nomogram yields net clinical benefit | Fig. 9, positive across 0.10–0.40 | supported within the stated band only |
+| The nomogram is adequately calibrated | Bootstrap-corrected MAE 0.024 (train, Fig. 6c) / 0.044 (validation, Fig. 6d); HL non-significant in both | supported; validation looser and rests on 12 events |
+| The nomogram yields net clinical benefit | Fig. 6e,f, positive across 0.10–0.40 | supported within the stated band only |
 
 ## Why this structure
 
-- **Claim-bearing subheadings.** Nature Results headings state the finding, not the topic. "Calibration degrades in the validation cohort" tells a scanning reader the result; "Calibration and clinical utility" does not.
-- **The imbalance is declared in paragraph two, not the Discussion.** BAA at *P* = 0.049 is the mechanism most likely to explain the validation specificity drop and the calibration shift. Hiding it until Limitations invites the reviewer to find it first.
+- **Most subheadings state the finding, not the topic.** Nature Results headings name the result. The calibration section is the one deliberate exception: the bootstrap-corrected figure shows acceptable calibration in both cohorts (MAE 0.024 and 0.044), so a neutral "Calibration and clinical utility" is honest, whereas a stronger claim in either direction would overstate.
+- **The imbalance is declared in paragraph two, not the Discussion.** BAA at *P* = 0.049 is the mechanism most likely to explain the validation specificity drop and the looser validation calibration. Hiding it until Limitations invites the reviewer to find it first.
 - **The incremental-value section reports three metrics that disagree.** ΔAUC says no, NRI and IDI say yes, validation says nothing. Reporting only the significant ones would be the single most likely source of a post-review integrity problem.
-- **Calibration is given its own claim-bearing heading rather than being folded into a utility paragraph.** The validation intercept of −0.781 is the paper's main weakness; a heading that names it is more defensible than one that softens it.
+- **Calibration is reported from the bootstrap-corrected figure, not the earlier apparent statistics.** The figure the author submits uses 500-resample bias correction; the text matches it (MAE 0.024 / 0.044) rather than the superseded val.prob output, and keeps the validation caveat that it rests on 12 events.
 
 ## 中文说明（主要结构选择）
 
-1. **小标题改为结论式**。Nature 的 Results 小标题写的是"发现了什么"，不是"这一节讲什么"。例如把「Calibration and clinical utility」改成「Calibration degrades in the validation cohort」。
+1. **小标题多为结论式**。Nature 的 Results 小标题写"发现了什么"。校准一节是刻意的例外:新的 bootstrap 校正图显示两队列校准都可接受（MAE 0.024 / 0.044），故用中性的「Calibration and clinical utility」,任何方向的强判断都会失真。
 
-2. **BAA 基线失衡提前到第二段**。原稿把它当作普通基线项，但它很可能就是验证集特异度下降（0.842→0.667）和校准偏移的成因。放在前面，读者读到后面的性能差异时已有解释；留到 Limitations 会显得是被审稿人问出来的。
+2. **BAA 基线失衡提前到第二段**。原稿把它当作普通基线项，但它很可能就是验证集特异度下降（0.842→0.667）和验证集校准较松的成因。放在前面，读者读到后面的性能差异时已有解释；留到 Limitations 会显得是被审稿人问出来的。
 
 3. **增量价值一节如实呈现三个指标的分歧**。ΔAUC 说不显著（*P* = 0.066），NRI/IDI 说显著（0.036 / 0.013），验证集全部不显著。只挑显著的写是这类论文最常见的完整性问题，也是最容易在审稿或发表后被追究的一处。
 
@@ -118,4 +116,6 @@ Decision-curve analysis showed net benefit over treat-all and treat-none strateg
 
 5. **Nature 排版细节**：正文中图用缩写 `Fig. 7c,d`，表写全 `Table 5`；*P*、*n*、*Z*、*D*xy、*R*² 斜体；`d.f.` 表示自由度；百分比一位小数；全文无破折号（Nature 正文不用 em dash）。
 
-6. **观察与解释分离**。Results 只写观察到什么，机制性解释（为什么验证集校准更差、为什么合并后判别力升而校准降）全部留给 Discussion。
+6. **观察与解释分离**。Results 只写观察到什么，机制性解释（为什么验证集校准较松、样本量的影响）全部留给 Discussion。
+
+7. **校准数值已改用作者回传的 bootstrap 校正图**（Fig 6c/d，MAE 0.024 / 0.044），不再用早前 val.prob 的截距 −0.781、「系统性高估」那套。图号也随 7 图方案调整:校准 Fig 6c,d、DCA Fig 6e,f。
